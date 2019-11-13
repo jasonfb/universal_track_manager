@@ -1,4 +1,9 @@
-= About
+# Status
+
+```diff
+- PUBLIC ALPHA
+```
+# About
 
 Universal Track Manager, also known as UTM, is a gem to track your visitors and their pageloads. You can use it to track Urchin Tracking Module (UTM) parameters, and the fact that these two things abbreviate to the same letters is play-on-words.
 
@@ -7,13 +12,13 @@ You can use Universal Track Manager to track simple information like browser, IP
 In particular, this Gem can be used to solve the common first-land problem where Utm parameters are present only in the first page of a user's visit, but not available naturally a few steps later when the event you want to track happens (see 'UTM Hooks')
 
 
-NOT YET IMPLEMENTED (COMING SOON!):
-• track viewport screensize
-• an optional long-cookie feature to drop a long-lived cookie into the visitor's browser that work separately from the Rails session
-• track gclid or other advirtising URL parameters passed on first landings, like UTMs
-• An optional extension to build in-house geolocation by IP address, or rely on an external service for geolocation by IP address and associate the user's looked-up location with their visit information
-• Anonymized geolocation, to let you look-up IPs in order to geolocate users, but not store the actual IP addresses themselves.
-• A switch to track the user before or after the controller action has rendered. Since the tracking adds a small overhead to each request, tracking after the controller has rendered makes your page respond faster for the user. But if you track before you render, you can use optionally use the tracked information to personalize, customize, or target your website to respond uniquely to the visitor. 
+# NOT YET IMPLEMENTED (COMING SOON!):
+[ ] track viewport screensize
+[ ] an optional long-cookie feature to drop a long-lived cookie into the visitor's browser that work separately from the Rails session
+[ ] track gclid or other advirtising URL parameters passed on first landings, like UTMs
+[ ] An optional extension to build in-house geolocation by IP address, or rely on an external service for geolocation by IP address and associate the user's looked-up location with their visit information
+[ ] Anonymized geolocation, to let you look-up IPs in order to geolocate users, but not store the actual IP addresses themselves.
+[ ] A switch to track the user before or after the controller action has rendered. Since the tracking adds a small overhead to each request, tracking after the controller has rendered makes your page respond faster for the user. But if you track before you render, you can use optionally use the tracked information to personalize, customize, or target your website to respond uniquely to the visitor. 
 
 
 Visits are a lot like Rails sessions; in fact, this Gem piggybacks off of Rails sessions for tracking the visit. (You will need to have a session store set up and in place.) However, visits are not identical to sessions more than one visit can share the same session. (A session cannot have more than one visit, and if a new visit event happens within an existing session, the old visit gets evicted, or thrown out, of the session.)
