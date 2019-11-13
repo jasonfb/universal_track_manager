@@ -11,11 +11,12 @@ NOT YET IMPLEMENTED (COMING SOON!):
 • track viewport screensize
 • an optional long-cookie feature to drop a long-lived cookie into the visitor's browser that work separately from the Rails session
 • track gclid or other advirtising URL parameters passed on first landings, like UTMs
+• An optional extension to build in-house geolocation by IP address, or rely on an external service for geolocation by IP address and associate the user's looked-up location with their visit information
+• Anonymized geolocation, to let you look-up IPs in order to geolocate users, but not store the actual IP addresses themselves.
+• A switch to track the user before or after the controller action has rendered. Since the tracking adds a small overhead to each request, tracking after the controller has rendered makes your page respond faster for the user. But if you track before you render, you can use optionally use the tracked information to personalize, customize, or target your website to respond uniquely to the visitor. 
 
 
-If the user logs in, you can associate the visit to a user id.
-
-Visits are a lot like Rails sessions; in fact, this Gem piggybacks off of Rails sessions for tracking the visit. (You will need to have a session store set up and in place.)
+Visits are a lot like Rails sessions; in fact, this Gem piggybacks off of Rails sessions for tracking the visit. (You will need to have a session store set up and in place.) However, visits are not identical to sessions more than one visit can share the same session. (A session cannot have more than one visit, and if a new visit event happens within an existing session, the old visit gets evicted, or thrown out, of the session.)
 
 # Privacy & Legal Implications
 
@@ -93,6 +94,23 @@ This will create schema migrations for the new tables that UTM will use.
 
 # Options
 
+Configuration options can be set in 
+`config/initializers/universal_track_manager.rb` which will automatically be created for you when you run the install generator.
+
+• Inbound UTM parameters are picked up automatically if they are present (the gem has no switch to turn this off). 
+
+• IP tracking and browser tracking are turned ON by default, but you can switch them off with:
+
+[•••••••]
+
+• HTTP referrer is turned OFF by default. To turn it on, you will need to:
+
+1) set [•••••••]
+2) run rake generate utm:track_referrer
+
+This will create a second schema migration that will add a `http_referrer` string to the `visits` table.
+
+• 
 
 
 # UTM Hooks
@@ -128,6 +146,24 @@ You can also fetch and store the `currrent_track.campaign_id` in your foreign ta
 
 Remember, this Gem will not do this for you as you must associate this to your application's own unique needs. 
 
+# Questions
+
+= Isn't this a lot like the information available to me in Google Analytics?
+
+Answer: Yes, this is the same as most of the information in GA, but stored in your own app for your own data processing. It is not a substitute for GA. 
+
+= Is it ethical to track my inbound ad campaigns?
+
+Answer: Probably, but since the advirtising engines (Google, Facebook, etc) can target based on existing known information, you might be picking up information that is based on a user's profile that you don't know and you may not have permission to see. (For example, if you target some ads to 18-29 year olds, it is a reasonable guess to assume people who came from those ads are 18-29 years old.)
+
+= Is it ethical to track my user's IP addresses?
+
+Answer: Not without their consent. 
+
+= Is it ethical to track my user's browser?
+
+Answer: Not without their consent.  
+
 
 # Name Conflicts
 
@@ -159,3 +195,4 @@ end
 
 • UTM will set a session variable named `visit_id` in your Rails session. If you already use a session variable with the same name, please override by:
 
+[NOT IMPLEMENTED]
