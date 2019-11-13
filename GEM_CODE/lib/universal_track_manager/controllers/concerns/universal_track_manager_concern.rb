@@ -14,8 +14,6 @@ module UniversalTrackManagerConcern
     puts request.user_agent
 
     # pick up utm_campaign, utm_medium, utm_source, utm_campaign from the URL parameters
-
     # pick up gclid from the URL parameters
-
   end
 end

@@ -8,11 +8,11 @@ class CreateTrackTable < ActiveRecord::Migration
 
       create_table :campaigns do |t|
         # this table gets automatically populated by inbound traffic
-        t.string :source
-        t.string :medium
-        t.string :campaign
-        t.string :content
-        t.string :term
+        t.string :utm_source
+        t.string :utm_medium
+        t.string :utm_campaign
+        t.string :utm_content
+        t.string :utm_term
         t.timestamps
       end
 
@@ -20,9 +20,9 @@ class CreateTrackTable < ActiveRecord::Migration
         t.datetime :first_pageload
         t.datetime :last_pageload
 
-        t.integer :utm_id
+        t.integer :campaign_id
         t.integer :browser_id
-        t.string :ip_address
+        t.string :ip_v4_address, length: 15
 
         t.integer :viewport_width
         t.integer :viewport_height
