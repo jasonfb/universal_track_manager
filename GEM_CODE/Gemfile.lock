@@ -1,0 +1,21 @@
+PATH
+  remote: .
+  specs:
+    universal_track_manager (0.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    minitest (5.11.3)
+    minitest-rg (5.2.0)
+      minitest (~> 5.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  minitest-rg
+  universal_track_manager!
+
+BUNDLED WITH
+   1.16.6
