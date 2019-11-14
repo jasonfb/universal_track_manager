@@ -1,40 +1,43 @@
 # Status
 
 ```diff
-- PUBLIC ALPHA
+- PUBLIC ALPHA: This code is not ready for production and is actively being developed.
 ```
 # About
 
 Universal Track Manager, also known as UTM, is a gem to track your visitors and their pageloads. You can use it to track Urchin Tracking Module (UTM) parameters, and the fact that these two things abbreviate to the same letters is play-on-words.
 
-You can use Universal Track Manager to track simple information like browser, IP address, http referrer, and your inbound UTM (Urchin Tracking Module) parameters. Because UTM parameters are used most commonly with advirtising, we also refer to tracking your UTM parameters as "ad campaigns" or just "campaigns".)
+You can use Universal Track Manager to track simple information like browser, IP address, http referrer, and your inbound UTM (Urchin Tracking Module) parameters. Because UTM parameters are used most commonly with advirtising, we also refer to tracking your UTM parameters as "ad campaigns" or just "campaigns".
 
-In particular, this Gem can be used to solve the common first-land problem where Utm parameters are present only in the first page of a user's visit, but not available naturally a few steps later when the event you want to track happens (see 'UTM Hooks')
-
-
-# NOT YET IMPLEMENTED (COMING SOON!):
-[ ] track viewport screensize
-[ ] an optional long-cookie feature to drop a long-lived cookie into the visitor's browser that work separately from the Rails session
-[ ] track gclid or other advirtising URL parameters passed on first landings, like UTMs
-[ ] An optional extension to build in-house geolocation by IP address, or rely on an external service for geolocation by IP address and associate the user's looked-up location with their visit information
-[ ] Anonymized geolocation, to let you look-up IPs in order to geolocate users, but not store the actual IP addresses themselves.
-[ ] A switch to track the user before or after the controller action has rendered. Since the tracking adds a small overhead to each request, tracking after the controller has rendered makes your page respond faster for the user. But if you track before you render, you can use optionally use the tracked information to personalize, customize, or target your website to respond uniquely to the visitor. 
-
+In particular, this Gem can be used to solve the common first-land problem where UTM parameters are present only in the first page of a user's visit, but not available naturally a few steps later when the event you want to track an event that the user initiates (see 'UTM Hooks')
 
 Visits are a lot like Rails sessions; in fact, this Gem piggybacks off of Rails sessions for tracking the visit. (You will need to have a session store set up and in place.) However, visits are not identical to sessions more than one visit can share the same session. (A session cannot have more than one visit, and if a new visit event happens within an existing session, the old visit gets evicted, or thrown out, of the session.)
 
+UTM parameters, IP addresses, and browser information are tracked by default. You must opt-in to track http_referrer. 
+
+
+# NOT YET IMPLEMENTED (COMING SOON!):
+- [ ] track viewport screensize
+- [ ] an optional long-cookie feature to drop a long-lived cookie into the visitor's browser that work separately from the Rails session
+- [ ] track gclid or other advirtising URL parameters passed on first landings, like UTMs
+- [ ] An optional extension to build in-house geolocation by IP address, or rely on an external service for geolocation by IP address and associate the user's looked-up location with their visit information
+- [ ] Anonymized geolocation, to let you look-up IPs in order to geolocate users, but not store the actual IP addresses themselves.
+- [ ] A switch to track the user before or after the controller action has rendered. Since the tracking adds a small overhead to each request, tracking after the controller has rendered makes your page respond faster for the user. But if you track before you render, you can use optionally use the tracked information to personalize, customize, or target your website to respond uniquely to the visitor. 
+
+
 # Privacy & Legal Implications
 
-In any country or region where a privacy law like the GDPR or California Consumer Privacy Act, getting informed consent to track this information is just one part of what you must do to comply with the law. 
+In any country or region where a privacy law like the GDPR or California Consumer Privacy Act is in effect, getting informed consent to track this information is **just one part of what you must do to comply with the law**. 
 
 Most privacy laws regulate the usage, storage, transmission, and removal of this data as well. You should consult a legal expert familiar with the laws of your region regarding privacy.
  
+# Granularity
+
 This Gem has been designed to allow the developer to flexibly choose the granularity of personal identification options, retention and use of the data you collect (see below). 
 
 In particular, this Gem seeks to popularize and inform the Ruby community, as well as inform the broader landscape, on the granularity choices presented to a modern website in today's day and age. 
 
 While the Rails session is typically where you might store information that could individually identify the user (user or account id), the visits table is, by default, detached from the session information so that when the session information is deleted, your visit does not contain a way to easily re-identify the individual, thus making your visitors somewhat anonymous. Since a reverse-engineering can be done from other places where you might store identifably information, this system cannot gaurantee to be fully anonymized unless you take extra steps to flush, aggregate, and purge your visits table in an anonymizing way (not natively implemented).  The native implementation does a reasonable job at detaching the visitors from the identifying information, thus providing partial anonymization. 
-
 
 Essentially, with all this granularity and security options, you have 6 levels of privacy you can choose from:
 
@@ -51,7 +54,7 @@ Track user visits and link them to the Rails session, but keep the existing secu
 Track user visits and link them to the Rails session, but don't expire or purge your sessions. (*not recommended*)
 
 4B. Barely private (good idea from security perspective; best idea from privacy perspective): 
-Track user visits and link them to the Rails session, expire the sessions as expalined in #3 above, and use the long-cookie approach fo ran extra layer of identificiation.
+Track user visits and link them to the Rails session, expire the sessions as expalined in #3 above, and use the long-cookie approach for an extra layer of identificiation.
 
 5. Hardly private (good idea from security perspective; better idea from privacy perspective):
 Just like 4B, use the `visits` from this gem, the Rails session with expiry, and possibly a long-cookie. As well, grab some or all of the information out of the `visits` table for storage elsewhere on an as-need basis. For example, you might track only the user agent (browser) and ad campaign (UTMs) but not the IP address. Since we assume that the browser doesn't change within a single visit (by definition, it can't), you don't need this gem to look at the browser (just do `request.user_agent`). But you can use this gem to grab the UTMs from a previsouly stored visit, explained below. 
