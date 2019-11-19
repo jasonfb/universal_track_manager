@@ -9,9 +9,13 @@ Universal Track Manager, also known as UTM, is a gem to track your visitors and 
 
 You can use Universal Track Manager to track simple information like browser, IP address, http referrer, and your inbound UTM (Urchin Tracking Module) parameters. Because UTM parameters are used most commonly with advirtising, we also refer to tracking your UTM parameters as "ad campaigns" or just "campaigns".
 
-In particular, this Gem can be used to solve the common first-land problem where UTM parameters are present only in the first page of a user's visit, but not available naturally a few steps later when the event you want to track an event that the user initiates (see 'UTM Hooks')
+In particular, this Gem can be used to solve the common first-land problem where UTM parameters are present only in the first page of a user's visit, but not available naturally a few steps later when the event you want to track happens (see 'UTM Hooks')
 
-Visits are a lot like Rails sessions; in fact, this Gem piggybacks off of Rails sessions for tracking the visit. (You will need to have a session store set up and in place.) However, visits are not identical to sessions more than one visit can share the same session. (A session cannot have more than one visit, and if a new visit event happens within an existing session, the old visit gets evicted, or thrown out, of the session.)
+Visits are a lot like Rails sessions; in fact, this Gem piggybacks off of Rails sessions for tracking the visit. (You will need to have a session store set up and in place.) 
+
+However, visits are not identical to sessions. More than one visit can have been created from the same session.
+ 
+A session will have only one visit at a time. If a new visit event happens within an existing session, like the user returns in the same browser the following day, the old visit gets evicted from the session and a link between the newly created visit and old visit is maintained in the visits table.
 
 UTM parameters, IP addresses, and browser information are tracked by default. You must opt-in to track http_referrer. 
 
@@ -86,9 +90,12 @@ Please familiarize yourself with the concepts above before installing.
 
 2. run 
 
-rake generate utm:install
+```
+rails generate universal_track_manager:install
 
-This will create schema migrations for the new tables that UTM will use. 
+```
+
+This will create a schema migration for the new tables that UTM will use (look for db/migrate/00000000000000_create_universal_tracking_manager_tables.rb. see 'Name Conflicts' below if any of these tables already exist in your app.)
 
 3. In your ApplicationController, add:
 
@@ -153,24 +160,6 @@ currrent_track.campaign
 You can also fetch and store the `currrent_track.campaign_id` in your foreign table, which will allow you to aggregate your tracked events to your the inbound traffic sources. 
 
 Remember, this Gem will not do this for you as you must associate this to your application's own unique needs. 
-
-# Questions
-
-= Isn't this a lot like the information available to me in Google Analytics?
-
-Answer: Yes, this is the same as most of the information in GA, but stored in your own app for your own data processing. It is not a substitute for GA. 
-
-= Is it ethical to track my inbound ad campaigns?
-
-Answer: Probably, but since the advirtising engines (Google, Facebook, etc) can target based on existing known information, you might be picking up information that is based on a user's profile that you don't know and you may not have permission to see. (For example, if you target some ads to 18-29 year olds, it is a reasonable guess to assume people who came from those ads are 18-29 years old.)
-
-= Is it ethical to track my user's IP addresses?
-
-Answer: Not without their consent. 
-
-= Is it ethical to track my user's browser?
-
-Answer: Not without their consent.  
 
 
 # Name Conflicts

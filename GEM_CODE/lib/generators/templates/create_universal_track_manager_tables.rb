@@ -1,4 +1,4 @@
-class CreateTrackTable < ActiveRecord::Migration
+class CreateTrackTable < ActiveRecord::Migration<%= migration_version %>
   def self.up
     ActiveRecord::Base.transaction do
       create_table :browsers do |t|
