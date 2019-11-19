@@ -7,8 +7,10 @@
 
 
 ```diff
-! Like this gem? Please 'star' it (above), download it from RubyGems, or [consider supporting it today with a small contribution](https://github.com/sponsors/jasonfb/)! For just $1/month you can support the development of this Gem and others like it.
+! Like this gem? Please 'star' it (above), download it from RubyGems, or ... 
 ```
+... [consider supporting it today with a small contribution](https://github.com/sponsors/jasonfb/)! For just $1/month you can support the development of this Gem and others like it.
+
 # About
 
 Universal Track Manager, also known as UTM, is a gem to track your visitors and their pageloads. You can use it to track Urchin Tracking Module (UTM) parameters, and the fact that these two things abbreviate to the same letters is play-on-words.
