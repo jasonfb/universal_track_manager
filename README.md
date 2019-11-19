@@ -2,6 +2,7 @@
 
 ```diff
 - PUBLIC ALPHA: This code is not ready for production and is actively being developed.
++ Current version:  Version 0.0.1 (PUBLIC ALPHA)
 ```
 # About
 
@@ -21,6 +22,10 @@ UTM parameters, IP addresses, and browser information are tracked by default. Yo
 
 
 # NOT YET IMPLEMENTED (COMING SOON!):
+- [ ] track the visit IP address, http referrer, user agent
+- [ ] track the UTMs and stash them in an assocition 
+- [ ] invalidate the old visit when a new visit happens, evict it from the session
+- [ ] link the new visit to the old visit and carry forward the UTMs (SETTING??)
 - [ ] track viewport screensize
 - [ ] an optional long-cookie feature to drop a long-lived cookie into the visitor's browser that work separately from the Rails session
 - [ ] track gclid or other advirtising URL parameters passed on first landings, like UTMs
