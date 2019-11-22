@@ -1,6 +1,7 @@
-class CreateTrackTable < ActiveRecord::Migration<%= migration_version %>
+class CreateUniversalTrackManagerTables < ActiveRecord::Migration<%= migration_version %>
   def self.up
     ActiveRecord::Base.transaction do
+
       create_table :browsers do |t|
         # this table gets automatically populated by inbound traffic
         t.string :browser_name, size: 255
@@ -14,6 +15,7 @@ class CreateTrackTable < ActiveRecord::Migration<%= migration_version %>
         t.string :utm_content
         t.string :utm_term
         t.timestamps
+        add_index :utm_all_index, [:utm_source, :utm_medium, :utm_campaign, :utm_content, :utm_term]
       end
 
       create_table :visits do |t|

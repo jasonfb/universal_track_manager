@@ -26,3 +26,10 @@ $:.unshift File.dirname(__FILE__)
 # require the gem itself
 require './lib/universal_track_manager.rb'
 
+
+Dir[ ".lib/**/*.rb"].each do |x|
+  Dir.glob(File.join(File.dirname(__FILE__), x)) do |c|
+    require(c)
+    puts "requiring #{c}"
+  end
+end
