@@ -8,15 +8,15 @@ begin
 rescue LoadError
 end
 
+
+require "./test/dummy_app/config/environment"
+# require "rails/test_help"
+
 # require what the gem & tests need
 require 'rails'
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/rg'
-
-# require 'dummy_app/init'
-# Bundler.require(*Rails.groups)
-
 
 # setup correct load path
 $LOAD_PATH << '.' unless $LOAD_PATH.include?('.')
@@ -26,10 +26,27 @@ $:.unshift File.dirname(__FILE__)
 # require the gem itself
 require './lib/universal_track_manager.rb'
 
+# Dir[ "./test/lib/*.rb",
+#      "./test/support/*.rb",
+#      "./test/test_helper.rb"].each do |x|
+#   puts "requiring #{x}"
+#   require(x)
+#
+#
+# end
 
-Dir[ ".lib/**/*.rb"].each do |x|
-  Dir.glob(File.join(File.dirname(__FILE__), x)) do |c|
-    require(c)
-    puts "requiring #{c}"
-  end
+Dir["./test/support/**/*.rb"].each do |f|
+  require f
+  puts "requiring #{f}"
 end
+#
+# Dir[ "./test/**/*"].each do |x|
+#   puts "#{x}"
+#   Dir.glob(File.join(File.dirname(__FILE__), x)) do |c|
+#     require(c)
+#     puts "requiring #{c}"
+#     end
+# end
+
+
+# ENV["RAILS_ROOT"] ||= File.dirname(__FILE__) + "../../../test/dummy"

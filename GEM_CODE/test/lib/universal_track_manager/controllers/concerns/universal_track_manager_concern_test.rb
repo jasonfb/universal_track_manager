@@ -1,35 +1,29 @@
 require './test/test_helper'
-
 require './lib/universal_track_manager/controllers/concerns/universal_track_manager_concern.rb'
 
 
-class UniversalTrackManagerConcernTest < Minitest::Test
-  class FakeContoller
-    included UniversalTrackManagerConcern
+class UniversalTrackManagerConcernTest < UniversalTrackManager::ControllerTestCase
+  # class FakeContoller < ApplictionController
+  #
+  #
+  # end
 
-    def request
-      fake action; mimick ActiveRecord
-      retrurn OpenStruct.new( ip: "00.00.00.00",
-                              http_refferer: "",
-                              user_agent: "")
-    end
+  setup do
+    request.env["ip_address"] = "00.00.00.00"
+    request.env["ip_address"] = "00.00.00.00"
 
-    # FakeContoller.any_instance.stub(:request)
-
-    def show
-      # fake action; mimick ActiveRecord
-    end
-
-
+    # set_contoller_method(:@controller, FakeController.new)
   end
 
-  def test_track_visitor_before_action
 
-    controller = FakeContoller.new
-    controller.show # should hook into track_visitor from before_action
+  def test_track_visitor_during_a_show
 
-    expect(controller.session['visit_id']).to eq(1)
-
+    # TOOD: access the rails controller
+    @controller.show
+    assert @controller
+    expect(@controller.session['visit_id']).to eq(1)
   end
 
 end
+
+
