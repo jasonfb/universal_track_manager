@@ -20,7 +20,7 @@ class UniversalTrackManagerConcernTest < Minitest::Test
       # fake action; mimick ActiveRecord
     end
 
-    
+
   end
 
   def test_track_visitor_before_action

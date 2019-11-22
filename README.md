@@ -29,6 +29,7 @@ UTM parameters, IP addresses, and browser information are tracked by default. Yo
 
 
 # NOT YET IMPLEMENTED (COMING SOON!):
+- [ ] fix the generator]
 - [ ] track the visit IP address, http referrer, user agent
 - [ ] track the UTMs and stash them in an assocition 
 - [ ] invalidate the old visit when a new visit happens, evict it from the session
@@ -205,3 +206,23 @@ end
 • UTM will set a session variable named `visit_id` in your Rails session. If you already use a session variable with the same name, please override by:
 
 [NOT IMPLEMENTED]
+
+
+
+# CONTRIBUTING
+
+## The Internal Specs
+
+This is gem is tested with Minitest. Before modifying, run the specs with 
+
+```
+rake test
+
+```
+
+## Open Issue, Fork & Branch, Submit PR Against Master
+
+- Make sure your use case or implementation is documented. 
+- Make sure it is tested. 
+
+
