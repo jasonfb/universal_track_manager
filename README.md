@@ -213,7 +213,8 @@ end
 
 ## The Internal Specs
 
-This is gem is tested with Minitest. Before modifying, run the specs with 
+This is gem is tested with Minitest. Before modifying, run the specs by making sure to `cd` into the `GEM_CODE/` directory, then run 
+
 
 ```
 rake test
