@@ -10,6 +10,7 @@ gem "rails-controller-testing"
 gem "byebug", group: [:development, :test]
 gem "rails", "6.0.1"
 gem "sqlite3"
+gem "database_cleaner"
 gem "rspec-rails", "~> 4.0.0.beta2"
 
 gemspec path: "../"
