@@ -9,14 +9,21 @@ rescue LoadError
 end
 
 
-require "./test/dummy_app/config/environment"
+# require "./test/dummy_app/config/environment"
 # require "rails/test_help"
-
 # require what the gem & tests need
-require 'rails'
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/rg'
+
+require "minitest/unit"
+require "mocha/minitest"
+#
+#
+require 'rails'
+# require 'rspec/rails'
+# require './test/dummy_app/spec/rails_helper.rb'
+# require './test/dummy_app/spec/spec_helper.rb'
 
 # setup correct load path
 $LOAD_PATH << '.' unless $LOAD_PATH.include?('.')
