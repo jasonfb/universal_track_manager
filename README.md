@@ -215,11 +215,16 @@ end
 
 This is gem is tested with Appraisal, Rspec-rails, and Minitest.
  
-Before modifying, run the specs by making sure to `cd` into the `GEM_CODE/` directory, then run 
+Before modifying, run the specs by making sure to `cd` into the `GEM_CODE/` directory, then setup using
+
+```
+bundle exec appraisal rails-6-0 rake dummy:db:migrate RAILS_ENV=test
+
+```
 
 
 ```
-bundle exec appraisal rake test
+bundle exec appraisal rake spec
 
 ```
 
