@@ -213,11 +213,13 @@ end
 
 ## The Internal Specs
 
-This is gem is tested with Minitest. Before modifying, run the specs by making sure to `cd` into the `GEM_CODE/` directory, then run 
+This is gem is tested with Appraisal, Rspec-rails, and Minitest.
+ 
+Before modifying, run the specs by making sure to `cd` into the `GEM_CODE/` directory, then run 
 
 
 ```
-rake test
+bundle exec appraisal rake test
 
 ```
 

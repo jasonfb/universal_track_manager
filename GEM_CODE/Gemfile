@@ -7,6 +7,8 @@ gem 'minitest'
 gem 'minitest-rg'
 gem 'mocha'
 gem 'simplecov'
+gem 'rails-controller-testing'
+
 
 # gem 'rspec-rails'
 # gem 'sqlite3'
