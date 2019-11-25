@@ -1,5 +1,5 @@
 require "rails/all"
-require "universal_track_manager"
+# require "universal_track_manager"
 
 module Dummy
   APP_ROOT = File.expand_path("..", __FILE__).freeze
