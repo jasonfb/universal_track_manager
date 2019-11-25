@@ -1,5 +1,8 @@
 # Status
 
+[![Build Status](https://travis-ci.com/jasonfb/universal_track_manager.svg?branch=master)](https://travis-ci.com/jasonfb/universal_track_manager)
+
+
 ```diff
 - PUBLIC ALPHA: This code is not ready for production and is actively being developed.
 + Current version:  Version 0.0.1 (PUBLIC ALPHA)

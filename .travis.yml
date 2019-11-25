@@ -16,4 +16,4 @@ gemfile:
 script: "bundle exec rake spec"
 
 rvm:
-  - 2.6
+  - 2.5.3
