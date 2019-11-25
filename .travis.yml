@@ -11,7 +11,7 @@ branches:
     - master
 
 gemfile:
-  - gemfiles/6_0.gemfile
+  - gemfiles/rails_6_0.gemfile
 
 script: "bundle exec rake spec"
 
