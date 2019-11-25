@@ -22,5 +22,6 @@ jobs:
 
     steps:
       - checkout
+      - run: bundle exec appraisal install
       - run: bundle exec appraisal rails-6-0 rake dummy:db:migrate
       - run: bundle exec appraisal rake spec
