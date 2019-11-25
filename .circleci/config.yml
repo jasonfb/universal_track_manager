@@ -14,7 +14,8 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
 
-    working_directory: ~/repo
+    working_directory: ~/universal_track_manager
+
     dependencies:
       post:
         - bundle exec appraisal install
@@ -25,79 +26,4 @@ jobs:
       override:
         - bundle exec appraisal rake spec
     steps:
-      - checkout
-
-#      # Download and cache dependencies
-#      - restore_cache:
-#          keys:
-#            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-#            # fallback to using the latest cache if no exact match is found
-#            - v1-dependencies-
-#
-#      - run:
-#          name: install dependencies
-#          command: |
-#            bundle exec appraisal install --jobs=4 --retry=3 --path vendor/bundle
-#
-#      - save_cache:
-#          paths:
-#            - ./vendor/bundle
-#          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-#
-#      # Database setup
-#      - run: bundle exec appraisal rake dummy:db:migrate
-#
-#      # run tests!
-#      - run:
-#          name: run tests
-#          command: |
-#            mkdir /tmp/test-results
-#            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
-#              circleci tests split --split-by=timings)"
-#
-#              bundle exec appraisal rake spec \
-#              --format progress \
-#              --format RspecJunitFormatter \
-#              --out /tmp/test-results/rspec.xml \
-#              --format progress \
-#              $TEST_FILES
-#
-#      # collect reports
-#      - store_test_results:
-#          path: /tmp/test-results
-#      - store_artifacts:
-#          path: /tmp/test-results
-#          destination: test-results
-
-## Ruby CircleCI 2.1 configuration file
-##
-## Check https://circleci.com/docs/2.0/ruby/ for more details
-##
-#version: 2.6.5
-#
-#
-#orbs:
-#  ruby: circleci/ruby@0.1.2 # Ruby orb registry: https://circleci.com/orbs/registry/orb/circleci/ruby
-#
-#jobs:
-#  build:
-#    working_directory: ~/universal-track-manager
-#    docker:
-#      - image: circcircleci/ruby:2.4.2-jessie-node
-#        environment:
-#          BUNDLE_JOBS: 3
-#          BUNDLE_RETRY: 3
-#          BUNDLE_PATH: vendor/bundle
-#          PGHOST: 127.0.0.1
-#          PGUSER: circleci-demo-ruby
-#          RAILS_ENV: test
-#  steps:
-#    - run_specs:
-#    # Run the tests
-#  - run: cd GEM_CODE/
-#  - run: bundle exec appraisal install
-#  - run: bundle exec appraisal rake spec
-#
-## What to do next? Set up a test job. Please see
-## https://circleci.com/docs/2.0/configuration-reference/, for more  info on how to get started.
-#
+      - test
