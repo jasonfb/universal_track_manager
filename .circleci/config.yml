@@ -21,7 +21,7 @@ jobs:
           PGUSER: circleci-demo-ruby
           RAILS_ENV: test
   steps:
-    - run_specs
+    - run_specs:
     # Run the tests
   - run: cd GEM_CODE/
   - run: bundle exec appraisal install
