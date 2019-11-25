@@ -26,4 +26,4 @@ jobs:
       override:
         - bundle exec appraisal rake spec
     steps:
-      - test
+      - checkout
