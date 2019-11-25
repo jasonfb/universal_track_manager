@@ -22,8 +22,5 @@ jobs:
 
     steps:
       - checkout
-    test:
-      pre:
-        - bundle exec appraisal rails-6-0 rake dummy:db:migrate
-      override:
-        - bundle exec appraisal rake spec
+      - run: bundle exec appraisal rails-6-0 rake dummy:db:migrate
+      - run: bundle exec appraisal rake spec
