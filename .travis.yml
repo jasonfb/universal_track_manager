@@ -5,6 +5,7 @@ gemfile:
   - gemfiles/5_2.gemfile
   - gemfiles/6_0.gemfile
 
+script: "bundle exec rake spec"
 rvm:
   - 2.5
   - 2.6
