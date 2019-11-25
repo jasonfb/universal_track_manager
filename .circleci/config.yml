@@ -21,13 +21,11 @@ jobs:
           PGUSER: circleci-demo-ruby
           RAILS_ENV: test
   steps:
+    - run_specs
     # Run the tests
-    - change_directory:
-      - command: cd GEM_CODE/
-    - install_gems:
-      - command: bundle exec appraisal install
-    - run_specs:
-      - command: bundle exec appraisal rake spec
+  - run: cd GEM_CODE/
+  - run: bundle exec appraisal install
+  - run: bundle exec appraisal rake spec
 
 # What to do next? Set up a test job. Please see
 # https://circleci.com/docs/2.0/configuration-reference/, for more  info on how to get started.
