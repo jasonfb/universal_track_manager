@@ -32,9 +32,10 @@ UTM parameters, IP addresses, and browser information are tracked by default. Yo
 
 
 # NOT YET IMPLEMENTED (COMING SOON!):
-- [ ] fix the generator]
-- [ ] track the visit IP address, http referrer, user agent
+- [x] fix the generator]
+- [ ] track the visit IP address, user agent
 - [ ] track the UTMs and stash them in an assocition 
+- [ ] http referrer
 - [ ] invalidate the old visit when a new visit happens, evict it from the session
 - [ ] link the new visit to the old visit and carry forward the UTMs (SETTING??)
 - [ ] track viewport screensize
@@ -132,27 +133,25 @@ Configuration options can be set in
 
 • IP tracking and browser tracking are turned ON by default, but you can switch them off with:
 
-[•••••••]
+TODO: HOW TO TURN OFF IP TRACKING
 
 • HTTP referrer is turned OFF by default. To turn it on, you will need to:
 
-1) set [•••••••]
+1) TODO: HOW TO TURN ON HTTP REFERRER TRACKING
 2) run rake generate utm:track_referrer
-
-This will create a second schema migration that will add a `http_referrer` string to the `visits` table.
-
-• 
 
 
 # UTM Hooks
 
 Note that in this section we are talking about the Urchin Tracking Module (also, non-coincidtally, abbreviated as UTMs). These appear on your inbound links as GET parameters and look like:
 
+```
 utm_source
 utm_campaign
 utm_medium
 utm_term
 utm_content
+```
 
 
 For example, a typical inbound link with fully coded UTM parameters might look like so:
@@ -216,7 +215,7 @@ end
 
 ## The Internal Specs
 
-This is gem is tested with Appraisal, Rspec-rails, and Minitest.
+This is gem is tested with Appraisal, Rspec-rails, and rails-controller-test (for testing integration hooks with the Rails controllers)
  
 Before modifying, run the specs by making sure to `cd` into the `GEM_CODE/` directory, then setup using
 
@@ -227,6 +226,7 @@ bundle exec appraisal install
 bundle exec appraisal rails-6-0 rake dummy:db:migrate RAILS_ENV=test
 ```
 
+to run specs in all versions of Rails (see `Appraisals` file)
 
 ```
 bundle exec appraisal rake spec
