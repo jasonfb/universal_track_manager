@@ -20,10 +20,10 @@ jobs:
       post:
         - bundle exec appraisal install
 
+    steps:
+      - checkout
     test:
       pre:
         - bundle exec appraisal rails-6-0 rake dummy:db:migrate
       override:
         - bundle exec appraisal rake spec
-    steps:
-      - checkout
