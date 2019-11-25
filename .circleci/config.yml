@@ -10,14 +10,17 @@ orbs:
 
 jobs:
   build:
+    working_directory: ~/universal-track-manager
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
-    steps:
-      - checkout
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+      - image: circleci/ruby:2.6.5
+      environment:
+        RAILS_ENV: test
+  steps:
+    # Run the tests
+    - run: cd GEM_CODE/
+    - run: bundle exec appraisal install
+    - run: bundle exec appraisal rake dummy:db:migrate
+    - run: bundle exec appraisal rake spec
 
 # What to do next? Set up a test job. Please see
 # https://circleci.com/docs/2.0/configuration-reference/, for more  info on how to get started.
