@@ -1,20 +1,3 @@
-#
-# appraise "rails-4-2" do
-#   gem "rails", "4.2.11.1"
-#   gem 'sqlite3'
-#   gem 'database_cleaner'
-#   gem 'rails-controller-testing'
-#   gem "rspec-rails", '~> 3.1'
-# end
-#
-# appraise "rails-5-0" do
-#   gem "rails", "5.0.7.2"
-#   gem 'sqlite3'
-#   gem 'database_cleaner'
-#   gem 'rails-controller-testing'
-#   gem "rspec-rails", '~> 3.1'
-# end
-
 appraise "rails-5-1" do
   gem "rails", "5.1.7"
   gem 'sqlite3'
