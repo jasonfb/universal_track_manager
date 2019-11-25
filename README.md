@@ -217,9 +217,11 @@ This is gem is tested with Appraisal, Rspec-rails, and Minitest.
  
 Before modifying, run the specs by making sure to `cd` into the `GEM_CODE/` directory, then setup using
 
-```
-bundle exec appraisal rails-6-0 rake dummy:db:migrate RAILS_ENV=test
+(tested with Ruby 2.6.5)
 
+```
+bundle exec appraisal install
+bundle exec appraisal rails-6-0 rake dummy:db:migrate RAILS_ENV=test
 ```
 
 
