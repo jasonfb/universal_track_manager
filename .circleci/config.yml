@@ -21,10 +21,9 @@ jobs:
 
     test:
       pre:
-        - bundle exec appraisal rake db:create
-        - bundle exec appraisal rake db:migrate
+        - bundle exec appraisal rails-6-0 rake dummy:db:migrate
       override:
-        - bundle exec appraisal rspec
+        - bundle exec appraisal rake spec
     steps:
       - checkout
 
