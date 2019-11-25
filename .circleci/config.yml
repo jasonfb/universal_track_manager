@@ -37,9 +37,7 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
-      - run: cd GEM_CODE/
-      - run: bundle exec appraisal rake dummy:db:migrate
-      - run: bundle exec appraisal rake spec
+      - run: cd GEM_CODE/; bundle exec appraisal rake dummy:db:migrate
 
       # run tests!
       - run:
@@ -49,7 +47,7 @@ jobs:
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
               circleci tests split --split-by=timings)"
 
-            bundle exec rspec \
+             cd GEM_CODE/; bundle exec appraisal rake spec \
               --format progress \
               --format RspecJunitFormatter \
               --out /tmp/test-results/rspec.xml \
