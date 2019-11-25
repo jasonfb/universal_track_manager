@@ -2,7 +2,7 @@
 #
 # Check https://circleci.com/docs/2.0/ruby/ for more details
 #
-version: 2.1
+version: 2.6.5
 
 
 orbs:
