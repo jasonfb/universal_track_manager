@@ -50,13 +50,39 @@ describe AbcController, :type => :controller do
       end
     end
 
-    describe "existing visit behavior" do
-      it "should re-attach an existing visit if the IP matches" do
+    describe "existing visit behavior: " do
+      describe "the ip address" do
+        xit "should re-attach an existing visit if the IP matches" do
 
+        end
+
+        xit "should evict an existing visit if the IP address does not match" do
+
+        end
       end
 
-      it "should evict an existing visit if the IP address doesn't match" do
+      describe "the user agent" do
+        xit "should re-attach the existing visit if the user agent matches" do
 
+        end
+
+        xit "should evict the existing visit if the user agent does not match" do
+
+        end
+      end
+
+      describe "the UTM parameters" do
+        xit "should keep the existing visit if no UTM parameters are passed whatseover" do
+
+        end
+
+        xit "should keep the existing visit if the UTM parameters match the first visit" do
+
+        end
+
+        xit "should evict the visit if there are any new UTM parameters" do
+
+        end
       end
     end
   end
