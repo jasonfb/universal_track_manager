@@ -1,4 +1,6 @@
-*.gem
 db/
 tmp/
 coverage/
+
+.byebug_history
+*.gem
