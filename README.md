@@ -217,7 +217,7 @@ end
 
 This is gem is tested with Appraisal, Rspec-rails, and rails-controller-test (for testing integration hooks with the Rails controllers)
  
-Before modifying, run the specs by making sure to `cd` into the `GEM_CODE/` directory, then setup using
+Before running specs, setup using
 
 (tested with Ruby 2.6.5)
 
@@ -233,9 +233,16 @@ bundle exec appraisal rake spec
 
 ```
 
+To run the specs in only Rails 6.0, run
+
+```
+bundle exec appraisal rails-6-0 rake spec
+
+```
+
 ## Open Issue, Fork & Branch, Submit PR Against Master
 
 - Make sure your use case or implementation is documented. 
 - Make sure it is tested. 
-
+- Make sure the specs are passing.
 
