@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    universal-track-manager (0.0.2)
+    universal-track-manager (0.0.1)
       rails
 
 GEM
@@ -81,7 +81,7 @@ GEM
     mocha (1.9.0)
       metaclass (~> 0.0.1)
     nio4r (2.5.2)
-    nokogiri (1.9.1)
+    nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
     rack (2.0.7)
     rack-test (1.1.0)
