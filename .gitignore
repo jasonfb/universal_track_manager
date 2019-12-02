@@ -1,6 +1,4 @@
-GEM_CODE/coverage
-GEM_CODE/*.gem
-
-
-GEM_CODE/db/
-GEM_CODE/tmp/
+*.gem
+db/
+tmp/
+coverage/
