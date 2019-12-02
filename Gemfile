@@ -3,8 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gemspec
 
-gem 'minitest'
-gem 'minitest-rg'
 gem 'mocha'
 gem 'simplecov'
 gem 'rails-controller-testing'

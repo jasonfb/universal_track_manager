@@ -32,7 +32,7 @@ UTM parameters, IP addresses, and browser information are tracked by default. Yo
 
 
 # NOT YET IMPLEMENTED (COMING SOON!):
-- [x] fix the generator]
+- [x] fix the install generator
 - [ ] track the visit IP address, user agent
 - [ ] track the UTMs and stash them in an assocition 
 - [ ] http referrer

@@ -338,3 +338,1134 @@ Processing by AbcController#index as HTML
 Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.7ms | Allocations: 704)
   [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.2ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.5ms)
+Completed 200 OK in 75ms (Views: 15.0ms | ActiveRecord: 9.0ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.2ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (3.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.5ms)
+Completed 200 OK in 8ms (Views: 1.6ms | ActiveRecord: 1.6ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.2ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.4ms)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 1.1ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.9ms)
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 1.1ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (1.0ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.5ms)
+Completed 200 OK in 86ms (Views: 14.1ms | ActiveRecord: 5.5ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.3ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.9ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.6ms)
+Completed 200 OK in 5ms (Views: 1.7ms | ActiveRecord: 1.1ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.3ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.9ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.7ms)
+Completed 200 OK in 6ms (Views: 1.7ms | ActiveRecord: 1.2ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.5ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.7ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (1.2ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 3.2ms | Allocations: 273)
+Completed 200 OK in 111ms (Views: 19.6ms | ActiveRecord: 3.3ms | Allocations: 12356)
+  [1m[36mUniversalTrackManager::Visit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.7ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.3ms | Allocations: 65)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 1.0ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.6ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.5ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.6ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.3ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.3ms)
+Completed 200 OK in 93ms (Views: 15.2ms | ActiveRecord: 8.0ms)
+  [1m[36mUniversalTrackManager::Visit Load (1.2ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (6.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.4ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.9ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.4ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 1.1ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.3ms)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.7ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (7.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (8.8ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.2ms)
+Completed 200 OK in 78ms (Views: 12.6ms | ActiveRecord: 13.1ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.3ms)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.6ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.5ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.6ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.2ms)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.6ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (3.5ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 3.7ms | Allocations: 273)
+Completed 200 OK in 103ms (Views: 19.4ms | ActiveRecord: 4.7ms | Allocations: 12313)
+  [1m[36mUniversalTrackManager::Visit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.7ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.3ms | Allocations: 65)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 1.0ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.7ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.5ms | Allocations: 65)
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 0.9ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (1.0ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.3ms | Allocations: 65)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 1.2ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.9ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.3ms)
+Completed 200 OK in 77ms (Views: 12.9ms | ActiveRecord: 8.6ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.2ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.2ms)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.2ms)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.2ms)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.5ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.5ms)
+Completed 200 OK in 83ms (Views: 14.5ms | ActiveRecord: 9.1ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.3ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (1.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.2ms)
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.9ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.3ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.6ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.2ms)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.7ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.4ms)
+Completed 200 OK in 85ms (Views: 14.3ms | ActiveRecord: 10.3ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.3ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.5ms)
+Completed 200 OK in 6ms (Views: 1.8ms | ActiveRecord: 1.2ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.2ms)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.6ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (0.5ms)
+Completed 200 OK in 7ms (Views: 1.5ms | ActiveRecord: 1.5ms)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (6.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (3.7ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 3.9ms | Allocations: 273)
+Completed 200 OK in 123ms (Views: 21.1ms | ActiveRecord: 6.9ms | Allocations: 12313)
+  [1m[36mUniversalTrackManager::Visit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (5.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (1.3ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.3ms | Allocations: 65)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 1.5ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (1.2ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.3ms | Allocations: 65)
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 1.4ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.5ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.7ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (6.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (3.3ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 6.7ms | Allocations: 273)
+Completed 200 OK in 118ms (Views: 30.4ms | ActiveRecord: 4.3ms | Allocations: 12313)
+  [1m[36mUniversalTrackManager::Visit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.6ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.3ms | Allocations: 65)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.9ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.6ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.5ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (6.2ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 3.9ms | Allocations: 272)
+Completed 200 OK in 29562ms (Views: 23.5ms | ActiveRecord: 11.1ms | Allocations: 57541)
+  [1m[36mUniversalTrackManager::Visit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.8ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.4ms | Allocations: 65)
+Completed 200 OK in 1567ms (Views: 1.3ms | ActiveRecord: 1.1ms | Allocations: 2576)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.8ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.4ms | Allocations: 65)
+Completed 200 OK in 1242ms (Views: 1.3ms | ActiveRecord: 1.1ms | Allocations: 2576)
+  [1m[36mUniversalTrackManager::Visit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.9ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.4ms | Allocations: 65)
+Completed 200 OK in 1012ms (Views: 1.4ms | ActiveRecord: 1.3ms | Allocations: 2576)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.6ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.6ms | Allocations: 273)
+Completed 200 OK in 45ms (Views: 5.3ms | ActiveRecord: 1.4ms | Allocations: 12313)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.3ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.5ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.6ms | Allocations: 273)
+Completed 200 OK in 26ms (Views: 5.0ms | ActiveRecord: 1.4ms | Allocations: 12314)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.3ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.8ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.4ms | Allocations: 65)
+Completed 200 OK in 5ms (Views: 1.8ms | ActiveRecord: 1.0ms | Allocations: 750)
+  [1m[36mUniversalTrackManager::Visit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.5ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.7ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.5ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.7ms | Allocations: 272)
+Completed 200 OK in 13390ms (Views: 5.2ms | ActiveRecord: 2.0ms | Allocations: 57685)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.8ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.4ms | Allocations: 65)
+Completed 200 OK in 10273ms (Views: 1.3ms | ActiveRecord: 1.1ms | Allocations: 2657)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.8ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.6ms | Allocations: 65)
+Completed 200 OK in 1085ms (Views: 1.5ms | ActiveRecord: 1.2ms | Allocations: 2657)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (3.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (1.1ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.4ms | Allocations: 65)
+Completed 200 OK in 1312ms (Views: 1.3ms | ActiveRecord: 1.3ms | Allocations: 2657)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.9ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 3.8ms | Allocations: 272)
+Completed 200 OK in 92ms (Views: 19.9ms | ActiveRecord: 2.0ms | Allocations: 12312)
+  [1m[36mUniversalTrackManager::Visit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.8ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.3ms | Allocations: 65)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 1.1ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.8ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.4ms | Allocations: 65)
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 1.1ms | Allocations: 749)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.3ms | Allocations: 65)
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.6ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (3.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.9ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 3.8ms | Allocations: 272)
+Completed 200 OK in 110029ms (Views: 19.9ms | ActiveRecord: 2.5ms | Allocations: 20283)
+  [1m[36mUniversalTrackManager::Visit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (3.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.8ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.5ms | Allocations: 65)
+Completed 200 OK in 606ms (Views: 1.5ms | ActiveRecord: 1.1ms | Allocations: 2846)
+  [1m[36mUniversalTrackManager::Visit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (3.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.8ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.5ms | Allocations: 65)
+Completed 200 OK in 527ms (Views: 1.8ms | ActiveRecord: 1.2ms | Allocations: 2846)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.8ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "0.0.0.0"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.4ms | Allocations: 65)
+Completed 200 OK in 541ms (Views: 1.3ms | ActiveRecord: 1.2ms | Allocations: 2846)
+  [1m[36mUniversalTrackManager::Visit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (6.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (1.8ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "192.168.1.100"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 3.1ms | Allocations: 272)
+Completed 200 OK in 15678ms (Views: 20.5ms | ActiveRecord: 4.4ms | Allocations: 14717)
+  [1m[36mUniversalTrackManager::Visit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (1.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "192.168.1.100"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.4ms | Allocations: 65)
+Completed 200 OK in 2254ms (Views: 1.3ms | ActiveRecord: 1.7ms | Allocations: 3070)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (1.3ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "192.168.1.100"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.4ms | Allocations: 65)
+Completed 200 OK in 1904ms (Views: 1.4ms | ActiveRecord: 1.6ms | Allocations: 3117)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (1.3ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "192.168.1.100"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.4ms | Allocations: 65)
+Completed 200 OK in 5985ms (Views: 1.3ms | ActiveRecord: 1.6ms | Allocations: 3070)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (5.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (6.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (4.9ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 4.3ms | Allocations: 272)
+Completed 200 OK in 6050ms (Views: 21.8ms | ActiveRecord: 6.7ms | Allocations: 57666)
+  [1m[36mUniversalTrackManager::Visit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (3.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.6ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.3ms | Allocations: 65)
+Completed 200 OK in 1499ms (Views: 1.0ms | ActiveRecord: 0.8ms | Allocations: 3153)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (3.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (1.2ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.8ms | Allocations: 65)
+Completed 200 OK in 16192ms (Views: 2.1ms | ActiveRecord: 1.4ms | Allocations: 3153)
+  [1m[36mUniversalTrackManager::Visit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (1.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.4ms | Allocations: 65)
+Completed 200 OK in 1511ms (Views: 1.2ms | ActiveRecord: 1.7ms | Allocations: 3157)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (3.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (4.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (3.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 6.3ms | Allocations: 273)
+Completed 200 OK in 117ms (Views: 22.5ms | ActiveRecord: 5.7ms | Allocations: 12357)
+  [1m[36mUniversalTrackManager::Visit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (5.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (1.1ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.3ms | Allocations: 65)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 1.4ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.8ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.3ms | Allocations: 65)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 1.1ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.6ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.3ms | Allocations: 65)
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.8ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (7.0ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 3.8ms | Allocations: 273)
+Completed 200 OK in 106ms (Views: 21.1ms | ActiveRecord: 8.0ms | Allocations: 12313)
+  [1m[36mUniversalTrackManager::Visit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 752)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (3.1ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 2.8ms | Allocations: 273)
+Completed 200 OK in 122ms (Views: 17.8ms | ActiveRecord: 4.3ms | Allocations: 12347)
+  [1m[36mUniversalTrackManager::Visit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (3.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.5ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.3ms | Allocations: 65)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.7ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (1.9ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.3ms | Allocations: 65)
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 2.1ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (6.4ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 4.1ms | Allocations: 273)
+Completed 200 OK in 137ms (Views: 22.3ms | ActiveRecord: 8.2ms | Allocations: 12313)
+  [1m[36mUniversalTrackManager::Visit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (1.5ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.4ms | Allocations: 65)
+Completed 200 OK in 7ms (Views: 1.9ms | ActiveRecord: 1.8ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.6ms)[0m  [1m[32mINSERT INTO "visits" ("ip_v4_address") VALUES (?)[0m  [["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.9ms | Allocations: 704)
+  [1m[36mUniversalTrackManager::Visit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[36mUniversalTrackManager::Browser Load (0.4ms)[0m  [1m[34mSELECT "browsers".* FROM "browsers" WHERE "browsers"."name" = ? LIMIT ?[0m  [["name", "Fake Browser"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.7ms | Allocations: 4625)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[36mUniversalTrackManager::Browser Load (0.2ms)[0m  [1m[34mSELECT "browsers".* FROM "browsers" WHERE "browsers"."name" = ? LIMIT ?[0m  [["name", "Fake Browser"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.2ms | Allocations: 311)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[36mUniversalTrackManager::Browser Load (0.2ms)[0m  [1m[34mSELECT "browsers".* FROM "browsers" WHERE "browsers"."name" = ? LIMIT ?[0m  [["name", "Fake Browser"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.2ms | Allocations: 311)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (6.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[36mUniversalTrackManager::Browser Load (0.9ms)[0m  [1m[34mSELECT "browsers".* FROM "browsers" WHERE "browsers"."name" = ? LIMIT ?[0m  [["name", "Fake Browser"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 1.5ms | Allocations: 4623)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[36mUniversalTrackManager::Browser Load (0.4ms)[0m  [1m[34mSELECT "browsers".* FROM "browsers" WHERE "browsers"."name" = ? LIMIT ?[0m  [["name", "Fake Browser"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.4ms | Allocations: 311)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[36mUniversalTrackManager::Browser Load (0.3ms)[0m  [1m[34mSELECT "browsers".* FROM "browsers" WHERE "browsers"."name" = ? LIMIT ?[0m  [["name", "Fake Browser"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.3ms | Allocations: 311)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (5.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 4152)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 3205)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 3205)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[36mUniversalTrackManager::Browser Load (1.3ms)[0m  [1m[34mSELECT "browsers".* FROM "browsers" WHERE "browsers"."browser_name" = ? LIMIT ?[0m  [["browser_name", "Fake Browser"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Browser Create (5.1ms)[0m  [1m[32mINSERT INTO "browsers" ("browser_name") VALUES (?)[0m  [["browser_name", "Fake Browser"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (2.3ms)[0m  [1m[32mINSERT INTO "visits" ("browser_id", "ip_v4_address") VALUES (?, ?)[0m  [["browser_id", 1], ["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 3.5ms | Allocations: 273)
+Completed 200 OK in 151ms (Views: 21.2ms | ActiveRecord: 10.3ms | Allocations: 16641)
+  [1m[36mUniversalTrackManager::Visit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUniversalTrackManager::Browser Load (0.2ms)[0m  [1m[34mSELECT "browsers".* FROM "browsers" WHERE "browsers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (2.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[36mUniversalTrackManager::Browser Load (0.2ms)[0m  [1m[34mSELECT "browsers".* FROM "browsers" WHERE "browsers"."browser_name" = ? LIMIT ?[0m  [["browser_name", "Fake Browser"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Browser Create (0.6ms)[0m  [1m[32mINSERT INTO "browsers" ("browser_name") VALUES (?)[0m  [["browser_name", "Fake Browser"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.2ms)[0m  [1m[32mINSERT INTO "visits" ("browser_id", "ip_v4_address") VALUES (?, ?)[0m  [["browser_id", 1], ["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 1.4ms | Allocations: 1179)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by AbcController#index as HTML
+  [1m[36mUniversalTrackManager::Browser Load (0.1ms)[0m  [1m[34mSELECT "browsers".* FROM "browsers" WHERE "browsers"."browser_name" = ? LIMIT ?[0m  [["browser_name", "Fake Browser"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Browser Create (0.3ms)[0m  [1m[32mINSERT INTO "browsers" ("browser_name") VALUES (?)[0m  [["browser_name", "Fake Browser"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUniversalTrackManager::Visit Create (0.1ms)[0m  [1m[32mINSERT INTO "visits" ("browser_id", "ip_v4_address") VALUES (?, ?)[0m  [["browser_id", 1], ["ip_v4_address", "1.2.3.4"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering spec/dummy/app/views/abc/index.erb
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered spec/dummy/app/views/abc/index.erb (Duration: 0.2ms | Allocations: 65)
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 1179)
+  [1m[36mUniversalTrackManager::Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
