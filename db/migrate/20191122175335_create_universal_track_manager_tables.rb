@@ -16,8 +16,6 @@ class CreateUniversalTrackManagerTables < ActiveRecord::Migration[5.1]
         t.timestamps
       end
 
-
-
       create_table :visits do |t|
         t.datetime :first_pageload
         t.datetime :last_pageload

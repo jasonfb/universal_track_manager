@@ -27,6 +27,11 @@ Gem::Specification.new do |s|
   s.add_development_dependency('appraisal', '> 2.2')
 
   s.post_install_message = <<~MSG
-
+    ---------------------------------------------
+    Welcome to Universal Track Manager
+    to set up, please run
+    
+    rails generate universal_track_manager:install
+    ---------------------------------------------
   MSG
 end

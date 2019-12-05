@@ -11,7 +11,6 @@ end
 # require_all("generators/templates")
 
 require_all("generators/universal_track_manager")
-require_all("tasks")
 require_all("universal_track_manager/controllers/concerns")
 require_all("universal_track_manager/models")
 
