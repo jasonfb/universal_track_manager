@@ -2,7 +2,7 @@ PATH
   remote: ..
   specs:
     universal-track-manager (0.0.1)
-      rails
+      rails (> 4.1)
 
 GEM
   remote: https://rubygems.org/
@@ -79,8 +79,6 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.13.0)
-    minitest-rg (5.2.0)
-      minitest (~> 5.0)
     mocha (1.9.0)
       metaclass (~> 0.0.1)
     nio4r (2.5.2)
@@ -163,8 +161,6 @@ DEPENDENCIES
   appraisal
   byebug
   database_cleaner
-  minitest
-  minitest-rg
   mocha
   rails (= 5.2.4.rc1)
   rails-controller-testing

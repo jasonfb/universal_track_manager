@@ -52,12 +52,65 @@ describe AbcController, :type => :controller do
 
     describe "existing visit behavior: " do
       describe "the ip address" do
-        xit "should re-attach an existing visit if the IP matches" do
+
+        before(:each) do
+          request.remote_addr = '1.2.3.4'
+        end
+
+        it "should re-attach an existing visit if the IP matches" do
+          #1st attempt
+          get :index
+          first_visit = UniversalTrackManager::Visit.last
+
+
+          #2nd attempt
+          get :index
+          last_visit = UniversalTrackManager::Visit.last
+
+          expect(last_visit).to eq(first_visit)
+        end
+
+        it "should evict an existing visit if the IP address does not match" do
+          get :index
+          first_visit = UniversalTrackManager::Visit.last
+
+          request.remote_addr = '5.6.7.8'
+
+          #2nd attempt
+          get :index
+          last_visit = UniversalTrackManager::Visit.last
+          expect(last_visit).to_not eq(first_visit)
 
         end
 
-        xit "should evict an existing visit if the IP address does not match" do
+        it "should give the second visit the genesis of the first visit" do
+          get :index
+          first_visit = UniversalTrackManager::Visit.last
 
+          request.remote_addr = '5.6.7.8'
+
+          #2nd attempt
+          get :index
+          last_visit = UniversalTrackManager::Visit.last
+          expect(last_visit.genesis_visit_id).to eq(first_visit.id)
+        end
+
+        it "should give the third visit the genesis of the first visit" do
+          get :index
+          first_visit = UniversalTrackManager::Visit.last
+
+          request.remote_addr = '5.6.7.8'
+
+          #2nd attempt
+          get :index
+          second_visit = UniversalTrackManager::Visit.last
+
+
+          #3rd attempt
+          get :index
+          last_visit = UniversalTrackManager::Visit.last
+          expect(last_visit.genesis_visit_id).to eq(first_visit.id)
+          expect(second_visit.genesis_visit_id).to eq(first_visit.id)
         end
       end
 
