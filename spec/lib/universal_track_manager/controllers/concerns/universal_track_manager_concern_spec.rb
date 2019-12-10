@@ -92,7 +92,7 @@ describe AbcController, :type => :controller do
           #2nd attempt
           get :index
           last_visit = UniversalTrackManager::Visit.last
-          expect(last_visit.genesis_visit_id).to eq(first_visit.id)
+          expect(last_visit.original_visit_id).to eq(first_visit.id)
         end
 
         it "should give the third visit the genesis of the first visit" do
@@ -109,8 +109,8 @@ describe AbcController, :type => :controller do
           #3rd attempt
           get :index
           last_visit = UniversalTrackManager::Visit.last
-          expect(last_visit.genesis_visit_id).to eq(first_visit.id)
-          expect(second_visit.genesis_visit_id).to eq(first_visit.id)
+          expect(last_visit.original_visit_id).to eq(first_visit.id)
+          expect(second_visit.original_visit_id).to eq(first_visit.id)
         end
       end
 

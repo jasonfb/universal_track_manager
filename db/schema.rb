@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_175335) do
   create_table "visits", force: :cascade do |t|
     t.datetime "first_pageload"
     t.datetime "last_pageload"
-    t.integer "genesis_visit_id"
+    t.integer "original_visit_id"
     t.integer "campaign_id"
     t.integer "browser_id"
     t.string "ip_v4_address"

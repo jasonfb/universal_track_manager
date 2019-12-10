@@ -72,7 +72,7 @@ module UniversalTrackManagerConcern
 
   def evict_visit!(old_visit)
     visit = UniversalTrackManager::Visit.create!(
-              genesis_visit_id: old_visit.genesis_visit_id.nil? ?  old_visit.id : old_visit.genesis_visit_id,
+              original_visit_id: old_visit.original_visit_id.nil? ?  old_visit.id : old_visit.original_visit_id,
               ip_v4_address: ip_address,
               browser: find_or_create_browser_by_current,
               campaign: find_or_create_campaign_by_current)

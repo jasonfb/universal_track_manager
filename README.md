@@ -200,7 +200,7 @@ end
 - [x] track the visit IP address
 - [x] track the user agent
 - [ ] track the UTMs and stash them in an assocition 
-- [ ] http referrer
+- [ ] track the http referrer (if optional extension is enabled)
 - [ ] invalidate the old visit when a new visit happens, evict it from the session
 - [ ] link the new visit to the old visit and carry forward the UTMs (SETTING??)
 - [ ] track viewport screensize
