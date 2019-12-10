@@ -222,6 +222,7 @@ Before running specs, setup using
 (tested with Ruby 2.6.5)
 
 ```
+gem install appraisal
 bundle exec appraisal install
 bundle exec appraisal rails-6-0 rake dummy:db:migrate RAILS_ENV=test
 ```
@@ -245,4 +246,3 @@ bundle exec appraisal rails-6-0 rake spec
 - Make sure your use case or implementation is documented. 
 - Make sure it is tested. 
 - Make sure the specs are passing.
-

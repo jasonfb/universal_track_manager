@@ -7,7 +7,7 @@ class CreateUniversalTrackManagerTables < ActiveRecord::Migration<%= migration_v
         t.string :browser_name, size: 255
       end
 
-      add_index :browser_name
+      add_index :browsers, :browser_name
 
       create_table :campaigns do |t|
         # this table gets automatically populated by inbound traffic
