@@ -217,7 +217,7 @@ This is gem is tested with Appraisal, Rspec-rails, and rails-controller-test (fo
  
 Before running specs, setup using
 
-(tested with Ruby 2.5.1)
+(tested with Ruby 2.6.5)
 
 First, please create a symlink for the migrations to run properly from db/migrate (even though they are really in spec/dummy/db/migrate)
 
