@@ -30,22 +30,6 @@ A session will have only one visit at a time. If a new visit event happens withi
 
 UTM parameters, IP addresses, and browser information are tracked by default. You must opt-in to track http_referrer. 
 
-
-# NOT YET IMPLEMENTED (COMING SOON!):
-- [x] fix the install generator
-- [ ] track the visit IP address, user agent
-- [ ] track the UTMs and stash them in an assocition 
-- [ ] http referrer
-- [ ] invalidate the old visit when a new visit happens, evict it from the session
-- [ ] link the new visit to the old visit and carry forward the UTMs (SETTING??)
-- [ ] track viewport screensize
-- [ ] an optional long-cookie feature to drop a long-lived cookie into the visitor's browser that work separately from the Rails session
-- [ ] track gclid or other advirtising URL parameters passed on first landings, like UTMs
-- [ ] An optional extension to build in-house geolocation by IP address, or rely on an external service for geolocation by IP address and associate the user's looked-up location with their visit information
-- [ ] Anonymized geolocation, to let you look-up IPs in order to geolocate users, but not store the actual IP addresses themselves.
-- [ ] A switch to track the user before or after the controller action has rendered. Since the tracking adds a small overhead to each request, tracking after the controller has rendered makes your page respond faster for the user. But if you track before you render, you can use optionally use the tracked information to personalize, customize, or target your website to respond uniquely to the visitor. 
-
-
 # Privacy & Legal Implications
 
 In any country or region where a privacy law like the GDPR or California Consumer Privacy Act is in effect, getting informed consent to track this information is **just one part of what you must do to comply with the law**. 
@@ -172,9 +156,8 @@ currrent_track.campaign
 
 ```
 
-You can also fetch and store the `currrent_track.campaign_id` in your foreign table, which will allow you to aggregate your tracked events to your the inbound traffic sources. 
-
-Remember, this Gem will not do this for you as you must associate this to your application's own unique needs. 
+You can also fetch and store the `currrent_track.campaign_id` in your foreign table, which will allow you to aggregate your tracked events to your the inbound traffic sources. Remember, this Gem will not do this for you as you must associate this to your application's own unique needs. Please note that nil is nil in the database and empty string is empty string. if campaign parameters are attached to inbound links as empty string, they will create distinct records from those where no parameter was passed
+      
 
 
 # Name Conflicts
@@ -209,6 +192,23 @@ end
 
 [NOT IMPLEMENTED]
 
+
+
+
+# NOT YET IMPLEMENTED (COMING SOON!):
+- [x] fix the install generator
+- [x] track the visit IP address
+- [x] track the user agent
+- [ ] track the UTMs and stash them in an assocition 
+- [ ] http referrer
+- [ ] invalidate the old visit when a new visit happens, evict it from the session
+- [ ] link the new visit to the old visit and carry forward the UTMs (SETTING??)
+- [ ] track viewport screensize
+- [ ] an optional long-cookie feature to drop a long-lived cookie into the visitor's browser that work separately from the Rails session
+- [ ] track gclid or other advirtising URL parameters passed on first landings, like UTMs
+- [ ] An optional extension to build in-house geolocation by IP address, or rely on an external service for geolocation by IP address and associate the user's looked-up location with their visit information
+- [ ] Anonymized geolocation, to let you look-up IPs in order to geolocate users, but not store the actual IP addresses themselves.
+- [ ] A switch to track the user before or after the controller action has rendered. Since the tracking adds a small overhead to each request, tracking after the controller has rendered makes your page respond faster for the user. But if you track before you render, you can use optionally use the tracked information to personalize, customize, or target your website to respond uniquely to the visitor. 
 
 
 # CONTRIBUTING

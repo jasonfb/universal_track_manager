@@ -115,12 +115,36 @@ describe AbcController, :type => :controller do
       end
 
       describe "the user agent" do
-        xit "should re-attach the existing visit if the user agent matches" do
-
+        before(:each) do
+          request.user_agent = 'Fake Browser 1'
         end
 
-        xit "should evict the existing visit if the user agent does not match" do
 
+        it "should re-attach the existing visit if the user agent matches" do
+          #1st attempt
+          get :index
+          first_visit = UniversalTrackManager::Visit.last
+
+
+          #2nd attempt
+          get :index
+          last_visit = UniversalTrackManager::Visit.last
+
+          expect(last_visit).to eq(first_visit)
+        end
+
+        it "should evict the existing visit if the user agent does not match" do
+          #1st attempt
+          get :index
+          first_visit = UniversalTrackManager::Visit.last
+
+          request.user_agent = 'Fake Browser 2'
+
+          #2nd attempt
+          get :index
+          last_visit = UniversalTrackManager::Visit.last
+
+          expect(last_visit).to_not eq(first_visit)
         end
       end
 

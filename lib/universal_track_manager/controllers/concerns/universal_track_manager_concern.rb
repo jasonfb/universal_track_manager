@@ -39,27 +39,20 @@ module UniversalTrackManagerConcern
     permitted_utm_params[:utm_medium]
   end
 
-
   def track_visitor
-    if session['visit_id'] # existing visit
-      existing_visit = UniversalTrackManager::Visit.find(session['visit_id'])
-
-      if existing_visit.ip_v4_address != ip_address
-        evict_visit!(existing_visit)
-      end
-
-
-    else # new visit
-      # please note that nil is nil in the database and
-      # empty string is empty string. if campaign parameters
-      # are attached to inbound links as empty string, they will create
-      # distinct records from those where no parameter was passed
+    if !session['visit_id']
 
       visit = UniversalTrackManager::Visit.create!(ip_v4_address: ip_address,
                                                    browser: find_or_create_browser_by_current,
                                                    campaign: find_or_create_campaign_by_current)
 
       session[:visit_id] = visit.id
+    else
+      # existing visit, maybe
+      existing_visit = UniversalTrackManager::Visit.find(session['visit_id'])
+
+      evict_visit!(existing_visit) if existing_visit.ip_v4_address != ip_address
+      evict_visit!(existing_visit) if existing_visit.browser.browser_name != user_agent
     end
   end
 
