@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_010624) do
+ActiveRecord::Schema.define(version: 2019_12_12_2100) do
 
   create_table "browsers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "browser_name"
-    t.index ["browser_name"], name: "index_browsers_on_browser_name"
+    t.string "name"
+    t.index ["name"], name: "index_browsers_on_name"
   end
 
   create_table "campaigns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

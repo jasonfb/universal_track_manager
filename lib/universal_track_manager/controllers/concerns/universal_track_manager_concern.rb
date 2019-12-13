@@ -60,7 +60,7 @@ module UniversalTrackManagerConcern
       existing_visit = UniversalTrackManager::Visit.find(session['visit_id'])
 
       evict_visit!(existing_visit) if existing_visit.ip_v4_address != ip_address
-      evict_visit!(existing_visit) if existing_visit.browser.browser_name != user_agent
+      evict_visit!(existing_visit) if existing_visit.browser.name != user_agent
 
       existing_visit.update_columns(:last_pageload => Time.now) if !@visit_evicted
 
@@ -68,7 +68,7 @@ module UniversalTrackManagerConcern
   end
 
   def find_or_create_browser_by_current
-    browser = UniversalTrackManager::Browser.find_or_create_by(browser_name: user_agent)
+    browser = UniversalTrackManager::Browser.find_or_create_by(name: user_agent)
   end
 
   def find_or_create_campaign_by_current

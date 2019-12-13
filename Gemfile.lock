@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    universal-track-manager (0.0.3)
+    universal-track-manager (0.0.3.beta)
       rails (> 4.1)
 
 GEM
@@ -183,4 +183,4 @@ DEPENDENCIES
   universal-track-manager!
 
 BUNDLED WITH
-   1.17.2
+   1.17.3

@@ -27,7 +27,7 @@ describe AbcController, :type => :controller do
         get :index
         last_visit = UniversalTrackManager::Visit.last
         browser = last_visit.browser
-        expect(browser.browser_name).to eq('Fake Browser')
+        expect(browser.name).to eq('Fake Browser')
       end
 
       it "tracks the visitor and picks up any UTMs if passed" do

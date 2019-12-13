@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2019_11_22_175335) do
 
   create_table "browsers", force: :cascade do |t|
-    t.string "browser_name"
-    t.index ["browser_name"], name: "index_browsers_on_browser_name"
+    t.string "name"
+    t.index ["name"], name: "index_browsers_on_name"
   end
 
   create_table "campaigns", force: :cascade do |t|
