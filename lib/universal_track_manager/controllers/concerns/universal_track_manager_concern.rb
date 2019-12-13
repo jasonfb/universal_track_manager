@@ -1,6 +1,8 @@
 module UniversalTrackManagerConcern
   extend ActiveSupport::Concern
 
+  attr_accessor :visit_evicted
+
   included do
     before_action :track_visitor
   end
@@ -39,13 +41,19 @@ module UniversalTrackManagerConcern
     permitted_utm_params[:utm_medium]
   end
 
+  def now
+    @now ||= Time.now
+  end
+
   def track_visitor
     if !session['visit_id']
 
-      visit = UniversalTrackManager::Visit.create!(ip_v4_address: ip_address,
-                                                   browser: find_or_create_browser_by_current,
-                                                   campaign: find_or_create_campaign_by_current)
-
+      visit = UniversalTrackManager::Visit.create!(
+        first_pageload: now,
+        last_pageload: now,
+        ip_v4_address: ip_address,
+        browser: find_or_create_browser_by_current,
+        campaign: find_or_create_campaign_by_current)
       session[:visit_id] = visit.id
     else
       # existing visit, maybe
@@ -53,6 +61,9 @@ module UniversalTrackManagerConcern
 
       evict_visit!(existing_visit) if existing_visit.ip_v4_address != ip_address
       evict_visit!(existing_visit) if existing_visit.browser.browser_name != user_agent
+
+      existing_visit.update_columns(:last_pageload => Time.now) if !@visit_evicted
+
     end
   end
 
@@ -71,7 +82,10 @@ module UniversalTrackManagerConcern
   end
 
   def evict_visit!(old_visit)
+    @visit_evicted = true
     visit = UniversalTrackManager::Visit.create!(
+              first_pageload: now,
+              last_pageload: now,
               original_visit_id: old_visit.original_visit_id.nil? ?  old_visit.id : old_visit.original_visit_id,
               ip_v4_address: ip_address,
               browser: find_or_create_browser_by_current,

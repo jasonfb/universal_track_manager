@@ -48,6 +48,22 @@ describe AbcController, :type => :controller do
         expect(campaign.utm_term).to eq("jkl")
         expect(campaign.utm_content).to eq("mno")
       end
+
+      it "sets the visit's first_pageload" do
+        get :index
+
+        last_visit = UniversalTrackManager::Visit.last
+        expect(last_visit.first_pageload).to_not be(nil)
+      end
+
+      it "the visit's last_pageload willbe nul" do
+        get :index
+        last_visit = UniversalTrackManager::Visit.last
+        expect(last_visit.first_pageload).to_not be(nil)
+
+        expect(last_visit.first_pageload).to eq(last_visit.last_pageload)
+      end
+
     end
 
     describe "existing visit behavior: " do
@@ -160,6 +176,31 @@ describe AbcController, :type => :controller do
         xit "should evict the visit if there are any new UTM parameters" do
 
         end
+      end
+
+      it "sets the visit's first_pageload" do
+        get :index
+        sleep 1.1
+
+        get :index
+
+        last_visit = UniversalTrackManager::Visit.last
+        expect(last_visit.first_pageload).to_not be(nil)
+        expect(last_visit.last_pageload).to_not be(nil)
+      end
+
+      it "the visit's last_pageload will not be null and will not be the first page loads" do
+        get :index
+
+        sleep 1.1
+
+        get :index
+
+        last_visit = UniversalTrackManager::Visit.last
+        expect(last_visit.first_pageload).to_not be(nil)
+        expect(last_visit.last_pageload).to_not be(nil)
+        expect(last_visit.last_pageload).to_not eq(last_visit.first_pageload)
+
       end
     end
   end
