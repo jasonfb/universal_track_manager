@@ -199,7 +199,7 @@ end
 - [x] track the visit IP address
 - [x] track the user agent
 - [x] track the UTMs and stash them in an assocition 
-- [x] carry forward the UTMs when evicting the visits
+- [x] ~~carry forward the UTMs when evicting the visits~~
 - [ ] add switch to turn off IP tracking
 - [ ] track the http referrer ( optional extension )
 - [ ] invalidate the old visit if next day
