@@ -13,7 +13,7 @@ gem 'simplecov'
 gem 'rails-controller-testing'
 gem 'sqlite3'
 gem 'rspec-rails'
-gem 'appraisal'
+
 gem 'byebug', group: [:development, :test]
 
-
+gem 'appraisal'

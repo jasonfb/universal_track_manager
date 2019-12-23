@@ -30,24 +30,7 @@ describe AbcController, :type => :controller do
         expect(browser.name).to eq('Fake Browser')
       end
 
-      it "tracks the visitor and picks up any UTMs if passed" do
-        get :index, params: {utm_campaign: "abc",
-                             utm_medium: "def",
-                             utm_source: "ghi",
-                             utm_term: "jkl",
-                             utm_content: "mno"}
 
-
-        last_visit = UniversalTrackManager::Visit.last
-
-        campaign = last_visit.campaign
-
-        expect(campaign.utm_campaign).to eq("abc")
-        expect(campaign.utm_medium).to eq("def")
-        expect(campaign.utm_source).to eq("ghi")
-        expect(campaign.utm_term).to eq("jkl")
-        expect(campaign.utm_content).to eq("mno")
-      end
 
       it "sets the visit's first_pageload" do
         get :index
@@ -165,17 +148,88 @@ describe AbcController, :type => :controller do
       end
 
       describe "the UTM parameters" do
-        xit "should keep the existing visit if no UTM parameters are passed whatseover" do
 
+        it "tracks the visitor and picks up any UTMs if passed" do
+          get :index, params: {utm_campaign: "abc",
+                               utm_medium: "def",
+                               utm_source: "ghi",
+                               utm_term: "jkl",
+                               utm_content: "mno"}
+
+
+          last_visit = UniversalTrackManager::Visit.last
+
+          campaign = last_visit.campaign
+
+          expect(campaign.utm_campaign).to eq("abc")
+          expect(campaign.utm_medium).to eq("def")
+          expect(campaign.utm_source).to eq("ghi")
+          expect(campaign.utm_term).to eq("jkl")
+          expect(campaign.utm_content).to eq("mno")
         end
 
-        xit "should keep the existing visit if the UTM parameters match the first visit" do
 
+
+        it "should keep the existing visit if the UTM parameters match the first visit" do
+
+          get :index, params: {utm_campaign: "abc",
+                               utm_medium: "def",
+                               utm_source: "ghi",
+                               utm_term: "jkl",
+                               utm_content: "mno"}
+
+          first_visit = UniversalTrackManager::Visit.last
+
+
+          get :index, params: {utm_campaign: "abc",
+                               utm_medium: "def",
+                               utm_source: "ghi",
+                               utm_term: "jkl",
+                               utm_content: "mno"}
+
+
+
+          second_visit = UniversalTrackManager::Visit.last
+
+          expect(first_visit).to eq(second_visit)
         end
 
-        xit "should evict the visit if there are any new UTM parameters" do
+        it "should evict the visit if there are any new UTM parameters" do
+          get :index, params: {utm_campaign: "abc",
+                               utm_medium: "def",
+                               utm_source: "ghi",
+                               utm_term: "jkl",
+                               utm_content: "mno"}
 
+          first_visit = UniversalTrackManager::Visit.last
+
+
+          get :index, params: {utm_campaign: "XXX",
+                               utm_medium: "YYY",
+                               utm_source: "ghi",
+                               utm_term: "jkl",
+                               utm_content: "mno"}
+
+          second_visit = UniversalTrackManager::Visit.last
+
+          expect(first_visit).to_not eq(second_visit)
         end
+
+        it "should maintain the old visit when no new parameters are passed" do
+          get :index, params: {utm_campaign: "abc",
+                               utm_medium: "def",
+                               utm_source: "ghi",
+                               utm_term: "jkl",
+                               utm_content: "mno"}
+
+          first_visit = UniversalTrackManager::Visit.last
+
+          get :index
+          second_visit = UniversalTrackManager::Visit.last
+
+          expect(first_visit).to eq(second_visit)
+        end
+
       end
 
       it "sets the visit's first_pageload" do

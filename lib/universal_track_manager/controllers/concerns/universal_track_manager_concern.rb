@@ -59,11 +59,24 @@ module UniversalTrackManagerConcern
       # existing visit, maybe
       existing_visit = UniversalTrackManager::Visit.find(session['visit_id'])
 
+      evict_visit!(existing_visit) if any_utm_params? && !existing_visit.matches_all_utms?({utm_campaign: utm_campaign,
+                                                                      utm_source: utm_source,
+                                                                      utm_term: utm_term,
+                                                                      utm_content: utm_content,
+                                                                      utm_medium: utm_medium})
+
       evict_visit!(existing_visit) if existing_visit.ip_v4_address != ip_address
       evict_visit!(existing_visit) if existing_visit.browser.name != user_agent
 
       existing_visit.update_columns(:last_pageload => Time.now) if !@visit_evicted
 
+    end
+  end
+
+
+  def any_utm_params?
+    [:utm_campaign, :utm_source, :utm_medium, :utm_term, :utm_content].any? do |key|
+      params[key].present?
     end
   end
 
