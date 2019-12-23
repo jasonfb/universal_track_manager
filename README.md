@@ -7,7 +7,7 @@
 - PUBLIC BETA: This code is not ready for production and is actively being developed.
 ```
 
-# Current version:  Version 0.0.3 (PUBLIC BETA)
+# Current version:  Version 0.4 (PUBLIC BETA)
 ## [Release announcement here](https://www.jasonfleetwoodboldt.com/writing/2019/12/12/a-first-look-universal-track-manager/)
 
 
