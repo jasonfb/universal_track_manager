@@ -8,7 +8,7 @@ end
 require "rails/all"
 
 # require the gem's core code
-Dir["./lib/universal_track_manager/**/*.rb", "./lib/railtie.rb"].each do |x|
+Dir["./lib/universal_track_manager/**/*.rb", "./lib/universal_track_manager.rb", "./lib/railtie.rb"].each do |x|
   require(x)
 end
 
