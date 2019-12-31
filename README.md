@@ -4,11 +4,11 @@
 
 
 ```diff
-- PUBLIC BETA: This code is not ready for production and is actively being developed.
+- PUBLIC BETA: This code is *almost* ready for production and is actively being developed.
 ```
 
-# Current version:  Version 0.4 (PUBLIC BETA)
-## [Release announcement here](https://www.jasonfleetwoodboldt.com/writing/2019/12/12/a-first-look-universal-track-manager/)
+# Current version:  Version 0.5 (PUBLIC BETA)
+## [Release announcement here](https://www.jasonfleetwoodboldt.com/writing/2019/12/23/universal-track-manager-version-04/)
 
 
 ```diff
@@ -200,7 +200,7 @@ end
 - [x] track the user agent
 - [x] track the UTMs and stash them in an assocition 
 - [x] ~~carry forward the UTMs when evicting the visits~~
-- [ ] add switch to turn off IP tracking
+- [x] add switch to turn off IP tracking
 - [ ] track the http referrer ( optional extension )
 - [ ] invalidate the old visit if next day
 - [ ] track viewport screensize
