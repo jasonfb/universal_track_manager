@@ -30,7 +30,6 @@ However, visits are not identical to sessions. More than one visit can have been
  
 A session will have only one visit at a time. If a new visit event happens within an existing session, like the user returns in the same browser the following day, the old visit gets evicted from the session and a link between the newly created visit and old visit is maintained in the visits table.
 
-UTM parameters, IP addresses, and browser information are tracked by default. You must opt-in to track http_referrer. 
 
 # Privacy & Legal Implications
 
@@ -109,23 +108,27 @@ This will create a schema migration for the new tables that UTM will use (look f
 
 4. If you have any controllers that descend from the ApplicationController that you don't want to track pageviews on:
 
+# Upgrading From 0.4
+
+If you upgrade from 0.4 -> any higher version, please add `config/initializers/universal_track_manager.rb` to your Rails app:
+
+```
+UniversalTrackManager.configure do |config|
+  config.track_ips = true
+  config.track_utms = true
+  config.track_user_agent = true
+  config.track_referrer = true
+end
+
+```
+
+[If you ran the UTM installation (above) after v0.5, the installer created this file for you automatically.]
+
 
 # Options
 
 Configuration options can be set in 
-`config/initializers/universal_track_manager.rb` which will automatically be created for you when you run the install generator.
-
-• Inbound UTM parameters are picked up automatically if they are present (the gem has no switch to turn this off). 
-
-• IP tracking and browser tracking are turned ON by default, but you can switch them off with:
-
-TODO: HOW TO TURN OFF IP TRACKING
-
-• HTTP referrer is turned OFF by default. To turn it on, you will need to:
-
-1) TODO: HOW TO TURN ON HTTP REFERRER TRACKING
-2) run rake generate utm:track_referrer
-
+`config/initializers/universal_track_manager.rb` which will automatically be created for you when you run the install generator. Set any option to false to disable tracking.
 
 # UTM Hooks
 
