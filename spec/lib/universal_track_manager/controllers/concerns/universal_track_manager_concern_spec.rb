@@ -7,7 +7,6 @@ describe AbcController, :type => :controller do
       request.user_agent = 'Fake Browser'
     end
 
-
     describe "new visit behavior" do
       it "tracks the visitor and creates a visit" do
         get :index
@@ -23,14 +22,36 @@ describe AbcController, :type => :controller do
         expect(last_visit.ip_v4_address).to eq('1.2.3.4')
       end
 
+      it "tracks the visitor and doesn't set the IP address if disabled" do
+        UniversalTrackManager.configure do |config|
+          config.track_ips = false
+        end
+
+        get :index
+        last_visit = UniversalTrackManager::Visit.last
+
+        expect(last_visit.ip_v4_address).to eq(nil)
+      end
+
       it "tracks the visitor and sets the user agent" do
         get :index
         last_visit = UniversalTrackManager::Visit.last
+
         browser = last_visit.browser
         expect(browser.name).to eq('Fake Browser')
       end
 
 
+      it "tracks the visitor and doesn't set the user agent if disabled" do
+        UniversalTrackManager.configure do |config|
+          config.track_user_agent = false
+        end
+
+        get :index
+        last_visit = UniversalTrackManager::Visit.last
+        browser = last_visit.browser
+        expect(browser).to eq(nil)
+      end
 
       it "sets the visit's first_pageload" do
         get :index
@@ -39,7 +60,7 @@ describe AbcController, :type => :controller do
         expect(last_visit.first_pageload).to_not be(nil)
       end
 
-      it "the visit's last_pageload willbe nul" do
+      it "the visit's last_pageload will be nil" do
         get :index
         last_visit = UniversalTrackManager::Visit.last
         expect(last_visit.first_pageload).to_not be(nil)
@@ -148,6 +169,26 @@ describe AbcController, :type => :controller do
       end
 
       describe "the UTM parameters" do
+        it "does NOT track any UTMs if disabled" do
+          UniversalTrackManager.configure do |config|
+            config.track_utms = false
+          end
+
+
+          get :index, params: {utm_campaign: "abc",
+                               utm_medium: "def",
+                               utm_source: "ghi",
+                               utm_term: "jkl",
+                               utm_content: "mno"}
+
+
+          last_visit = UniversalTrackManager::Visit.last
+
+          campaign = last_visit.campaign
+
+          expect(campaign).to eq(nil)
+        end
+
 
         it "tracks the visitor and picks up any UTMs if passed" do
           get :index, params: {utm_campaign: "abc",

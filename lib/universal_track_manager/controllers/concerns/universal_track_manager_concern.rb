@@ -13,31 +13,38 @@ module UniversalTrackManagerConcern
 
 
   def ip_address
+    return nil if ! UniversalTrackManager.track_ips?
     request.ip
   end
 
   def user_agent
+    return nil if ! UniversalTrackManager.track_user_agent?
     request.user_agent[0..255]
   end
 
 
   def utm_campaign
+    return nil if ! UniversalTrackManager.track_utms?
     permitted_utm_params[:utm_campaign]
   end
 
   def utm_source
+    return nil if ! UniversalTrackManager.track_utms?
     permitted_utm_params[:utm_source]
   end
 
   def utm_term
+    return nil if ! UniversalTrackManager.track_utms?
     permitted_utm_params[:utm_term]
   end
 
   def utm_content
+    return nil if ! UniversalTrackManager.track_utms?
     permitted_utm_params[:utm_content]
   end
 
   def utm_medium
+    return nil if ! UniversalTrackManager.track_utms?
     permitted_utm_params[:utm_medium]
   end
 
@@ -47,7 +54,6 @@ module UniversalTrackManagerConcern
 
   def track_visitor
     if !session['visit_id']
-
       visit = UniversalTrackManager::Visit.create!(
         first_pageload: now,
         last_pageload: now,
@@ -59,6 +65,7 @@ module UniversalTrackManagerConcern
       # existing visit, maybe
       existing_visit = UniversalTrackManager::Visit.find(session['visit_id'])
 
+
       evict_visit!(existing_visit) if any_utm_params? && !existing_visit.matches_all_utms?({utm_campaign: utm_campaign,
                                                                       utm_source: utm_source,
                                                                       utm_term: utm_term,
@@ -66,7 +73,7 @@ module UniversalTrackManagerConcern
                                                                       utm_medium: utm_medium})
 
       evict_visit!(existing_visit) if existing_visit.ip_v4_address != ip_address
-      evict_visit!(existing_visit) if existing_visit.browser.name != user_agent
+      evict_visit!(existing_visit) if existing_visit.browser && existing_visit.browser.name != user_agent
 
       existing_visit.update_columns(:last_pageload => Time.now) if !@visit_evicted
 
@@ -75,16 +82,19 @@ module UniversalTrackManagerConcern
 
 
   def any_utm_params?
+    return false if ! UniversalTrackManager.track_utms?
     [:utm_campaign, :utm_source, :utm_medium, :utm_term, :utm_content].any? do |key|
       params[key].present?
     end
   end
 
   def find_or_create_browser_by_current
+    return nil if ! UniversalTrackManager.track_user_agent?
     browser = UniversalTrackManager::Browser.find_or_create_by(name: user_agent)
   end
 
   def find_or_create_campaign_by_current
+    return nil if ! UniversalTrackManager.track_utms?
     campaign = UniversalTrackManager::Campaign.find_or_create_by(
       utm_campaign: utm_campaign,
       utm_source: utm_source,
