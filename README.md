@@ -88,7 +88,7 @@ Even within the same Rails session, a visit can be defined unique by:
 
 Please familiarize yourself with the concepts above before installing.
 
-1. add gem 'universal-track-manager' to your gemfile
+1. add `gem 'universal-track-manager'` to your `Gemfile`
 
 2. run 
 

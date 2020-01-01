@@ -52,31 +52,39 @@ module UniversalTrackManagerConcern
     @now ||= Time.now
   end
 
+  def new_visitor
+    visit = UniversalTrackManager::Visit.create!(
+      first_pageload: now,
+      last_pageload: now,
+      ip_v4_address: ip_address,
+      browser: find_or_create_browser_by_current,
+      campaign: find_or_create_campaign_by_current)
+    session[:visit_id] = visit.id
+  end
+
   def track_visitor
     if !session['visit_id']
-      visit = UniversalTrackManager::Visit.create!(
-        first_pageload: now,
-        last_pageload: now,
-        ip_v4_address: ip_address,
-        browser: find_or_create_browser_by_current,
-        campaign: find_or_create_campaign_by_current)
-      session[:visit_id] = visit.id
+      new_visitor
     else
-      # existing visit, maybe
-      existing_visit = UniversalTrackManager::Visit.find(session['visit_id'])
+      # existing visit
+      begin
+        existing_visit = UniversalTrackManager::Visit.find(session['visit_id'])
 
+        evict_visit!(existing_visit) if any_utm_params? && !existing_visit.matches_all_utms?({utm_campaign: utm_campaign,
+                                                                        utm_source: utm_source,
+                                                                        utm_term: utm_term,
+                                                                        utm_content: utm_content,
+                                                                        utm_medium: utm_medium})
 
-      evict_visit!(existing_visit) if any_utm_params? && !existing_visit.matches_all_utms?({utm_campaign: utm_campaign,
-                                                                      utm_source: utm_source,
-                                                                      utm_term: utm_term,
-                                                                      utm_content: utm_content,
-                                                                      utm_medium: utm_medium})
+        evict_visit!(existing_visit) if existing_visit.ip_v4_address != ip_address
+        evict_visit!(existing_visit) if existing_visit.browser && existing_visit.browser.name != user_agent
 
-      evict_visit!(existing_visit) if existing_visit.ip_v4_address != ip_address
-      evict_visit!(existing_visit) if existing_visit.browser && existing_visit.browser.name != user_agent
-
-      existing_visit.update_columns(:last_pageload => Time.now) if !@visit_evicted
-
+        existing_visit.update_columns(:last_pageload => Time.now) if !@visit_evicted
+      rescue ActiveRecord::RecordNotFound
+        # this happens if the session table is cleared or if the record in the session
+        # table points to a visit that has been cleared
+        new_visitor
+      end
     end
   end
 
