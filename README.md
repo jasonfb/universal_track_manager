@@ -8,7 +8,7 @@
 ```
 
 # Current version:  Version 0.5 (PUBLIC BETA)
-## [Release announcement here](https://www.jasonfleetwoodboldt.com/writing/2019/12/23/universal-track-manager-version-04/)
+## [Release announcement here](https://www.jasonfleetwoodboldt.com/writing/2020/01/01/halfway-to-one-point-oh-utm-version-05/)
 
 
 ```diff
