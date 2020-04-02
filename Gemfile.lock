@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    universal-track-manager (0.5.beta2)
+    universal-track-manager (0.5)
       rails (> 4.1)
 
 GEM

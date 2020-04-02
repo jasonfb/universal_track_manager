@@ -7,7 +7,7 @@
 - PUBLIC BETA: This code is *almost* ready for production and is actively being developed.
 ```
 
-# Current version:  Version 0.5 (PUBLIC BETA)
+# Current version:  Version 0.6.1.alpha (for PUBLIC BETA see version 0.5)
 ## [Release announcement here](https://www.jasonfleetwoodboldt.com/writing/2020/01/01/halfway-to-one-point-oh-utm-version-05/)
 
 
@@ -195,9 +195,8 @@ end
 
 • UTM will set a session variable named `visit_id` in your Rails session. If you already use a session variable with the same name, please override by:
 
-[NOT IMPLEMENTED]
-
-# TODO LIST
+# THE AUTHOR'S TODO LIST
+(help is appreciated!)
 - [x] fix the install generator
 - [x] track the visit IP address
 - [x] track the user agent
@@ -206,6 +205,7 @@ end
 - [x] add switch to turn off IP tracking
 - [ ] track the http referrer ( optional extension )
 - [ ] invalidate the old visit if next day
+- [ ] optionally exclude specific IPs from tracking (like internal IP addresses)
 - [ ] track viewport screensize
 - [ ] an optional long-cookie feature to drop a long-lived cookie into the visitor's browser that work separately from the Rails session
 - [ ] track gclid 
@@ -214,7 +214,6 @@ end
 - [ ] Anonymized geolocation, to let you look-up IPs in order to geolocate users, but not store the actual IP addresses themselves.
 - [ ] A switch to track the user before or after the controller action has rendered. Since the tracking adds a small overhead to each request, tracking after the controller has rendered makes your page respond faster for the user. But if you track before you render, you can use optionally use the tracked information to personalize, customize, or target your website to respond uniquely to the visitor. 
 - [ ] A way to override the session variable named :visit_id
-
 
 # CONTRIBUTING
 

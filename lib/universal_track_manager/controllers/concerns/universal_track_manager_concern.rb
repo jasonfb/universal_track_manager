@@ -1,6 +1,5 @@
 module UniversalTrackManagerConcern
   extend ActiveSupport::Concern
-
   attr_accessor :visit_evicted
 
   included do
@@ -53,12 +52,14 @@ module UniversalTrackManagerConcern
   end
 
   def new_visitor
-    visit = UniversalTrackManager::Visit.create!(
+    params = {
       first_pageload: now,
       last_pageload: now,
       ip_v4_address: ip_address,
-      browser: find_or_create_browser_by_current,
-      campaign: find_or_create_campaign_by_current)
+      campaign: find_or_create_campaign_by_current
+    }
+    params[:browser] =  find_or_create_browser_by_current if request.user_agent
+    visit = UniversalTrackManager::Visit.create!(params)
     session[:visit_id] = visit.id
   end
 
@@ -114,13 +115,17 @@ module UniversalTrackManagerConcern
 
   def evict_visit!(old_visit)
     @visit_evicted = true
-    visit = UniversalTrackManager::Visit.create!(
-              first_pageload: now,
-              last_pageload: now,
-              original_visit_id: old_visit.original_visit_id.nil? ?  old_visit.id : old_visit.original_visit_id,
-              ip_v4_address: ip_address,
-              browser: find_or_create_browser_by_current,
-              campaign: find_or_create_campaign_by_current)
+    params = {
+      first_pageload: now,
+      last_pageload: now,
+      original_visit_id: old_visit.original_visit_id.nil? ?  old_visit.id : old_visit.original_visit_id,
+      ip_v4_address: ip_address,
+      campaign: find_or_create_campaign_by_current
+    }
+
+    # fail silently if there is no user agent
+    params[:browser] =  find_or_create_browser_by_current if request.user_agent
+    visit = UniversalTrackManager::Visit.create!(params)
 
     session[:visit_id] = visit.id
   end
