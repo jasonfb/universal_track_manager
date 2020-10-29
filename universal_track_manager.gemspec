@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.name        = 'universal-track-manager'
   s.version     = UniversalTrackManager::VERSION
   s.license     = 'MIT'
-  s.date        = '2020-01-01'
+  s.date        = '2020-10-29'
   s.summary     = "A gem to track visitors to your website."
   s.description = "Simple, plug & play visitor tracking by user agent (browser), IP address, referrer, and UTM parameters."
   s.authors     = ["Jason Fleetwood-Boldt"]
@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.require_paths = ["lib"]
 
-  s.homepage    = 'http://rubygems.org/gems/unverisal-track-manager'
+  s.homepage    = 'https://blog.jasonfleetwoodboldt.com/universal-track-manager/'
   s.metadata    = { "source_code_uri" => "https://github.com/jasonfb/universal_track_manager" }
   s.add_dependency('rails', '> 4.1')
   s.add_development_dependency('simplecov', '> 0.17')
