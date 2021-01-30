@@ -32,6 +32,7 @@ end
 require "dummy/application"
 
 require "rspec/rails"
+
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 Dummy::Application.initialize!
@@ -41,6 +42,7 @@ UniversalTrackManager.configure do |config|
   config.track_ips = true
   config.track_utms = true
   config.track_user_agent = true
+  config.campaign_columns = 'utm_source,utm_campaign,utm_medium,utm_content,utm_term'
 end
 
 RSpec.configure do |config|
@@ -71,6 +73,7 @@ RSpec.configure do |config|
       config.track_utms = true
       config.track_http_referrer = true
       config.track_user_agent = true
+      config.campaign_columns = 'utm_source,utm_campaign,utm_medium,utm_content,utm_term'
     end
 
     restore_default_warning_free_config
