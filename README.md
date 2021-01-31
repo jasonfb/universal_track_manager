@@ -7,14 +7,14 @@
 - PUBLIC BETA: This code is *almost* ready for production and is actively being developed.
 ```
 
-# Current version:  Version 0.6.1.alpha (for PUBLIC BETA see version 0.5)
-## [Release announcement here](https://www.jasonfleetwoodboldt.com/writing/2020/01/01/halfway-to-one-point-oh-utm-version-05/)
-
 
 ```diff
 ! Like this gem? Please 'star' it (above), download it from RubyGems, or ... 
 ```
-... [consider supporting it today with a small contribution](https://github.com/sponsors/jasonfb/)! For just $1/month you can support the development of this Gem and others like it.
+
+... [Thank you Github sponsors!](https://github.com/sponsors/jasonfb/)! 
+
+Thanks to you work on this gem is possible. 
 
 # About
 
