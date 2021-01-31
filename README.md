@@ -3,18 +3,14 @@
 [![Build Status](https://travis-ci.com/jasonfb/universal_track_manager.svg?branch=master)](https://travis-ci.com/jasonfb/universal_track_manager)
 
 
-```diff
-- PUBLIC BETA: This code is *almost* ready for production and is actively being developed.
-```
-
 
 ```diff
-! Like this gem? Please 'star' it (above), download it from RubyGems, or ... 
+! Like this gem? Please 'star' it (above) or consider becoming a sponsor... 
 ```
 
-... [Thank you Github sponsors!](https://github.com/sponsors/jasonfb/)! 
+... [Thank you Github sponsors!](https://github.com/sponsors/jasonfb/)
 
-Thanks to you work on this gem is possible. 
+Thanks for making my work on this gem possible. 
 
 # About
 
