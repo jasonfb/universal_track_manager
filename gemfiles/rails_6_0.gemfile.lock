@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    universal-track-manager (0.6.3)
+    universal-track-manager (0.7.0.alpha)
       rails (> 4.1)
 
 GEM
@@ -188,3 +188,5 @@ DEPENDENCIES
   sqlite3
   universal-track-manager!
 
+BUNDLED WITH
+   2.2.7
