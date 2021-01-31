@@ -2,12 +2,21 @@ module UniversalTrackManagerConcern
   extend ActiveSupport::Concern
   attr_accessor :visit_evicted
 
+
+
   included do
     before_action :track_visitor
+
+    UniversalTrackManager.campaign_column_symbols.each do |s|
+      define_method(s) do
+        return nil if ! UniversalTrackManager.track_utms?
+        permitted_utm_params[s]
+      end
+    end
   end
 
   def permitted_utm_params
-    params.permit(:utm_campaign, :utm_source, :utm_term, :utm_content, :utm_medium)
+    params.permit(*(UniversalTrackManager.campaign_column_symbols))
   end
 
 
@@ -19,32 +28,6 @@ module UniversalTrackManagerConcern
   def user_agent
     return nil if ! UniversalTrackManager.track_user_agent?
     request.user_agent[0..255]
-  end
-
-
-  def utm_campaign
-    return nil if ! UniversalTrackManager.track_utms?
-    permitted_utm_params[:utm_campaign]
-  end
-
-  def utm_source
-    return nil if ! UniversalTrackManager.track_utms?
-    permitted_utm_params[:utm_source]
-  end
-
-  def utm_term
-    return nil if ! UniversalTrackManager.track_utms?
-    permitted_utm_params[:utm_term]
-  end
-
-  def utm_content
-    return nil if ! UniversalTrackManager.track_utms?
-    permitted_utm_params[:utm_content]
-  end
-
-  def utm_medium
-    return nil if ! UniversalTrackManager.track_utms?
-    permitted_utm_params[:utm_medium]
   end
 
   def now
@@ -71,11 +54,7 @@ module UniversalTrackManagerConcern
       begin
         existing_visit = UniversalTrackManager::Visit.find(session['visit_id'])
 
-        evict_visit!(existing_visit) if any_utm_params? && !existing_visit.matches_all_utms?({utm_campaign: utm_campaign,
-                                                                        utm_source: utm_source,
-                                                                        utm_term: utm_term,
-                                                                        utm_content: utm_content,
-                                                                        utm_medium: utm_medium})
+        evict_visit!(existing_visit) if any_utm_params? && !existing_visit.matches_all_utms?(permitted_utm_params)
 
         evict_visit!(existing_visit) if existing_visit.ip_v4_address != ip_address
         evict_visit!(existing_visit) if existing_visit.browser && existing_visit.browser.name != user_agent
@@ -92,7 +71,7 @@ module UniversalTrackManagerConcern
 
   def any_utm_params?
     return false if ! UniversalTrackManager.track_utms?
-    [:utm_campaign, :utm_source, :utm_medium, :utm_term, :utm_content].any? do |key|
+    UniversalTrackManager.campaign_column_symbols.any? do |key|
       params[key].present?
     end
   end
@@ -105,11 +84,7 @@ module UniversalTrackManagerConcern
   def find_or_create_campaign_by_current
     return nil if ! UniversalTrackManager.track_utms?
     campaign = UniversalTrackManager::Campaign.find_or_create_by(
-      utm_campaign: utm_campaign,
-      utm_source: utm_source,
-      utm_term: utm_term,
-      utm_content: utm_content,
-      utm_medium: utm_medium
+      *permitted_utm_params
     )
   end
 
