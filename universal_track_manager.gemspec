@@ -20,10 +20,16 @@ Gem::Specification.new do |s|
 
   s.require_paths = ["lib"]
 
-  s.homepage    = 'https://blog.jasonfleetwoodboldt.com/universal-track-manager/'
-  s.metadata    = { "source_code_uri" => "https://github.com/jasonfb/universal_track_manager" }
+  s.homepage    = 'https://blog.jasonfleetwoodboldt.com/my-open-source-projects/universal-track-manager/'
+
+  s.metadata    = { "source_code_uri" => "https://github.com/jasonfb/universal_track_manager",
+                    "documentation_uri" => "https://jfb.teachable.com/p/gems-by-jason",
+                    "homepage_uri" => 'https://blog.jasonfleetwoodboldt.com/my-open-source-projects/universal-track-manager/'}
+
+
   s.add_dependency('rails', '> 4.1')
-  s.add_development_dependency('simplecov', '> 0.17')
+  s.add_development_dependency('simplecov')
+  s.add_development_dependency('simplecov-rcov')
   s.add_development_dependency('appraisal', '> 2.2')
 
   s.post_install_message = <<~MSG
