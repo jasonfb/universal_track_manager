@@ -10,22 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_22_175335) do
+ActiveRecord::Schema.define(version: 2021_02_01_100504) do
 
   create_table "browsers", force: :cascade do |t|
-    t.string "name"
+    t.string "name", limit: 255
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_browsers_on_name"
   end
 
   create_table "campaigns", force: :cascade do |t|
-    t.string "utm_source", limit: 50
-    t.string "utm_medium", limit: 50
-    t.string "utm_campaign", limit: 50
-    t.string "utm_content", limit: 50
-    t.string "utm_term", limit: 50
+    t.string "utm_source", limit: 256
+    t.string "utm_campaign", limit: 256
+    t.string "utm_medium", limit: 256
+    t.string "utm_content", limit: 256
+    t.string "utm_term", limit: 256
+    t.string "sha1", limit: 20
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"], name: "utm_all_combined"
+    t.index ["sha1"], name: "index_campaigns_on_sha1"
   end
 
   create_table "data_migrations", force: :cascade do |t|
@@ -47,9 +50,11 @@ ActiveRecord::Schema.define(version: 2019_11_22_175335) do
     t.integer "original_visit_id"
     t.integer "campaign_id"
     t.integer "browser_id"
-    t.string "ip_v4_address"
+    t.string "ip_v4_address", limit: 15
     t.integer "viewport_width"
     t.integer "viewport_height"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
