@@ -10,29 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_12_2100) do
+ActiveRecord::Schema.define(version: 2021_02_01_100504) do
 
-  create_table "browsers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "name"
+  create_table "browsers", force: :cascade do |t|
+    t.string "name", limit: 255
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_browsers_on_name"
   end
 
-  create_table "campaigns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "utm_source", limit: 50
-    t.string "utm_medium", limit: 50
-    t.string "utm_campaign", limit: 50
-    t.string "utm_content", limit: 50
-    t.string "utm_term", limit: 50
+  create_table "campaigns", force: :cascade do |t|
+    t.string "utm_source", limit: 256
+    t.string "utm_campaign", limit: 256
+    t.string "utm_medium", limit: 256
+    t.string "utm_content", limit: 256
+    t.string "utm_term", limit: 256
+    t.string "sha1", limit: 40
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"], name: "utm_all_combined"
+    t.index ["sha1"], name: "index_campaigns_on_sha1"
   end
 
-  create_table "data_migrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "data_migrations", force: :cascade do |t|
     t.string "version"
   end
 
-  create_table "sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"
     t.datetime "created_at", precision: 6, null: false
@@ -41,15 +44,17 @@ ActiveRecord::Schema.define(version: 2019_12_12_2100) do
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
-  create_table "visits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "visits", force: :cascade do |t|
     t.datetime "first_pageload"
     t.datetime "last_pageload"
     t.integer "original_visit_id"
     t.integer "campaign_id"
     t.integer "browser_id"
-    t.string "ip_v4_address"
+    t.string "ip_v4_address", limit: 15
     t.integer "viewport_width"
     t.integer "viewport_height"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

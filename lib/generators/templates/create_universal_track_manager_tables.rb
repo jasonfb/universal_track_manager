@@ -13,7 +13,7 @@ class CreateUniversalTrackManagerTables < ActiveRecord::Migration<%= migration_v
       create_table :campaigns do |t|
         # this table gets automatically populated by inbound traffic
 #GENERATOR INSERTS CAMPAIGN COLUMNS HERE
-        t.string :sha1, limit: 20
+        t.string :sha1, limit: 40
         t.timestamps
       end
 
