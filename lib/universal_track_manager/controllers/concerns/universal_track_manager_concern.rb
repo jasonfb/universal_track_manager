@@ -83,9 +83,16 @@ module UniversalTrackManagerConcern
 
   def find_or_create_campaign_by_current
     return nil if ! UniversalTrackManager.track_utms?
-    campaign = UniversalTrackManager::Campaign.find_or_create_by(
-      *permitted_utm_params
-    )
+    gen_sha1 = gen_campaign_key(permitted_utm_params)
+
+    # find_or_create_by finding only by sha1 would be nice here, but how to do so with a dynamic set of columns?
+    # we've got a small chance of dups here due to the non-atomic find/create and sha1, but that's ok for this application.
+    c = UniversalTrackManager::Campaign.find_by(sha1: gen_sha1)
+    c ||= UniversalTrackManager::Campaign.create(*(permitted_utm_params.merge({"sha1": gen_sha1})))
+  end
+
+  def gen_campaign_key(params)
+    Digest::SHA1.hexdigest(params.keys.map{|k| k.downcase()}.sort.map{|k| {"#{k}":  params[k]}}.to_s)
   end
 
   def evict_visit!(old_visit)
