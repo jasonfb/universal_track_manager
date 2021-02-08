@@ -11,7 +11,7 @@ class CreateUniversalTrackManagerTables < ActiveRecord::Migration<%= migration_v
 
       create_table :campaigns do |t|
         # this table gets automatically populated by inbound traffic
-        #GENERATOR INSERTS CAMPAIGN COLUMNS HERE
+#GENERATOR INSERTS CAMPAIGN COLUMNS HERE
         t.timestamps
       end
 

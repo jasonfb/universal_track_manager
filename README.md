@@ -3,18 +3,14 @@
 [![Build Status](https://travis-ci.com/jasonfb/universal_track_manager.svg?branch=master)](https://travis-ci.com/jasonfb/universal_track_manager)
 
 
-```diff
-- PUBLIC BETA: This code is *almost* ready for production and is actively being developed.
-```
-
-# Current version:  Version 0.6.1.alpha (for PUBLIC BETA see version 0.5)
-## [Release announcement here](https://www.jasonfleetwoodboldt.com/writing/2020/01/01/halfway-to-one-point-oh-utm-version-05/)
-
 
 ```diff
-! Like this gem? Please 'star' it (above), download it from RubyGems, or ... 
+! Like this gem? Please 'star' it (above) or consider becoming a sponsor... 
 ```
-... [consider supporting it today with a small contribution](https://github.com/sponsors/jasonfb/)! For just $1/month you can support the development of this Gem and others like it.
+
+... [Thank you Github sponsors!](https://github.com/sponsors/jasonfb/)
+
+Thanks for making my work on this gem possible. 
 
 # About
 
@@ -30,59 +26,28 @@ However, visits are not identical to sessions. More than one visit can have been
  
 A session will have only one visit at a time. If a new visit event happens within an existing session, like the user returns in the same browser the following day, the old visit gets evicted from the session and a link between the newly created visit and old visit is maintained in the visits table.
 
+# Is this Ethical?
 
-# Privacy & Legal Implications
+It is important to understand there are many different data points can could possibly be collected in today's web traffic. You may use this gem at your own discretion, and you can choose either more or less data capturing, as well ore *more or less data integration with your users.* 
+
+The reason I underscore this point is that the _safest_ data is _anonymized_ data.
+
+The general Rails best practice for the last decade has been to keep only session data with the user, but anonymize identifying data (like IP, behavior, browser), which could be used to identify individual users. 
+
+Please see the section 'Granularity of Data Capture' to understand the many different levels of (non-)privacy you may choose as the website operators.
+
+# Is this Legal?
 
 In any country or region where a privacy law like the GDPR or California Consumer Privacy Act is in effect, getting informed consent to track this information is **just one part of what you must do to comply with the law**. 
 
-Most privacy laws regulate the usage, storage, transmission, and removal of this data as well. You should consult a legal expert familiar with the laws of your region regarding privacy.
- 
-# Granularity
+Most privacy laws regulate the usage, storage, transmission, and removal of this data once you are retaining it in your database as well. 
 
-This Gem has been designed to allow the developer to flexibly choose the granularity of personal identification options, retention and use of the data you collect (see below). 
+This gem express captures this data, as described in this README document, and by using this gem you are responsible for complying with the appropriate laws and regulations subject to you. 
 
-In particular, this Gem seeks to popularize and inform the Ruby community, as well as inform the broader landscape, on the granularity choices presented to a modern website in today's day and age. 
+You will note that most old privacy policies talk about much of this data being stored in "log files." This gem takes the data retention _farther_ and stores the data into the database. (So you should modify your privacy policy accordingly.)
 
-While the Rails session is typically where you might store information that could individually identify the user (user or account id), the visits table is, by default, detached from the session information so that when the session information is deleted, your visit does not contain a way to easily re-identify the individual, thus making your visitors somewhat anonymous. Since a reverse-engineering can be done from other places where you might store identifably information, this system cannot gaurantee to be fully anonymized unless you take extra steps to flush, aggregate, and purge your visits table in an anonymizing way (not natively implemented).  The native implementation does a reasonable job at detaching the visitors from the identifying information, thus providing partial anonymization. 
+Please should consult a legal expert familiar with the laws of your region regarding data retention and capture if you are going to use this gem. 
 
-Essentially, with all this granularity and security options, you have 6 levels of privacy you can choose from:
-
-1. Most private: 
-Don't use this gem.
-
-2. Somewhat private: 
-Track user visits, but use this Gem's NO_SESSION flag [NOT YET IMPLEMENTED]
-
-3. Less private: 
-Track user visits and link them to the Rails session, but keep the existing security concepts around the Rails session (regularly purge old records from the table when they are older than 2 weeks). When you do this, if you Rails app is compromised by a hacker (both database access and your SECRET_BASE_KEY), your hacker will have access to both the identifably information (in the session) and non-identifiable table (in the visits table) for only the people who logged in within the last 2 weeks. Furthermore, if you want to associate some of your vital information (like your UTMs), with your users once they log-in or sign-up, you must implement this yourself and you may implement it by using the hooks provided  by the Gem.
-
-4A. Barely private (bad idea from security perspective; terrible idea from privacy perspective): 
-Track user visits and link them to the Rails session, but don't expire or purge your sessions. (*not recommended*)
-
-4B. Barely private (good idea from security perspective; best idea from privacy perspective): 
-Track user visits and link them to the Rails session, expire the sessions as expalined in #3 above, and use the long-cookie approach for an extra layer of identificiation.
-
-5. Hardly private (good idea from security perspective; better idea from privacy perspective):
-Just like 4B, use the `visits` from this gem, the Rails session with expiry, and possibly a long-cookie. As well, grab some or all of the information out of the `visits` table for storage elsewhere on an as-need basis. For example, you might track only the user agent (browser) and ad campaign (UTMs) but not the IP address. Since we assume that the browser doesn't change within a single visit (by definition, it can't), you don't need this gem to look at the browser (just do `request.user_agent`). But you can use this gem to grab the UTMs from a previsouly stored visit, explained below. 
-
-6. No privacy (good idea from a security perpsective; bad idea from a privacy perspective):
-Just like 4B, use the `visits` from this gem, the Rails session with expiry, and possibly a long-cookie. As well, create a foreign key from some other table directly to the visits table, and associate any time a user logs-in or signs-up to their visit details. 
-
-# A Visit vs. A Session
-
-A visit also stores the first and last time the visitor came during that visit. However, since visits may share sessions, a visit is made unique by any of:
-
-• A new session
-
-Even within the same Rails session, a visit can be defined unique by: 
-
-• A new logical day*
-• A new or different browser
-• A new or different IP address
-
-
-???
-• A new or different viewport size (unless the viewport size is a reverse )
 
 # Installation
 
@@ -106,23 +71,26 @@ This will create a schema migration for the new tables that UTM will use (look f
 ```
 
 
-4. If you have any controllers that descend from the ApplicationController that you don't want to track pageviews on:
-
-# Upgrading From 0.4
-
-If you upgrade from 0.4 -> any higher version, please add `config/initializers/universal_track_manager.rb` to your Rails app:
-
+4. Notice tha the installer has created this file for you in `config/initializers/universal_track_manager.rb`
 ```
 UniversalTrackManager.configure do |config|
   config.track_ips = true
   config.track_utms = true
   config.track_user_agent = true
-  config.track_referrer = true
+  config.campaign_columns = 'utm_source,utm_medium,utm_campaign,utm_content,utm_term'
+  # config.track_referrer = false
 end
 
 ```
 
-[If you ran the UTM installation (above) after v0.5, the installer created this file for you automatically.]
+(Notice track_referrer is disable by default
+
+5. Extensible UTMs
+As of Version 0.7, you can now extend the UTM parameters to include any paramater with data for your website's inbound traffic. This is useful if you  are running advertising that brings people to your Rails site and the ad platforms are sending you traffic with specific, custom tracking parameters you want to keep track of.
+   
+To customize, modify the comma-separated `config.campaign_columns` in the initializer above.
+
+
 
 
 # Options
@@ -167,9 +135,10 @@ You can also fetch and store the `currrent_track.campaign_id` in your foreign ta
 
 # Name Conflicts
 
-• UTM will create tables named `browsers`, `campaigns`, `visits`. If you already have tables named like this, you will want to 1) edit the generated files after step 2, and 2) add an override for the UniversalTrackManager objects, like so:
+UTM will create tables named `browsers`, `campaigns`, `visits`. If you already have tables named like this, you will want to 1) edit the generated files after step 2, and 2) add an override for the UniversalTrackManager objects, like so:
 
-```/initializers/universal_track_manager.rb
+```
+/initializers/universal_track_manager.rb
 
 // specify that this gem should use the table name `web_visits` instead of `visits`
 UniversalTrackManager::Visit.class_eval do 
@@ -192,8 +161,60 @@ end
 ```
 
 (If you already have models named Visit or Browser, don't worry: the scope of the UniversalTrackManager:: objects will prevent collisions with model-only objects in your app.)
+- UTM will set a session variable named `visit_id` in your Rails session. If you already use a session variable with the same name, please override by:
 
-• UTM will set a session variable named `visit_id` in your Rails session. If you already use a session variable with the same name, please override by:
+- [ ] TODO: implement this
+
+
+# Granularity of Data Capture
+
+This Gem has been designed to allow the developer to flexibly choose the granularity of personal identification options, retention and use of the data you collect (see below).
+
+In particular, this Gem seeks to popularize and inform the Ruby community, as well as inform the broader landscape, on the granularity choices presented to a modern website in today's day and age.
+
+While the Rails session is typically where you might store information that could individually identify the user (user or account id), the visits table is, by default, detached from the session information so that when the session information is deleted, your visit does not contain a way to easily re-identify the individual, thus making your visitors somewhat anonymous. Since a reverse-engineering can be done from other places where you might store identifably information, this system cannot gaurantee to be fully anonymized unless you take extra steps to flush, aggregate, and purge your visits table in an anonymizing way (not natively implemented).  The native implementation does a reasonable job at detaching the visitors from the identifying information, thus providing partial anonymization.
+
+Essentially, with all this granularity and security options, you have 6 levels of privacy you can choose from:
+
+1. Most private:
+   Don't use this gem.
+
+2. Somewhat private:
+   Track user visits, but use this Gem's NO_SESSION flag [NOT YET IMPLEMENTED]
+
+3. Less private:
+   Track user visits and link them to the Rails session, but keep the existing security concepts around the Rails session (regularly purge old records from the table when they are older than 2 weeks). When you do this, if you Rails app is compromised by a hacker (both database access and your SECRET_BASE_KEY), your hacker will have access to both the identifably information (in the session) and non-identifiable table (in the visits table) for only the people who logged in within the last 2 weeks. Furthermore, if you want to associate some of your vital information (like your UTMs), with your users once they log-in or sign-up, you must implement this yourself and you may implement it by using the hooks provided  by the Gem.
+
+4A. Barely private (bad idea from security perspective; terrible idea from privacy perspective):
+Track user visits and link them to the Rails session, but don't expire or purge your sessions. (*not recommended*)
+
+4B. Barely private (good idea from security perspective; best idea from privacy perspective):
+Track user visits and link them to the Rails session, expire the sessions as expalined in #3 above, and use the long-cookie approach for an extra layer of identificiation.
+
+5. Hardly private (good idea from security perspective; better idea from privacy perspective):
+   Just like 4B, use the `visits` from this gem, the Rails session with expiry, and possibly a long-cookie. As well, grab some or all of the information out of the `visits` table for storage elsewhere on an as-need basis. For example, you might track only the user agent (browser) and ad campaign (UTMs) but not the IP address. Since we assume that the browser doesn't change within a single visit (by definition, it can't), you don't need this gem to look at the browser (just do `request.user_agent`). But you can use this gem to grab the UTMs from a previsouly stored visit, explained below.
+
+6. No privacy (good idea from a security perpsective; bad idea from a privacy perspective):
+   Just like 4B, use the `visits` from this gem, the Rails session with expiry, and possibly a long-cookie. As well, create a foreign key from some other table directly to the visits table, and associate any time a user logs-in or signs-up to their visit details.
+
+# A Visit vs. A Session
+
+A visit also stores the first and last time the visitor came during that visit. However, since visits may share sessions, a visit is made unique by any of:
+
+&bullet; new session
+
+Even within the same Rails session, a visit can be defined unique by:
+
+&bullet; new logical day*
+&bullet; new or different browser
+&bullet; new or different IP address
+
+
+???
+&bullet; new or different viewport size (unless the viewport size is a reverse )
+
+
+
 
 # THE AUTHOR'S TODO LIST
 (help is appreciated!)

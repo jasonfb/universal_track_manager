@@ -155,6 +155,3 @@ DEPENDENCIES
   simplecov
   sqlite3
   universal-track-manager!
-
-BUNDLED WITH
-   1.17.2
