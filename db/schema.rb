@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_02_01_100504) do
 
   create_table "browsers", force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string "name", limit: 256
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_browsers_on_name"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_100504) do
     t.string "utm_medium", limit: 256
     t.string "utm_content", limit: 256
     t.string "utm_term", limit: 256
-    t.string "sha1", limit: 20
+    t.string "sha1", limit: 40
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["sha1"], name: "index_campaigns_on_sha1"

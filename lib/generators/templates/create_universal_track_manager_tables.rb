@@ -4,7 +4,7 @@ class CreateUniversalTrackManagerTables < ActiveRecord::Migration<%= migration_v
 
       create_table :browsers do |t|
         # this table gets automatically populated by inbound traffic
-        t.string :name, limit: 255
+        t.string :name, limit:256
         t.timestamps
       end
 
