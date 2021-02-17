@@ -93,9 +93,15 @@ To customize, modify the comma-separated `config.campaign_columns` in the initia
 
 # Upgrade History
 0.7.1 
-- added sha1 to campaigns (string limit 20)
-- added index sha1 (name: "index_campaigns_on_sha1") also on campaigns
-- note that the limits on the strings have changed to 256
+- IMPORTANT: If you are upgrading, you must create migrations to make the following modifications from a pre-0.7.1 install
+- add `sha1` to campaigns (string limit 20)
+- add and index also called `sha1` (name: "index_campaigns_on_sha1") also on campaigns
+- note that the limits on many of the other strings have changed to 255
+
+
+0.7.0.alpha
+
+
 
 # Options
 
