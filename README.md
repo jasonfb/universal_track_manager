@@ -86,12 +86,16 @@ end
 (Notice track_referrer is disable by default
 
 5. Extensible UTMs
-As of Version 0.7, you can now extend the UTM parameters to include any paramater with data for your website's inbound traffic. This is useful if you  are running advertising that brings people to your Rails site and the ad platforms are sending you traffic with specific, custom tracking parameters you want to keep track of.
+As of Version 0.7.0, you can now extend the UTM parameters to include any paramater with data for your website's inbound traffic. This is useful if you  are running advertising that brings people to your Rails site and the ad platforms are sending you traffic with specific, custom tracking parameters you want to keep track of.
    
 To customize, modify the comma-separated `config.campaign_columns` in the initializer above.
 
 
-
+# Upgrade History
+0.7.1 
+- added sha1 to campaigns (string limit 20)
+- added index sha1 (name: "index_campaigns_on_sha1") also on campaigns
+- note that the limits on the strings have changed to 256
 
 # Options
 
@@ -252,12 +256,12 @@ First, please create a symlink for the migrations to run properly from db/migrat
 ln -s ../spec/dummy/db/migrate/ db/migrate
 ```
 
-Next, setup appraisal & bunde install with:
+Next, setup appraisal & bundle install with:
 
 ```
 gem install appraisal
 bundle exec appraisal install
-bundle exec appraisal rails-6-0 rake dummy:db:migrate RAILS_ENV=test
+bundle exec appraisal rails-6-1 rake dummy:db:migrate RAILS_ENV=test
 ```
 
 to run specs in all versions of Rails (see `Appraisals` file)
@@ -267,10 +271,10 @@ bundle exec appraisal rake spec
 
 ```
 
-To run the specs in only Rails 6.0, run
+To run the specs in only Rails 6.1, run
 
 ```
-bundle exec appraisal rails-6-0 rake spec
+bundle exec appraisal rails-6-1 rake spec
 
 ```
 
