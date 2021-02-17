@@ -2,16 +2,6 @@
 
 [![Build Status](https://travis-ci.com/jasonfb/universal_track_manager.svg?branch=master)](https://travis-ci.com/jasonfb/universal_track_manager)
 
-
-
-```diff
-! Like this gem? Please 'star' it (above) or consider becoming a sponsor... 
-```
-
-... [Thank you Github sponsors!](https://github.com/sponsors/jasonfb/)
-
-Thanks for making my work on this gem possible. 
-
 # About
 
 Universal Track Manager, also known as UTM, is a gem to track your visitors and their pageloads. You can use it to track Urchin Tracking Module (UTM) parameters, and the fact that these two things abbreviate to the same letters is play-on-words.
