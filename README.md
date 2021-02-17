@@ -80,6 +80,8 @@ As of Version 0.7.0, you can now extend the UTM parameters to include any parama
    
 To customize, modify the comma-separated `config.campaign_columns` in the initializer above.
 
+For optimization and speed, a unique SHA will be automatically generated from all of the combined columns. This is indexed at your database to make the lookup very fast.
+
 
 # Upgrade History
 0.7.1 
@@ -229,8 +231,8 @@ Even within the same Rails session, a visit can be defined unique by:
 - [ ] optionally exclude specific IPs from tracking (like internal IP addresses)
 - [ ] track viewport screensize
 - [ ] an optional long-cookie feature to drop a long-lived cookie into the visitor's browser that work separately from the Rails session
-- [ ] track gclid 
-- [ ] track fbclid 
+- [X] track gclid 
+- [X] track fbclid 
 - [ ] An optional extension to build in-house geolocation by IP address, or rely on an external service for geolocation by IP address and associate the user's looked-up location with their visit information
 - [ ] Anonymized geolocation, to let you look-up IPs in order to geolocate users, but not store the actual IP addresses themselves.
 - [ ] A switch to track the user before or after the controller action has rendered. Since the tracking adds a small overhead to each request, tracking after the controller has rendered makes your page respond faster for the user. But if you track before you render, you can use optionally use the tracked information to personalize, customize, or target your website to respond uniquely to the visitor. 
