@@ -18,7 +18,7 @@ A session will have only one visit at a time. If a new visit event happens withi
 
 # Is this Ethical?
 
-It is important to understand there are many different data points can could possibly be collected in today's web traffic. You may use this gem at your own discretion, and you can choose either more or less data capturing, as well ore *more or less data integration with your users.* 
+It is important to understand there are many different data points can could possibly be collected in today's web traffic. You should use this gem at your own discretion, and you can choose either more or less data capturing, as well *more or less data integration with your users.* 
 
 The reason I underscore this point is that the _safest_ data is _anonymized_ data.
 
@@ -32,7 +32,7 @@ In any country or region where a privacy law like the GDPR or California Consume
 
 Most privacy laws regulate the usage, storage, transmission, and removal of this data once you are retaining it in your database as well. 
 
-This gem express captures this data, as described in this README document, and by using this gem you are responsible for complying with the appropriate laws and regulations subject to you. 
+*By using this gem you are responsible for complying with the appropriate laws and regulations subject to you.*
 
 You will note that most old privacy policies talk about much of this data being stored in "log files." This gem takes the data retention _farther_ and stores the data into the database. (So you should modify your privacy policy accordingly.)
 
