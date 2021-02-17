@@ -32,12 +32,9 @@ In any country or region where a privacy law like the GDPR or California Consume
 
 Most privacy laws regulate the usage, storage, transmission, and removal of this data once you are retaining it in your database as well. 
 
-*By using this gem you are responsible for complying with the appropriate laws and regulations subject to you.*
-
 You will note that most old privacy policies talk about much of this data being stored in "log files." This gem takes the data retention _farther_ and stores the data into the database. (So you should modify your privacy policy accordingly.)
 
-Please should consult a legal expert familiar with the laws of your region regarding data retention and capture if you are going to use this gem. 
-
+**By using this gem you are responsible for complying with the appropriate laws and regulations subject to you.**
 
 # Installation
 
@@ -73,15 +70,17 @@ end
 
 ```
 
-(Notice track_referrer is disable by default
+5. Extensible Tracking
 
-5. Extensible UTMs
-As of Version 0.7.0, you can now extend the UTM parameters to include any paramater with data for your website's inbound traffic. This is useful if you  are running advertising that brings people to your Rails site and the ad platforms are sending you traffic with specific, custom tracking parameters you want to keep track of.
+As of Version 0.7.0, you can now extend the UTM parameters to include any paramater with data for your website's inbound traffic. `fbclid` or `glic` are example of inbound parameters from Facebook and Google, respectively. This is useful if you  are running advertising that brings people to your Rails site and the ad platforms are sending you traffic with specific, custom tracking parameters you want to keep track of.
    
 To customize, modify the comma-separated `config.campaign_columns` in the initializer above.
 
 For optimization and speed, a unique SHA will be automatically generated from all of the combined columns. This is indexed at your database to make the lookup very fast.
 
+[ TODO: check with @sstruph if the extensible UTMS must be configured before running the generators -- I think there may be a chicken & egg problem for new users who want to use extensible tracking. ]
+
+[ TODO: add more info & example of how to set up with extensible parameters ]
 
 # Upgrade History
 0.7.1 
