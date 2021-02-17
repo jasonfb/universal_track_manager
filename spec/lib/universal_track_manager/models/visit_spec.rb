@@ -14,6 +14,17 @@ describe UniversalTrackManager::Visit do
   let(:visit) {
     UniversalTrackManager::Visit.new({campaign: campaign})
   }
+  let(:cropped_campaign) {
+    UniversalTrackManager::Campaign.new({
+      utm_campaign: "abc",
+      utm_source: "def",
+      utm_term: "ghi",
+      utm_content: "jkl"
+    })
+  }
+  let(:cropped_visit) {
+    UniversalTrackManager::Visit.new({campaign: cropped_campaign})
+  }
 
 
   def basic_params
@@ -75,6 +86,15 @@ describe UniversalTrackManager::Visit do
           utm_content: "jkl",
           utm_medium: "XXX"}
       )).to be(false)
+    end
+    it "should NOT match if any of the UTMs are missing" do
+      expect(visit.matches_all_utms?(
+        { utm_campaign: "abc",
+          utm_source: "def" }
+      )).to be(false)
+    end
+    it "should NOT match if there are additional UTMs present" do
+      expect(cropped_visit.matches_all_utms?(basic_params)).to be(false)
     end
 
     describe "with no campaign" do

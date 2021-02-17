@@ -16,7 +16,7 @@ class UniversalTrackManager::Visit < ActiveRecord::Base
 
     # note params are allowed to be missing
     UniversalTrackManager.campaign_column_symbols.each do |c|
-      if campaign[c] != params[c]
+      if (campaign[c] && (campaign[c] != params[c])) || (!campaign[c] && params[c])
         return false
       end
     end
