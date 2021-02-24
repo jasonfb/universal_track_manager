@@ -2,21 +2,11 @@
 
 [![Build Status](https://travis-ci.com/jasonfb/universal_track_manager.svg?branch=master)](https://travis-ci.com/jasonfb/universal_track_manager)
 
-
-
-```diff
-! Like this gem? Please 'star' it (above) or consider becoming a sponsor... 
-```
-
-... [Thank you Github sponsors!](https://github.com/sponsors/jasonfb/)
-
-Thanks for making my work on this gem possible. 
-
 # About
 
 Universal Track Manager, also known as UTM, is a gem to track your visitors and their pageloads. You can use it to track Urchin Tracking Module (UTM) parameters, and the fact that these two things abbreviate to the same letters is play-on-words.
 
-You can use Universal Track Manager to track simple information like browser, IP address, http referrer, and your inbound UTM (Urchin Tracking Module) parameters. Because UTM parameters are used most commonly with advirtising, we also refer to tracking your UTM parameters as "ad campaigns" or just "campaigns".
+You can use Universal Track Manager to track simple information like browser, IP address, http referrer, and your inbound UTM (Urchin Tracking Module) parameters. Because UTM parameters are used most commonly with advertising, we also refer to tracking your UTM parameters as "ad campaigns" or just "campaigns".
 
 In particular, this Gem can be used to solve the common first-land problem where UTM parameters are present only in the first page of a user's visit, but not available naturally a few steps later when the event you want to track happens (see 'UTM Hooks')
 
@@ -28,7 +18,7 @@ A session will have only one visit at a time. If a new visit event happens withi
 
 # Is this Ethical?
 
-It is important to understand there are many different data points can could possibly be collected in today's web traffic. You may use this gem at your own discretion, and you can choose either more or less data capturing, as well ore *more or less data integration with your users.* 
+It is important to understand there are many different data points can could possibly be collected in today's web traffic. You should use this gem at your own discretion, and you can choose either more or less data capturing, as well *more or less data integration with your users.* 
 
 The reason I underscore this point is that the _safest_ data is _anonymized_ data.
 
@@ -42,12 +32,9 @@ In any country or region where a privacy law like the GDPR or California Consume
 
 Most privacy laws regulate the usage, storage, transmission, and removal of this data once you are retaining it in your database as well. 
 
-This gem express captures this data, as described in this README document, and by using this gem you are responsible for complying with the appropriate laws and regulations subject to you. 
-
 You will note that most old privacy policies talk about much of this data being stored in "log files." This gem takes the data retention _farther_ and stores the data into the database. (So you should modify your privacy policy accordingly.)
 
-Please should consult a legal expert familiar with the laws of your region regarding data retention and capture if you are going to use this gem. 
-
+**By using this gem you are responsible for complying with the appropriate laws and regulations subject to you.**
 
 # Installation
 
@@ -83,13 +70,27 @@ end
 
 ```
 
-(Notice track_referrer is disable by default
+5. Extensible Tracking
 
-5. Extensible UTMs
-As of Version 0.7, you can now extend the UTM parameters to include any paramater with data for your website's inbound traffic. This is useful if you  are running advertising that brings people to your Rails site and the ad platforms are sending you traffic with specific, custom tracking parameters you want to keep track of.
+As of Version 0.7.0, you can now extend the UTM parameters to include any paramater with data for your website's inbound traffic. `fbclid` or `glic` are example of inbound parameters from Facebook and Google, respectively. This is useful if you  are running advertising that brings people to your Rails site and the ad platforms are sending you traffic with specific, custom tracking parameters you want to keep track of.
    
 To customize, modify the comma-separated `config.campaign_columns` in the initializer above.
 
+For optimization and speed, a unique SHA will be automatically generated from all of the combined columns. This is indexed at your database to make the lookup very fast.
+
+[ TODO: check with @sstruph if the extensible UTMS must be configured before running the generators -- I think there may be a chicken & egg problem for new users who want to use extensible tracking. ]
+
+[ TODO: add more info & example of how to set up with extensible parameters ]
+
+# Upgrade History
+0.7.1 
+- IMPORTANT: If you are upgrading, you must create migrations to make the following modifications from a pre-0.7.1 install
+- add `sha1` to campaigns (string limit 20)
+- add and index also called `sha1` (name: "index_campaigns_on_sha1") also on campaigns
+- note that the limits on many of the other strings have changed to 255
+
+
+0.7.0.alpha
 
 
 
@@ -229,8 +230,8 @@ Even within the same Rails session, a visit can be defined unique by:
 - [ ] optionally exclude specific IPs from tracking (like internal IP addresses)
 - [ ] track viewport screensize
 - [ ] an optional long-cookie feature to drop a long-lived cookie into the visitor's browser that work separately from the Rails session
-- [ ] track gclid 
-- [ ] track fbclid 
+- [X] track gclid 
+- [X] track fbclid 
 - [ ] An optional extension to build in-house geolocation by IP address, or rely on an external service for geolocation by IP address and associate the user's looked-up location with their visit information
 - [ ] Anonymized geolocation, to let you look-up IPs in order to geolocate users, but not store the actual IP addresses themselves.
 - [ ] A switch to track the user before or after the controller action has rendered. Since the tracking adds a small overhead to each request, tracking after the controller has rendered makes your page respond faster for the user. But if you track before you render, you can use optionally use the tracked information to personalize, customize, or target your website to respond uniquely to the visitor. 
@@ -252,12 +253,12 @@ First, please create a symlink for the migrations to run properly from db/migrat
 ln -s ../spec/dummy/db/migrate/ db/migrate
 ```
 
-Next, setup appraisal & bunde install with:
+Next, setup appraisal & bundle install with:
 
 ```
 gem install appraisal
 bundle exec appraisal install
-bundle exec appraisal rails-6-0 rake dummy:db:migrate RAILS_ENV=test
+bundle exec appraisal rails-6-1 rake dummy:db:migrate RAILS_ENV=test
 ```
 
 to run specs in all versions of Rails (see `Appraisals` file)
@@ -267,10 +268,10 @@ bundle exec appraisal rake spec
 
 ```
 
-To run the specs in only Rails 6.0, run
+To run the specs in only Rails 6.1, run
 
 ```
-bundle exec appraisal rails-6-0 rake spec
+bundle exec appraisal rails-6-1 rake spec
 
 ```
 

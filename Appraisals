@@ -21,3 +21,12 @@ appraise "rails-6-0" do
   gem 'rails-controller-testing'
   gem "rspec-rails", '~> 4.0.0.beta2'
 end
+
+
+appraise "rails-6-1" do
+    gem "rails", "6.1"
+  gem 'sqlite3'
+  gem 'database_cleaner'
+  gem 'rails-controller-testing'
+  gem "rspec-rails"
+end
