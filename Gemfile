@@ -8,12 +8,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gemspec
 
-gem 'mocha'
-gem 'simplecov'
-gem 'rails-controller-testing'
-gem 'sqlite3'
-gem 'rspec-rails'
-
-gem 'byebug', group: [:development, :test]
-
-gem 'appraisal'
+group :test, :development do
+  gem 'mocha'
+  gem 'simplecov'
+  gem 'rails-controller-testing'
+  gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'byebug'
+  gem 'appraisal'
+end
