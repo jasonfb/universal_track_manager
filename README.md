@@ -45,12 +45,25 @@ Please familiarize yourself with the concepts above before installing.
 
 1. add `gem 'universal-track-manager'` to your `Gemfile`
 
-2. run 
+2. To track only the default utms (utm_campaign, utm_medium, utm_source, utm_
+
 
 ```
-rails generate universal_track_manager:install
+rails generate universal_track_manager:install 
 
 ```
+
+- [ ] TODO: fix this or fix docs
+
+If you, for example also want to track Facebook and Google clicks, append the parameter `param_list` with a list of field names separated by COMMA.
+
+```
+rails generate universal_track_manager:install param_list=fbclid,gclid
+
+```
+
+[TODO: is there a way to specify an *additional* list vs. an *alternative* list?]
+
 
 This will create a schema migration for the new tables that UTM will use (look for db/migrate/00000000000000_create_universal_tracking_manager_tables.rb. see 'Name Conflicts' below if any of these tables already exist in your app.)
 

@@ -8,11 +8,11 @@ Gem::Specification.new do |s|
   s.name        = 'universal-track-manager'
   s.version     = UniversalTrackManager::VERSION
   s.license     = 'MIT'
-  s.date        = '2020-10-29'
-  s.summary     = "A gem to track visitors to your website."
+  s.date        = Time.now.strftime("%Y-%m-%d")
+  s.summary     = "A gem to track visitors and their UTMs to your website."
   s.description = "Simple, plug & play visitor tracking by user agent (browser), IP address, referrer, and UTM parameters."
   s.authors     = ["Jason Fleetwood-Boldt"]
-  s.email       = 'jason.fb@datatravels.com'
+  s.email       = 'tech@datatravels.com'
 
   all_files       = `git ls-files -z`.split("\x0")
 
