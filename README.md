@@ -95,15 +95,20 @@ For optimization and speed, a unique SHA will be automatically generated from al
 
 [ TODO: add more info & example of how to set up with extensible parameters ]
 
-# Upgrade History
-0.7.1 
+# Version History
+
+### 0.7.2 
+- removes "-staged" files from the install generator after they are created
+
+### 0.7.1 
 - IMPORTANT: If you are upgrading, you must create migrations to make the following modifications from a pre-0.7.1 install
 - add `sha1` to campaigns (string limit 20)
 - add and index also called `sha1` (name: "index_campaigns_on_sha1") also on campaigns
 - note that the limits on many of the other strings have changed to 255
 
+### 0.7.0.alpha 
 
-0.7.0.alpha
+(sorry I didn't keep release notes before this)
 
 
 
