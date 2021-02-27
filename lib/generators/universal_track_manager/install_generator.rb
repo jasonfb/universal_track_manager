@@ -12,7 +12,13 @@ module UniversalTrackManager
     source_root File.expand_path('../templates', __dir__)
 
     class_option :orm, type: 'boolean'
-    class_option :param_list, type: :string, default: 'utm_source,utm_medium,utm_campaign,utm_content,utm_term'
+
+    class_option :param_list, type: :string, default: nil # DEPRECATED --- DO NOT USE
+
+
+
+    class_option :add, type: :string, default: nil
+    class_option :only, type: :string, default: nil
 
 
     def self.next_migration_number(path)
@@ -21,14 +27,40 @@ module UniversalTrackManager
 
     desc "Creates an initializer for Universal Track Manager and copy files to your application."
     def create_universal_track_manager_migration
-      @params = options['param_list']
-
-      # TOOD: figure out how to pass parameters
-      column_defs = ""
-      @params.split(',').each  do |p|
-        column_defs += "          t.string :#{p}, limit:256\n"
+      # guard against pre-0.7.3 sytnax
+      if options['param_list']
+        puts "Oops (FATAL): param_list is removed; use 'add' to augment the default list of fields or use 'only' to replace it"
+        exit
       end
 
+      # guard against using both 'add' and 'only'
+      if options['add'] && options['only']
+        puts "Oops (FATAL): You specified both 'add' and 'only'; use 'add' to augment the default list of fields OR use 'only' to replace it"
+        exit
+      end
+
+      @default_params = %w{utm_source utm_medium utm_campaign utm_content utm_term}
+
+      if options['add']
+        options['add'].split(",").each  do |p|
+          if !@default_params.include?(p)
+            @default_params << p
+          end
+        end
+      end
+
+
+      if options['only']
+        @default_params = []
+        options['only'].split(",").each  do |p|
+          @default_params << p
+        end
+      end
+
+      column_defs = ""
+      @default_params.each  do |p|
+        column_defs += "          t.string :#{p}, limit:256\n"
+      end
       copy_file "create_universal_track_manager_tables.rb", "#{self.class.source_root}/create_universal_track_manager_tables.rb-staged"
       gsub_file "#{self.class.source_root}/create_universal_track_manager_tables.rb-staged", "#GENERATOR INSERTS CAMPAIGN COLUMNS HERE", column_defs
       migration_template "create_universal_track_manager_tables.rb-staged",  "db/migrate/create_universal_track_manager_tables.rb"

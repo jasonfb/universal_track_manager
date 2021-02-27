@@ -97,8 +97,11 @@ For optimization and speed, a unique SHA will be automatically generated from al
 
 # Version History
 
+
+
 ### 0.7.2 
 - removes "-staged" files from the install generator after they are created
+- changes 'param_list' to separate options 'add' (augment the default list) or 'only' (replace it)
 
 ### 0.7.1 
 - IMPORTANT: If you are upgrading, you must create migrations to make the following modifications from a pre-0.7.1 install
