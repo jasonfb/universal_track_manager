@@ -103,15 +103,9 @@ To customize, modify the comma-separated `config.campaign_columns` in the initia
 
 For optimization and speed, a unique SHA will be automatically generated from all of the combined columns. This is indexed at your database to make the lookup very fast.
 
-[ TODO: check with @sstruph if the extensible UTMS must be configured before running the generators -- I think there may be a chicken & egg problem for new users who want to use extensible tracking. ]
-
-[ TODO: add more info & example of how to set up with extensible parameters ]
-
 # Version History
 
-
-
-### 0.7.2 
+### 0.7.2 - 2021-02-27
 - removes "-staged" files from the install generator after they are created
 - changes 'param_list' to separate options 'add' (augment the default list) or 'only' (replace it)
 
