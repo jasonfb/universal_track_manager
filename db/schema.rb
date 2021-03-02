@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_02_17_000256) do
 
   create_table "browsers", force: :cascade do |t|
-    t.string "name", limit: 256
+    t.string "name", limit: 255
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_browsers_on_name"
