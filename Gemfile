@@ -14,6 +14,5 @@ group :test, :development do
   gem 'rails-controller-testing'
   gem 'sqlite3'
   gem 'rspec-rails'
-  gem 'byebug'
   gem 'appraisal'
 end
