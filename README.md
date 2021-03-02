@@ -42,12 +42,37 @@ Please familiarize yourself with the concepts above before installing.
 
 1. add `gem 'universal-track-manager'` to your `Gemfile`
 
-2. run 
+2. To track only the default utms (utm_campaign, utm_medium, utm_source, utm_term, utm_content), use the generator like so:
 
 ```
-rails generate universal_track_manager:install
+rails generate universal_track_manager:install 
 
 ```
+
+If you also want to track Facebook and Google clicks IDs, append the parameter `--add` with a list of field names separated by COMMA.
+
+
+```
+rails generate universal_track_manager:install --add=fbclid,gcllid
+
+```
+
+To REPLACE the default list of tracked parameters, use `--only`
+
+```
+rails generate universal_track_manager:install --only=abc,def
+
+```
+
+The default utm_campaign would not be tracked in the above case
+
+Of course, you can also use `--only` to specify a subset of the UTM fields like so:
+
+```
+rails generate universal_track_manager:install --only=utm_source,utm_campaign,utm_medium
+
+```
+
 
 This will create a schema migration for the new tables that UTM will use (look for db/migrate/00000000000000_create_universal_tracking_manager_tables.rb. see 'Name Conflicts' below if any of these tables already exist in your app.)
 
@@ -78,19 +103,21 @@ To customize, modify the comma-separated `config.campaign_columns` in the initia
 
 For optimization and speed, a unique SHA will be automatically generated from all of the combined columns. This is indexed at your database to make the lookup very fast.
 
-[ TODO: check with @sstruph if the extensible UTMS must be configured before running the generators -- I think there may be a chicken & egg problem for new users who want to use extensible tracking. ]
+# Version History
 
-[ TODO: add more info & example of how to set up with extensible parameters ]
+### 0.7.2 - 2021-02-27
+- removes "-staged" files from the install generator after they are created
+- changes 'param_list' to separate options 'add' (augment the default list) or 'only' (replace it)
 
-# Upgrade History
-0.7.1 
+### 0.7.1 
 - IMPORTANT: If you are upgrading, you must create migrations to make the following modifications from a pre-0.7.1 install
 - add `sha1` to campaigns (string limit 20)
 - add and index also called `sha1` (name: "index_campaigns_on_sha1") also on campaigns
 - note that the limits on many of the other strings have changed to 255
 
+### 0.7.0.alpha 
 
-0.7.0.alpha
+(sorry I didn't keep release notes before this)
 
 
 
