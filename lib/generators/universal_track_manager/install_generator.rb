@@ -1,8 +1,5 @@
 require 'rails/generators'
 
-require 'byebug'
-
-
 module UniversalTrackManager
   class InstallGenerator < Rails::Generators::Base
     include Rails::Generators::Migration
