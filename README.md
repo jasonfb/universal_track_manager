@@ -104,6 +104,9 @@ To customize, modify the comma-separated `config.campaign_columns` in the initia
 For optimization and speed, a unique SHA will be automatically generated from all of the combined columns. This is indexed at your database to make the lookup very fast.
 
 # Version History
+### 0.7.3 - 2021-03-19 
+- minor release removes byebug 
+
 
 ### 0.7.2 - 2021-02-27
 - removes "-staged" files from the install generator after they are created
