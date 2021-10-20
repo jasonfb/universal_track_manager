@@ -20,11 +20,10 @@ Gem::Specification.new do |s|
 
   s.require_paths = ["lib"]
 
-  s.homepage    = 'https://blog.jasonfleetwoodboldt.com/my-open-source-projects/universal-track-manager/'
+  s.homepage    = 'https://jasonfleetwoodboldt.com/my-open-source-projects/universal-track-manager/'
 
   s.metadata    = { "source_code_uri" => "https://github.com/jasonfb/universal_track_manager",
-                    "documentation_uri" => "https://jfb.teachable.com/p/gems-by-jason",
-                    "homepage_uri" => 'https://blog.jasonfleetwoodboldt.com/my-open-source-projects/universal-track-manager/'}
+                    "homepage_uri" => 'https://github.com/jasonfb/universal_track_manager'}
 
 
   s.add_dependency('rails', '> 4.1')

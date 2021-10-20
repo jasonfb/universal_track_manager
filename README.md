@@ -104,9 +104,10 @@ To customize, modify the comma-separated `config.campaign_columns` in the initia
 For optimization and speed, a unique SHA will be automatically generated from all of the combined columns. This is indexed at your database to make the lookup very fast.
 
 # Version History
-### 0.7.3 - 2021-03-19 
-- minor release removes byebug 
+### 0.7.4 - 
 
+### 0.7.3 - 2021-03-19 
+- minor release removes byebug
 
 ### 0.7.2 - 2021-02-27
 - removes "-staged" files from the install generator after they are created
@@ -114,15 +115,24 @@ For optimization and speed, a unique SHA will be automatically generated from al
 
 ### 0.7.1 
 - IMPORTANT: If you are upgrading, you must create migrations to make the following modifications from a pre-0.7.1 install
-- add `sha1` to campaigns (string limit 20)
+- add field `sha1` to campaigns (string)
 - add and index also called `sha1` (name: "index_campaigns_on_sha1") also on campaigns
+- this index field should be the index of ALL of the fields you want to track
+Here's a quick example:
+```
+class Add071ChangesToUtmTables < ActiveRecord::Migration[6.1]
+  def change
+    add_column :campaigns,  :sha1,  :string
+    add_index(:campaigns, [:utm_campaign, :utm_term, :utm_content, :utm_source, :utm_medium], name: :index_campaigns_on_sha1)
+  end 
+end
+```
+
 - note that the limits on many of the other strings have changed to 255
 
 ### 0.7.0.alpha 
 
 (sorry I didn't keep release notes before this)
-
-
 
 # Options
 
