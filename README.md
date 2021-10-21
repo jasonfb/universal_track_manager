@@ -1,6 +1,7 @@
 # Status
+[![Build Status](https://app.travis-ci.com/jasonfb/universal_track_manager.svg?branch=master)](https://app.travis-ci.com/jasonfb/universal_track_manager)
 
-[![Build Status](https://app.travis-ci.com/jasonfb/universal_track_manager.svg?branch=master)](https://travis-ci.com/jasonfb/universal_track_manager)
+
 
 # About
 
