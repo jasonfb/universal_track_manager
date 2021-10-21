@@ -1,8 +1,7 @@
 PATH
   remote: ..
   specs:
-    universal-track-manager (0.7.1)
-      rails (> 4.1)
+    universal-track-manager (0.7.5.alpha)
 
 GEM
   remote: https://rubygems.org/
@@ -50,7 +49,6 @@ GEM
       thor (>= 0.14.0)
     arel (8.0.0)
     builder (3.2.3)
-    byebug (11.0.1)
     concurrent-ruby (1.1.5)
     crass (1.0.5)
     database_cleaner (1.7.0)
@@ -153,12 +151,11 @@ PLATFORMS
 
 DEPENDENCIES
   appraisal
-  byebug
   database_cleaner
   mocha
   rails (= 5.1.7)
   rails-controller-testing
-  rspec-rails (~> 3.1)
+  rspec-rails
   simplecov
   simplecov-rcov
   sqlite3

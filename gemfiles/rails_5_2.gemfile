@@ -2,14 +2,17 @@
 
 source "https://rubygems.org"
 
-gem "mocha"
-gem "simplecov"
-gem "rails-controller-testing"
-gem "sqlite3"
-gem "rspec-rails", "~> 3.1"
-gem "byebug", group: [:development, :test]
-gem "appraisal"
 gem "rails", "5.2.4.rc1"
+gem "sqlite3"
 gem "database_cleaner"
+
+group :test, :development do
+  gem "mocha"
+  gem "simplecov"
+  gem "rails-controller-testing"
+  gem "sqlite3"
+  gem "rspec-rails"
+  gem "appraisal"
+end
 
 gemspec path: "../"
