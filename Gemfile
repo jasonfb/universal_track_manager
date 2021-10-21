@@ -9,6 +9,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gemspec
 
 group :test, :development do
+  gem 'byebug'
   gem 'mocha'
   gem 'simplecov'
   gem 'rails-controller-testing'

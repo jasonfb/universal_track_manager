@@ -76,7 +76,7 @@ describe AbcController, :type => :controller do
       end
     end
 
-    describe "existing visit behavior: " do
+    describe "existing visit behavior" do
       describe "the ip address" do
 
         before(:each) do
@@ -121,7 +121,7 @@ describe AbcController, :type => :controller do
           expect(last_visit.original_visit_id).to eq(first_visit.id)
         end
 
-        it "should give the third visit the genesis of the first visit" do
+        it "should give the third visit the genesis of the second visit" do
           get :index
           first_visit = UniversalTrackManager::Visit.last
 
@@ -135,8 +135,32 @@ describe AbcController, :type => :controller do
           #3rd attempt
           get :index
           last_visit = UniversalTrackManager::Visit.last
-          expect(last_visit.original_visit_id).to eq(first_visit.id)
-          expect(second_visit.original_visit_id).to eq(first_visit.id)
+          expect(second_visit.original_visit_id).to eq(first_visit.id) # TODO FIX ME
+
+          expect(last_visit.original_visit_id).to eq(second_visit.id)
+        end
+
+        it "give the first visit a count of 1 and the second visit a count of 2" do
+          get :index
+          first_visit = UniversalTrackManager::Visit.last
+
+          request.remote_addr = '5.6.7.8'
+
+          #2nd attempt
+          get :index
+          second_visit = UniversalTrackManager::Visit.last
+
+          request.remote_addr = '9.10.11.12'
+
+          #3rd attempt
+          get :index
+          third_visit = UniversalTrackManager::Visit.last
+
+          expect(first_visit.count).to eq(1)
+          expect(second_visit.count).to eq(2)
+
+          expect(third_visit.count).to eq(3) # TODO FIX ME
+
         end
       end
 

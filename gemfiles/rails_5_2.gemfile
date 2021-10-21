@@ -8,6 +8,7 @@ gem "actionpack", "5.2.4.rc1"
 gem "database_cleaner"
 
 group :test, :development do
+  gem "byebug"
   gem "mocha"
   gem "simplecov"
   gem "rails-controller-testing"
