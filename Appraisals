@@ -13,7 +13,14 @@ appraise "rails-6-0" do
 end
 
 appraise "rails-6-1" do
-    gem "rails", "6.1"
+  gem "rails", "6.1"
+  gem 'sqlite3'
+  gem 'database_cleaner'
+end
+
+
+appraise "rails-7-0" do
+  gem "rails", "7.0.0.alpha2"
   gem 'sqlite3'
   gem 'database_cleaner'
 end

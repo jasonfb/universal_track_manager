@@ -29,6 +29,7 @@ class CreateUniversalTrackManagerTables < ActiveRecord::Migration<%= migration_v
 
         t.integer :viewport_width
         t.integer :viewport_height
+        t.integer :count, default: 1
         t.timestamps
       end
     end

@@ -4,6 +4,7 @@ class UniversalTrackManager::Visit < ActiveRecord::Base
   belongs_to :campaign, class_name: "UniversalTrackManager::Campaign"
   belongs_to :browser, class_name: "UniversalTrackManager::Browser"
 
+  belongs_to :original_visit, optional: true
 
   def matches_all_utms?(params)
     if !campaign

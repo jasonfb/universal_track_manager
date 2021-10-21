@@ -99,6 +99,8 @@ GEM
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
+    nokogiri (1.12.5-arm64-darwin)
+      racc (~> 1.4)
     racc (1.6.0)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -177,6 +179,7 @@ GEM
 
 PLATFORMS
   -darwin-20
+  arm64-darwin-20
 
 DEPENDENCIES
   appraisal
@@ -189,4 +192,4 @@ DEPENDENCIES
   universal-track-manager!
 
 BUNDLED WITH
-   2.2.7
+   2.2.19

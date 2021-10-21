@@ -68,6 +68,12 @@ describe AbcController, :type => :controller do
         expect(last_visit.first_pageload).to eq(last_visit.last_pageload)
       end
 
+
+      it "should have a count of 1" do
+        get :index
+        last_visit = UniversalTrackManager::Visit.last
+        expect(last_visit.count).to eq(1)
+      end
     end
 
     describe "existing visit behavior: " do

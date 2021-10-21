@@ -313,27 +313,38 @@ First, please create a symlink for the migrations to run properly from db/migrat
 ln -s ../spec/dummy/db/migrate/ db/migrate
 ```
 
+Then delete `rm db/test.sqlite3` if it already exists in the repo.
+
 Next, setup appraisal & bundle install with:
 
 ```
 gem install appraisal
-bundle exec appraisal install
-bundle exec appraisal rails-6-1 rake dummy:db:migrate RAILS_ENV=test
+appraisal install
+appraisal rails-6-1 rake dummy:db:migrate RAILS_ENV=test
 ```
+
+The gem has the same footprint accross all versions of Rails, and even though Appraisal will test against different versions of Rails, it will use the same database to do so.
 
 to run specs in all versions of Rails (see `Appraisals` file)
 
 ```
-bundle exec appraisal rake spec
+appraisal rake spec
 
 ```
 
-To run the specs in only Rails 6.1, run
+To run the specs in only Rails 6.1, you would run
 
 ```
-bundle exec appraisal rails-6-1 rake spec
+appraisal rails-6-1 rake spec
 
 ```
+
+
+### When Adding/Editing Rails Versions
+
+To rebuild the Appraisal Gemfiles (in `gemfiles/`) use
+`appraisal install`
+
 
 ## Open Issue, Fork & Branch, Submit PR Against Master
 

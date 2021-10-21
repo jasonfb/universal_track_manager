@@ -101,12 +101,16 @@ module UniversalTrackManagerConcern
       first_pageload: now,
       last_pageload: now,
       original_visit_id: old_visit.original_visit_id.nil? ?  old_visit.id : old_visit.original_visit_id,
+      count: old_visit.original_visit_id.nil? ?  old_visit.count + 1 : 1,
       ip_v4_address: ip_address,
       campaign: find_or_create_campaign_by_current
     }
 
     # fail silently if there is no user agent
-    params[:browser] =  find_or_create_browser_by_current if request.user_agent
+    if request.user_agent
+      params[:browser] =  find_or_create_browser_by_current
+    end
+
     visit = UniversalTrackManager::Visit.create!(params)
 
     session[:visit_id] = visit.id
