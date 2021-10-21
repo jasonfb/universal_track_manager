@@ -1,6 +1,6 @@
 # Status
 
-[![Build Status](https://travis-ci.com/jasonfb/universal_track_manager.svg?branch=master)](https://travis-ci.com/jasonfb/universal_track_manager)
+[![Build Status](https://app.travis-ci.com/jasonfb/universal_track_manager.svg?branch=master)](https://travis-ci.com/jasonfb/universal_track_manager)
 
 # About
 
@@ -104,7 +104,23 @@ To customize, modify the comma-separated `config.campaign_columns` in the initia
 For optimization and speed, a unique SHA will be automatically generated from all of the combined columns. This is indexed at your database to make the lookup very fast.
 
 # Version History
-### 0.7.4 - 
+### 0.7.5 
+
+For this version I have added a counter onto th visits table.
+
+IF YOU ARE UPGRADING from a version prior to 0.7.5, you must 
+
+`rails generate migration AddCountToVisits`
+- 
+```
+class AddCountToVisits < ActiveRecord::Migration[6.1]
+  def change
+    add_column :visits, :count, :integer, default: 1
+  end 
+end
+```
+
+All new visits start a 1, the next subsequent visit will be +1 from its parent visit. 
 
 ### 0.7.3 - 2021-03-19 
 - minor release removes byebug
@@ -119,8 +135,11 @@ For optimization and speed, a unique SHA will be automatically generated from al
 - add and index also called `sha1` (name: "index_campaigns_on_sha1") also on campaigns
 - this index field should be the index of ALL of the fields you want to track
 Here's a quick example:
+
+`rails generate migration AddUTM071ChangesToUtmTables`
+- 
 ```
-class Add071ChangesToUtmTables < ActiveRecord::Migration[6.1]
+class AddUTM071ChangesToUtmTables < ActiveRecord::Migration[6.1]
   def change
     add_column :campaigns,  :sha1,  :string
     add_index(:campaigns, [:utm_campaign, :utm_term, :utm_content, :utm_source, :utm_medium], name: :index_campaigns_on_sha1)
