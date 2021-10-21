@@ -1,32 +1,19 @@
-appraise "rails-5-1" do
-  gem "rails", "5.1.7"
-  gem 'sqlite3'
-  gem 'database_cleaner'
-  gem 'rails-controller-testing'
-  gem "rspec-rails", '~> 3.1'
-end
-
 appraise "rails-5-2" do
   gem "rails", "5.2.4.rc1"
   gem 'sqlite3'
+  gem 'actionpack', '5.2.4.rc1'
+
   gem 'database_cleaner'
-  gem 'rails-controller-testing'
-  gem "rspec-rails", '~> 3.1'
 end
 
 appraise "rails-6-0" do
   gem "rails", "6.0.1"
   gem 'sqlite3'
   gem 'database_cleaner'
-  gem 'rails-controller-testing'
-  gem "rspec-rails", '~> 4.0.0.beta2'
 end
-
 
 appraise "rails-6-1" do
     gem "rails", "6.1"
   gem 'sqlite3'
   gem 'database_cleaner'
-  gem 'rails-controller-testing'
-  gem "rspec-rails"
 end
