@@ -1,7 +1,7 @@
 # Status
 
 
-[![Unviersal Track Maanger](https://circleci.com/gh/jasonfb/universal-track-manager.svg?style=shield)](https://circleci.com/gh/jasonfb/universal-track-manager)
+[![Unviersal Track Maanger](https://circleci.com/gh/jasonfb/universal_track_manager.svg?style=shield)](https://circleci.com/gh/jasonfb/universal-track-manager)
 
 
 
