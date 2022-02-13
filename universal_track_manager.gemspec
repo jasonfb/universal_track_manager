@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = "A gem to track visitors and their UTMs to your website."
   s.description = "Simple, plug & play visitor tracking by user agent (browser), IP address, referrer, and UTM parameters."
   s.authors     = ["Jason Fleetwood-Boldt"]
-  s.email       = 'code@jasonfb.net'
+  s.email       = 'support@heliosdev.shop'
 
   all_files       = `git ls-files -z`.split("\x0")
 
@@ -20,10 +20,10 @@ Gem::Specification.new do |s|
 
   s.require_paths = ["lib"]
 
-  s.homepage    = 'https://jasonfleetwoodboldt.com/my-open-source-projects/universal-track-manager/'
+  s.homepage    = 'https://heliosdev.shop/p/universal-track-manager'
 
   s.metadata    = { "source_code_uri" => "https://github.com/jasonfb/universal_track_manager",
-                    "homepage_uri" => 'https://github.com/jasonfb/universal_track_manager'}
+                    "homepage_uri" => 'https://heliosdev.shop/p/universal-track-manager'}
 
 
   s.add_dependency('rails', '> 5.1')
@@ -37,6 +37,7 @@ Gem::Specification.new do |s|
     to set up, please run
     
     rails generate universal_track_manager:install
+    For support see https://heliosdev.shop/p/universal-track-manager
     ---------------------------------------------
   MSG
 end
