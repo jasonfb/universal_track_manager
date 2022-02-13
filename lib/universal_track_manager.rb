@@ -4,7 +4,8 @@ module UniversalTrackManager
   require "railtie.rb" if defined?(Rails)
 
   class Settings
-    attr_accessor :track_ips, :track_utms,
+    attr_accessor :track_ips,
+                  :track_utms,
                   :track_user_agent,
                   :track_http_referrer,
                   :campaign_columns,
@@ -19,6 +20,7 @@ module UniversalTrackManager
 
   def self.gclid_detect?
     true
+    # Why is this not working
     # @_settings.gclid_detect
   end
 
