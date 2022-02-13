@@ -17,14 +17,12 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps # use the ruby orb to install dependencies
-
       - run:
           name: Which bundler?
           command: bundle -v
-       - run:
-         name: bundle install
-         command: bundle install
-
+      - run:
+        name: bundle install
+        command: bundle install
   test:  # our next job, called "test"
     parallelism: 1
     # here we set TWO docker images.
