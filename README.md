@@ -1,9 +1,5 @@
 # Status
-
-
 [![Unviersal Track Maanger](https://circleci.com/gh/jasonfb/universal_track_manager.svg?style=shield)](https://circleci.com/gh/jasonfb/universal-track-manager)
-
-
 
 # About
 
@@ -76,8 +72,9 @@ rails generate universal_track_manager:install --only=utm_source,utm_campaign,ut
 
 ```
 
-
 This will create a schema migration for the new tables that UTM will use (look for db/migrate/00000000000000_create_universal_tracking_manager_tables.rb. see 'Name Conflicts' below if any of these tables already exist in your app.)
+
+
 
 3. In your ApplicationController, add:
 
@@ -106,16 +103,30 @@ To customize, modify the comma-separated `config.campaign_columns` in the initia
 
 For optimization and speed, a unique SHA will be automatically generated from all of the combined columns. This is indexed at your database to make the lookup very fast.
 
+
+
+6. Extensions 
+
+If you instead don't want to store the full Gclid in your database but only a flag indicating the visitor was from a Google Ad, use the built-in `gclid_present` feature which will store only a boolean flag.
+To install:
+``` 
+rails generate universal_track_manager:add_gclid_present
+```
+
+(Of course, if you want this during your installation just use the `--add` flag.
+
+This generator simply creates a field `gclid_present` (boolean) on your `campaigns` table. Be sure to add this to the campaign_columns setting in `config/universal_track_manager.rb` (not automatic).
+
+ALSO: Set `config.gclid_detect` = true on your 
+
+
 # Version History
 
-### 0.7.7 - 
+### 0.7.7 - Generator adding field `gclid_present` and automatic detection of gclid to set the `gclid_present` (boolean) field on campaigns
 
 ### 0.7.6 - Catch for nil `user_agent`; adds class_name on the original_visit association
 
-
-### 0.7.5 
-
-For this version I have added a counter onto th visits table.
+### 0.7.5 - For this version I have added a counter onto th visits table.
 
 IF YOU ARE UPGRADING from a version prior to 0.7.5, you must 
 

@@ -2,7 +2,7 @@
 require 'rails/generators'
 
 module UniversalTrackManager
-  class ExtensionGenerator < Rails::Generators::Base
+  class AddGclidPresentGenerator < Rails::Generators::Base
     include Rails::Generators::Migration
     desc "Add gclid_present (boolean) to `campaigns` table"
     source_root File.expand_path('../templates', __dir__)
@@ -12,15 +12,14 @@ module UniversalTrackManager
     end
 
     desc "Add gclid_present (boolean) to `campaigns` table"
-    def add_glcid_present
+    def create_gclid_present_migration
       migration_template "add_gclid_present_to_campaigns.rb",  "db/migrate/add_gclid_present_to_campaigns.rb"
 
-      puts 'IMPORTANT: Be sure to add `glclid_present` to the end of the `config.campaign_columns` setting in `config/universal_track_manager.rb` (append to any existing using a comma)'
+      puts 'IMPORTANT: Be sure to add `gclid_detect` setting (true) and modify the setting campaign_columns in `config/universal_track_manager.rb` (add `glclid_present` to the end using a comma)'
       puts "example config/universal_track_manager.rb file \n"
       puts "UniversalTrackManager.configure do |config|
-  config.track_ips = true
-  config.track_utms = true
-  config.track_user_agent = true
+  // other configs here ...
+  config.gclid_detect = true
   config.campaign_columns = 'utm_source,utm_medium,utm_campaign,utm_content,utm_term,gclid_present'
 end"
 

@@ -330,4 +330,16 @@ describe AbcController, :type => :controller do
       # end
     end
   end
+
+
+  describe "#gclid_present on campaigns" do
+    it "should pick up the gclid" do
+      get :index, params: {glid: "xyz"}
+      last_visit = UniversalTrackManager::Visit.last
+
+      campaign = last_visit.campaign
+
+      expect(campaign.gclid_present).to be(true)
+    end
+  end
 end
