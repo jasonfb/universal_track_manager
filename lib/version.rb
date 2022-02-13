@@ -1,3 +1,3 @@
 module UniversalTrackManager
-  VERSION = "0.7.5.alpha2"
+  VERSION = "0.7.6"
 end

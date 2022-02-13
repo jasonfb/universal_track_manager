@@ -3,9 +3,9 @@ class UniversalTrackManager::Visit < ActiveRecord::Base
 
   belongs_to :campaign, class_name: "UniversalTrackManager::Campaign"
   belongs_to :browser, class_name: "UniversalTrackManager::Browser"
+  belongs_to :original_visit,  optional: true, class_name: "UniversalTrackManager::Visit"
 
-  belongs_to :original_visit, optional: true
-
+  # class_name: "UniveralTrackManager::Visit",
   def matches_all_utms?(params)
     if !campaign
       # this visit has no campaign, which means all UTMs = null
@@ -22,5 +22,9 @@ class UniversalTrackManager::Visit < ActiveRecord::Base
       end
     end
     return true
+  end
+
+  def name
+    "#{ip_v4_address} #{browser.name}"
   end
 end

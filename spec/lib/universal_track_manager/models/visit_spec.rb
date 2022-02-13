@@ -12,8 +12,13 @@ describe UniversalTrackManager::Visit do
     })
   }
   let(:visit) {
-    UniversalTrackManager::Visit.new({campaign: campaign})
+    UniversalTrackManager::Visit.new({
+                                       ip_v4_address: "1.2.3.4",
+                                       browser: browser,
+                                       campaign: campaign
+                                     })
   }
+
   let(:cropped_campaign) {
     UniversalTrackManager::Campaign.new({
       utm_campaign: "abc",
@@ -26,6 +31,9 @@ describe UniversalTrackManager::Visit do
     UniversalTrackManager::Visit.new({campaign: cropped_campaign})
   }
 
+  let(:browser) {
+    UniversalTrackManager::Browser.new(name: "fake")
+  }
 
   def basic_params
     { utm_campaign: "abc",
@@ -33,6 +41,12 @@ describe UniversalTrackManager::Visit do
       utm_term: "ghi",
       utm_content: "jkl",
       utm_medium: "mnp"}
+  end
+
+  describe "#name" do
+    it "should have a name" do
+      expect(visit.name).to eq("1.2.3.4 fake")
+    end
   end
 
 
@@ -122,6 +136,19 @@ describe UniversalTrackManager::Visit do
     end
 
 
-  end
 
+    describe "#original visit" do
+      let(:original_visit) {UniversalTrackManager.new}
+      subject { UniversalTrackManager::Visit.new(original_visit:
+                                                   original_visit) }
+
+
+
+      it "should have a nonstandard class name" do
+
+        expect(UniversalTrackManager::Visit.reflect_on_association(:original_visit).class_name).to eq("UniversalTrackManager::Visit")
+
+      end
+    end
+  end
 end
