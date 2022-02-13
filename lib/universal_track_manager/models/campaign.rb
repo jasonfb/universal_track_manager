@@ -4,4 +4,6 @@ class UniversalTrackManager::Campaign < ActiveRecord::Base
   def name
     "#{utm_source} #{utm_medium} #{utm_campaign} #{utm_content} #{utm_term}"
   end
+
+
 end

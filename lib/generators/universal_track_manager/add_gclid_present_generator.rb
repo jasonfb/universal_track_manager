@@ -15,12 +15,11 @@ module UniversalTrackManager
     def create_gclid_present_migration
       migration_template "add_gclid_present_to_campaigns.rb",  "db/migrate/add_gclid_present_to_campaigns.rb"
 
-      puts 'IMPORTANT: Be sure to add `gclid_detect` setting (true) and modify the setting campaign_columns in `config/universal_track_manager.rb` (add `glclid_present` to the end using a comma)'
+      puts 'IMPORTANT: Be sure to add `gclid_detect` setting (true) in `config/universal_track_manager.rb`'
       puts "example config/universal_track_manager.rb file \n"
       puts "UniversalTrackManager.configure do |config|
   // other configs here ...
   config.gclid_detect = true
-  config.campaign_columns = 'utm_source,utm_medium,utm_campaign,utm_content,utm_term,gclid_present'
 end"
 
     end

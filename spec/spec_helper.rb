@@ -42,6 +42,7 @@ UniversalTrackManager.configure do |config|
   config.track_ips = true
   config.track_utms = true
   config.track_user_agent = true
+  config.gclid_detect = true
   config.campaign_columns = 'utm_source,utm_campaign,utm_medium,utm_content,utm_term'
 end
 

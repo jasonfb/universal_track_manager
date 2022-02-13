@@ -115,9 +115,11 @@ rails generate universal_track_manager:add_gclid_present
 
 (Of course, if you want this during your installation just use the `--add` flag.
 
-This generator simply creates a field `gclid_present` (boolean) on your `campaigns` table. Be sure to add this to the campaign_columns setting in `config/universal_track_manager.rb` (not automatic).
+This generator simply creates a field `gclid_present` (boolean) on your `campaigns` table. 
 
-ALSO: Set `config.gclid_detect` = true on your 
+You DO NOT need to add this to campaign_columns setting in `config/universal_track_manager.rb` but you can.
+
+However, you must set `config.gclid_detect` = true on your 
 
 
 # Version History
@@ -365,8 +367,26 @@ To rebuild the Appraisal Gemfiles (in `gemfiles/`) use
 `appraisal install`
 
 
+cd `spec/dummy`
+``` 
+RAILS_ENV=test rails db:migrate
+```
+```
+cd ../..
+```
+
+
+copy it
+```
+cp spec/dummy/db/test.sqlite3 db/test.sqlite3
+```
+
+
+
+
 ## Open Issue, Fork & Branch, Submit PR Against Master
 
 - Make sure your use case or implementation is documented. 
 - Make sure it is tested. 
 - Make sure the specs are passing.
+

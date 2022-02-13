@@ -4,13 +4,22 @@ module UniversalTrackManager
   require "railtie.rb" if defined?(Rails)
 
   class Settings
-    attr_accessor :track_ips, :track_utms, :track_user_agent, :track_http_referrer, :campaign_columns
+    attr_accessor :track_ips, :track_utms,
+                  :track_user_agent,
+                  :track_http_referrer,
+                  :campaign_columns,
+                  :gclid_detect
   end
 
   def self.configure(&block)
-    @_settings =  Settings.new
+    @_settings = Settings.new
 
     block.call(@_settings)
+  end
+
+  def self.gclid_detect?
+    true
+    # @_settings.gclid_detect
   end
 
   def self.track_ips?
@@ -36,7 +45,4 @@ module UniversalTrackManager
     def self.campaign_column_symbols
     @campaign_column_symbols ||= @_settings.campaign_columns.split(',').map{|c| c.to_sym}
   end
-
 end
-
-
