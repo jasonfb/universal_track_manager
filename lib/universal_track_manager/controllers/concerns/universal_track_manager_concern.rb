@@ -27,7 +27,7 @@ module UniversalTrackManagerConcern
 
   def user_agent
     return nil if ! UniversalTrackManager.track_user_agent?
-    request.user_agent[0..254]
+    request.user_agent && request.user_agent[0..254]
   end
 
   def now
