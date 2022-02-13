@@ -52,11 +52,11 @@ rails generate universal_track_manager:install
 
 ```
 
-If you also want to track Facebook and Google clicks IDs, append the parameter `--add` with a list of field names separated by COMMA.
+If you also want to track any special fields (like fbclid or gclid) clicks IDs, append the parameter `--add` with a list of field names separated by COMMA.
 
 
 ```
-rails generate universal_track_manager:install --add=fbclid,gcllid
+rails generate universal_track_manager:install --add=fbclid,gclid
 
 ```
 
@@ -107,6 +107,12 @@ To customize, modify the comma-separated `config.campaign_columns` in the initia
 For optimization and speed, a unique SHA will be automatically generated from all of the combined columns. This is indexed at your database to make the lookup very fast.
 
 # Version History
+
+### 0.7.7 - 
+
+### 0.7.6 - Catch for nil `user_agent`; adds class_name on the original_visit association
+
+
 ### 0.7.5 
 
 For this version I have added a counter onto th visits table.
