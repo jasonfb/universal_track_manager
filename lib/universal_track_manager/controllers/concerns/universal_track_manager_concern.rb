@@ -13,6 +13,12 @@ module UniversalTrackManagerConcern
         permitted_utm_params[s]
       end
     end
+
+    UniversalTrackManager.detect_params.each do |param|
+      define_method(param.to_s + "_present?") do
+        params[param].present?
+      end
+    end
   end
 
   def permitted_utm_params
@@ -85,22 +91,30 @@ module UniversalTrackManagerConcern
   def find_or_create_campaign_by_current
     return nil if ! UniversalTrackManager.track_utms?
 
-    gen_sha1 = gen_campaign_key(permitted_utm_params)
+    gen_sha1 = gen_campaign_key(permitted_utm_params.merge( detected_advertiser_params))
 
     # find_or_create_by finding only by sha1 would be nice here, but how to do so with a dynamic set of columns?
     # we've got a small chance of dups here due to the non-atomic find/create and sha1, but that's ok for this application.
-    c = UniversalTrackManager::Campaign.find_by(sha1: gen_sha1)
 
     campaign_params = permitted_utm_params.merge({"sha1": gen_sha1})
-    if UniversalTrackManager.try(:gclid_detect?)
-      campaign_params.merge!({gclid_present: !!params[:gclid].present?})
-    end
+    c = UniversalTrackManager::Campaign.find_by(sha1: gen_sha1)
+    campaign_params.merge!(detected_advertiser_params)
 
     c ||= UniversalTrackManager::Campaign.create(campaign_params)
   end
 
+  def detected_advertiser_params
+    result = {}
+    UniversalTrackManager.detect_params.each do |p|
+      result.merge!({"#{p}_present": !!params[p].present?})
+    end
+    result
+  end
+
   def gen_campaign_key(params)
-    Digest::SHA1.hexdigest(params.keys.map{|k| k.downcase()}.sort.map{|k| {"#{k}":  params[k]}}.to_s)
+    Digest::SHA1.hexdigest(params.keys.map{|k|
+      k.downcase()
+    }.sort.map{  |k| {"#{k}":  params[k] } }.to_s)
   end
 
   def evict_visit!(old_visit)

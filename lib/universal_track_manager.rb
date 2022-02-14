@@ -8,6 +8,7 @@ module UniversalTrackManager
                   :track_utms,
                   :track_user_agent,
                   :track_http_referrer,
+                  :detect_params,
                   :campaign_columns,
                   :gclid_detect
   end
@@ -18,10 +19,10 @@ module UniversalTrackManager
     block.call(@_settings)
   end
 
-  def self.gclid_detect?
-    true
-    # Why is this not working
-    # @_settings.gclid_detect
+
+
+  def self.detect_params
+    @_settings.detect_params
   end
 
   def self.track_ips?
