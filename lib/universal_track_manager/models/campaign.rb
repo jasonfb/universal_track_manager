@@ -6,11 +6,12 @@ class UniversalTrackManager::Campaign < ActiveRecord::Base
       "Google Ad"
     elsif utm_source == "email"
       "Email: #{utm_medium} #{utm_campaign} #{utm_content}"
-
-    elsif false #facebook / referral  here
-
+    elsif utm_source.empty? && utm_term.empty? && utm_medium.empty? && utm_campaign.empty? && utm_content.empty?
+      "Direct"
     else
-      "Direct: #{utm_source} #{utm_term} #{utm_medium} #{utm_campaign} #{utm_content}"
+      "#{utm_source} #{utm_term} #{utm_medium} #{utm_campaign} #{utm_content}"
     end
+
+    # TODO: Add referral & Facebook/other social medial
   end
 end
