@@ -142,12 +142,9 @@ describe UniversalTrackManager::Visit do
       subject { UniversalTrackManager::Visit.new(original_visit:
                                                    original_visit) }
 
-
-
       it "should have a nonstandard class name" do
 
         expect(UniversalTrackManager::Visit.reflect_on_association(:original_visit).class_name).to eq("UniversalTrackManager::Visit")
-
       end
     end
   end

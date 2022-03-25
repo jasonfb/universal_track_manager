@@ -1,9 +1,5 @@
 # Status
-
-
 [![Unviersal Track Maanger](https://circleci.com/gh/jasonfb/universal_track_manager.svg?style=shield)](https://circleci.com/gh/jasonfb/universal-track-manager)
-
-
 
 # About
 
@@ -43,25 +39,34 @@ You will note that most old privacy policies talk about much of this data being 
 
 Please familiarize yourself with the concepts above before installing.
 
-1. add `gem 'universal-track-manager'` to your `Gemfile`
+## 1. add `gem 'universal-track-manager'` to your `Gemfile`
 
-2. To track only the default utms (utm_campaign, utm_medium, utm_source, utm_term, utm_content), use the generator like so:
+## 2. To track only the default utms (utm_campaign, utm_medium, utm_source, utm_term, utm_content), use the generator like so:
 
 ```
 rails generate universal_track_manager:install 
 
 ```
 
-If you also want to track Facebook and Google clicks IDs, append the parameter `--add` with a list of field names separated by COMMA.
 
-
-```
-rails generate universal_track_manager:install --add=fbclid,gcllid
+#### `--add`
+If you also want to track any special fields (like fbclid or gclid) clicks IDs, append the parameter `--add` with a list of field names separated by COMMA.
 
 ```
+rails generate universal_track_manager:install --add=fbclid,gclid
 
+```
+
+
+This affects the `config.campaign_columns` initializer above.  For optimization and speed, a unique SHA will be automatically generated from all of the combined columns. This is indexed at your database to make the lookup very fast.
+
+Note: If you track special fields, you will create new campaign records for each Google Ad or Facebook 
+inbound and track each click ID. This creates many campaign records.
+If you'd prefer to have just 1 campaign record for all this type of traffic but still detect the parameter, 
+you can track the presence or absence of the Gclid or FBclid only using the `detect_params` setting (below).
+
+#### `--only`
 To REPLACE the default list of tracked parameters, use `--only`
-
 ```
 rails generate universal_track_manager:install --only=abc,def
 
@@ -76,40 +81,56 @@ rails generate universal_track_manager:install --only=utm_source,utm_campaign,ut
 
 ```
 
-
 This will create a schema migration for the new tables that UTM will use (look for db/migrate/00000000000000_create_universal_tracking_manager_tables.rb. see 'Name Conflicts' below if any of these tables already exist in your app.)
 
-3. In your ApplicationController, add:
+
+
+
+## 3. In your ApplicationController, add:
 
 ```
   include UniversalTrackManagerConcern
 ```
 
 
-4. Notice tha the installer has created this file for you in `config/initializers/universal_track_manager.rb`
+## 4. Notice tha the installer has created this file for you in `config/initializers/universal_track_manager.rb`
 ```
 UniversalTrackManager.configure do |config|
   config.track_ips = true
   config.track_utms = true
   config.track_user_agent = true
+  config.detect_param = []
   config.campaign_columns = 'utm_source,utm_medium,utm_campaign,utm_content,utm_term'
   # config.track_referrer = false
 end
 
 ```
 
-5. Extensible Tracking
 
-As of Version 0.7.0, you can now extend the UTM parameters to include any paramater with data for your website's inbound traffic. `fbclid` or `glic` are example of inbound parameters from Facebook and Google, respectively. This is useful if you  are running advertising that brings people to your Rails site and the ad platforms are sending you traffic with specific, custom tracking parameters you want to keep track of.
-   
-To customize, modify the comma-separated `config.campaign_columns` in the initializer above.
+## 5. Adding Extensions 
 
-For optimization and speed, a unique SHA will be automatically generated from all of the combined columns. This is indexed at your database to make the lookup very fast.
+If you instead don't want to store the full Gclid in your database but only a flag indicating the visitor was from a Google Ad, use the built-in `gclid_present` feature which will store only a boolean flag.
+To install:
+``` 
+rails generate universal_track_manager:add_gclid_present
+```
+
+Add `:gclid` or `:fbclid` to the `detect_params` setting
+
+```
+config.detect_params = [:gclid]
+```
+Be sure there is a cooresponding boolean field *_present
+
+
 
 # Version History
-### 0.7.5 
 
-For this version I have added a counter onto th visits table.
+### 0.7.7 - Generator adding field `gclid_present` and automatic detection of gclid to set the `gclid_present` (boolean) field on campaigns
+
+### 0.7.6 - Catch for nil `user_agent`; adds class_name on the original_visit association
+
+### 0.7.5 - For this version I have added a counter onto th visits table.
 
 IF YOU ARE UPGRADING from a version prior to 0.7.5, you must 
 
@@ -348,8 +369,26 @@ To rebuild the Appraisal Gemfiles (in `gemfiles/`) use
 `appraisal install`
 
 
+cd `spec/dummy`
+``` 
+RAILS_ENV=test rails db:migrate
+```
+```
+cd ../..
+```
+
+
+copy it
+```
+cp spec/dummy/db/test.sqlite3 db/test.sqlite3
+```
+
+
+
+
 ## Open Issue, Fork & Branch, Submit PR Against Master
 
 - Make sure your use case or implementation is documented. 
 - Make sure it is tested. 
 - Make sure the specs are passing.
+
