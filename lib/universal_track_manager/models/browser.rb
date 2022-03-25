@@ -1,4 +1,2 @@
-class UniversalTrackManager::Browser < ActiveRecord::Base
-  self.table_name = "browsers"
-  
+class UniversalTrackManager::Browser < UniversalTrackManager::Base
 end

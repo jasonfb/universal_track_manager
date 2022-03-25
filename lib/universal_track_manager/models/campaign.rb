@@ -1,4 +1,2 @@
-class UniversalTrackManager::Campaign < ActiveRecord::Base
-  self.table_name = "campaigns"
-
+class UniversalTrackManager::Campaign < UniversalTrackManager::Base
 end

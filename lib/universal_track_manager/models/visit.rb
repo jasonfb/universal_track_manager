@@ -1,6 +1,4 @@
-class UniversalTrackManager::Visit < ActiveRecord::Base
-  self.table_name = "visits"
-
+class UniversalTrackManager::Visit < UniversalTrackManager::Base
   belongs_to :campaign, class_name: "UniversalTrackManager::Campaign"
   belongs_to :browser, class_name: "UniversalTrackManager::Browser"
   belongs_to :original_visit,  optional: true, class_name: "UniversalTrackManager::Visit"
