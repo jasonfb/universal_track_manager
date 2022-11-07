@@ -107,6 +107,28 @@ To customize, modify the comma-separated `config.campaign_columns` in the initia
 For optimization and speed, a unique SHA will be automatically generated from all of the combined columns. This is indexed at your database to make the lookup very fast.
 
 # Version History
+### 0.7.6
+
+You will want to add a `sha1` field to your campaigns table
+
+
+`rails generate migration AddSha1ToCampaigns`
+
+```
+class AddSha1ToCampaigns < ActiveRecord::Migration[6.1]
+  def change
+    add_column :campaigns, :sha1, :string
+  end
+end
+```
+
+
+Also be sure to add this line to your `initializers/universal_track_manager.rb` file:
+
+```
+config.campaign_columns = 'utm_source,utm_medium,utm_campaign,utm_content,utm_term'
+```
+
 ### 0.7.5 
 
 For this version I have added a counter onto th visits table.
@@ -114,6 +136,8 @@ For this version I have added a counter onto th visits table.
 IF YOU ARE UPGRADING from a version prior to 0.7.5, you must 
 
 `rails generate migration AddCountToVisits`
+
+
 - 
 ```
 class AddCountToVisits < ActiveRecord::Migration[6.1]
