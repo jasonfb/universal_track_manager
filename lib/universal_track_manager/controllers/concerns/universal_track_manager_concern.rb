@@ -41,6 +41,7 @@ module UniversalTrackManagerConcern
       ip_v4_address: ip_address,
       campaign: find_or_create_campaign_by_current
     }
+    params[:referer] = request.referer if UniversalTrackManager.track_http_referrer?
     params[:browser] =  find_or_create_browser_by_current if request.user_agent
     visit = UniversalTrackManager::Visit.create!(params)
     session[:visit_id] = visit.id
@@ -59,6 +60,9 @@ module UniversalTrackManagerConcern
         evict_visit!(existing_visit) if existing_visit.ip_v4_address != ip_address
         evict_visit!(existing_visit) if existing_visit.browser && existing_visit.browser.name != user_agent
 
+        if UniversalTrackManager.track_http_referrer? && existing_visit.referer != request.referer
+          evict_visit!(existing_visit)
+        end
         existing_visit.update_columns(:last_pageload => Time.now) if !@visit_evicted
       rescue ActiveRecord::RecordNotFound
         # this happens if the session table is cleared or if the record in the session
