@@ -107,6 +107,10 @@ To customize, modify the comma-separated `config.campaign_columns` in the initia
 For optimization and speed, a unique SHA will be automatically generated from all of the combined columns. This is indexed at your database to make the lookup very fast.
 
 # Version History
+## 0.7.7
+Adds back http_track_referrer functionality. 
+
+
 ### 0.7.6
 
 You will want to add a `sha1` field to your campaigns table
