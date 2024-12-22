@@ -55,14 +55,28 @@ module UniversalTrackManagerConcern
       begin
         existing_visit = UniversalTrackManager::Visit.find(session['visit_id'])
 
-        evict_visit!(existing_visit) if any_utm_params? && !existing_visit.matches_all_utms?(permitted_utm_params)
-
-        evict_visit!(existing_visit) if existing_visit.ip_v4_address != ip_address
-        evict_visit!(existing_visit) if existing_visit.browser && existing_visit.browser.name != user_agent
-
-        if UniversalTrackManager.track_http_referrer? && existing_visit.referer != request.referer
+        if any_utm_params? && !existing_visit.matches_all_utms?(permitted_utm_params)
           evict_visit!(existing_visit)
         end
+
+        if existing_visit.ip_v4_address != ip_address
+          evict_visit!(existing_visit)
+
+        end
+
+        if existing_visit.browser &&
+          existing_visit.browser.name != user_agent
+          evict_visit!(existing_visit)
+        end
+
+
+        if (UniversalTrackManager.track_http_referrer? &&
+          (request.referrer &&
+            !request.referrer.include?(request.host) &&
+          existing_visit.referer != request.referer))
+          evict_visit!(existing_visit)
+        end
+
         existing_visit.update_columns(:last_pageload => Time.now) if !@visit_evicted
       rescue ActiveRecord::RecordNotFound
         # this happens if the session table is cleared or if the record in the session
