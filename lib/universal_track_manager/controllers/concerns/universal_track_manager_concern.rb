@@ -41,7 +41,9 @@ module UniversalTrackManagerConcern
       ip_v4_address: ip_address,
       campaign: find_or_create_campaign_by_current
     }
-    params[:referer] = request.referer if UniversalTrackManager.track_http_referrer?
+    if request.referrer && !request.referrer.include?(request.host)
+      params[:referer] = request.referer if UniversalTrackManager.track_http_referrer?
+    end
     params[:browser] =  find_or_create_browser_by_current if request.user_agent
     visit = UniversalTrackManager::Visit.create!(params)
     session[:visit_id] = visit.id
@@ -68,14 +70,15 @@ module UniversalTrackManagerConcern
           existing_visit.browser.name != user_agent
           evict_visit!(existing_visit)
         end
+        
+        if (UniversalTrackManager.track_http_referrer?)
+          if existing_visit.referer == request.referer
 
-
-        if (UniversalTrackManager.track_http_referrer? &&
-          (request.referrer &&
-            !request.referrer.include?(request.host) &&
-          existing_visit.referer != request.referer))
-          evict_visit!(existing_visit)
+          elsif request.referrer && !request.referrer.include?(request.host)
+            evict_visit!(existing_visit)
+          end
         end
+
 
         existing_visit.update_columns(:last_pageload => Time.now) if !@visit_evicted
       rescue ActiveRecord::RecordNotFound
@@ -101,16 +104,16 @@ module UniversalTrackManagerConcern
 
   def find_or_create_campaign_by_current
     return nil if ! UniversalTrackManager.track_utms?
-    gen_sha1 = gen_campaign_key(permitted_utm_params)
+    params_without_glcid = permitted_utm_params.tap{|x| x.delete("gclid")}
 
+    gen_sha1 = gen_campaign_key(params_without_glcid)
 
     gclid_present = UniversalTrackManager.track_gclid_present? && permitted_utm_params[:gclid].present?
 
     campaign = UniversalTrackManager::Campaign.find_by(sha1: gen_sha1,
-                                                gclid_present: gclid_present)
+                                                       gclid_present: gclid_present)
 
-    without_glcid = permitted_utm_params.tap{|x| x.delete("gclid")}
-    campaign ||= UniversalTrackManager::Campaign.create(*(without_glcid.merge({
+    campaign ||= UniversalTrackManager::Campaign.create(*(params_without_glcid.merge({
                                                                               sha1: gen_sha1,
                                                                               gclid_present: gclid_present
                                                                               })))
