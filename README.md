@@ -107,6 +107,15 @@ To customize, modify the comma-separated `config.campaign_columns` in the initia
 For optimization and speed, a unique SHA will be automatically generated from all of the combined columns. This is indexed at your database to make the lookup very fast.
 
 # Version History
+
+## 0.7.8 - track_gclid_present
+Be sure to add `config.track_gclid_present = true` to your `config/initializers/universal_track_manager.rb` file
+
+As well, add `gclid` to the `config.campaign_columns` list. The gclid will be detected but NOT stored to the campaigns table.
+
+Also, add a column `gclid_present` to your campaigns.
+
+
 ## 0.7.7
 Adds back http_track_referrer functionality. 
 
