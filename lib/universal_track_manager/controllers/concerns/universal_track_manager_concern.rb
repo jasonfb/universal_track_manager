@@ -103,10 +103,17 @@ module UniversalTrackManagerConcern
     return nil if ! UniversalTrackManager.track_utms?
     gen_sha1 = gen_campaign_key(permitted_utm_params)
 
-    # find_or_create_by finding only by sha1 would be nice here, but how to do so with a dynamic set of columns?
-    # we've got a small chance of dups here due to the non-atomic find/create and sha1, but that's ok for this application.
-    c = UniversalTrackManager::Campaign.find_by(sha1: gen_sha1)
-    c ||= UniversalTrackManager::Campaign.create(*(permitted_utm_params.merge({"sha1": gen_sha1})))
+
+    gclid_present = UniversalTrackManager.track_gclid_present? && permitted_utm_params[:gclid].present?
+
+    campaign = UniversalTrackManager::Campaign.find_by(sha1: gen_sha1,
+                                                gclid_present: gclid_present)
+
+    without_glcid = permitted_utm_params.tap{|x| x.delete("gclid")}
+    campaign ||= UniversalTrackManager::Campaign.create(*(without_glcid.merge({
+                                                                              sha1: gen_sha1,
+                                                                              gclid_present: gclid_present
+                                                                              })))
   end
 
   def gen_campaign_key(params)

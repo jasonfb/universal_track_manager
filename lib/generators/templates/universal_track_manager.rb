@@ -4,6 +4,7 @@ UniversalTrackManager.configure do |config|
   config.track_user_agent = true
   #GENERATOR INSERTS CAMPAIGN COLUMN CONFIG HERE
 
-  # config.track_referrer = false
-
+  config.campaign_columns = 'utm_source,utm_medium,utm_campaign,utm_term,utm_content'
+  # config.track_referrer = true
+  # config.track_gclid_present = true # be sure to add gclid to campaign_columns
 end
