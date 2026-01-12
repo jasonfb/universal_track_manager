@@ -1,13 +1,12 @@
-# Status
+# Universal Track Manager
+<img width="100" height="100" alt="UTM-logo-100x100" src="https://github.com/user-attachments/assets/34867e27-199a-4955-a9a3-b01d1f74bf8e" />
 
-
-[![Unviersal Track Maanger](https://circleci.com/gh/jasonfb/universal_track_manager.svg?style=shield)](https://circleci.com/gh/jasonfb/universal-track-manager)
-
+**The easiest way to pull UTM parameters from your site traffic. Ideal for Rails app that want to track UTM parameters in-house.**
 
 
 # About
 
-Universal Track Manager, also known as UTM, is a gem to track your visitors and their pageloads. You can use it to track Urchin Tracking Module (UTM) parameters, and the fact that these two things abbreviate to the same letters is play-on-words.
+Universal Track Manager, also known as UTM, is a gem for tracking your visitors and their page loads. You can use it to track Urchin Tracking Module (UTM) parameters, and the fact that these two things abbreviate to the same letters is play-on-words.
 
 You can use Universal Track Manager to track simple information like browser, IP address, http referrer, and your inbound UTM (Urchin Tracking Module) parameters. Because UTM parameters are used most commonly with advertising, we also refer to tracking your UTM parameters as "ad campaigns" or just "campaigns".
 
