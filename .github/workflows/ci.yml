@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: ['3.1', '3.2', '3.3']
+        appraisal: ['rails-7-0', 'rails-7-1', 'rails-7-2']
+        exclude:
+          # Rails 7.2 requires Ruby 3.1+, all combinations work
+          # Rails 7.0/7.1 work with all Ruby versions in matrix
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby ${{ matrix.ruby }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: false
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Install appraisal dependencies
+        run: bundle exec appraisal install
+
+      - name: Set up database
+        run: |
+          ln -sf $PWD/spec/dummy/db/migrate db/migrate
+          bundle exec appraisal ${{ matrix.appraisal }} rake dummy:db:migrate RAILS_ENV=test
+
+      - name: Run tests
+        run: bundle exec appraisal ${{ matrix.appraisal }} rake spec
