@@ -11,9 +11,7 @@ gemspec
 group :test, :development do
   gem 'byebug'
   gem 'mocha'
-  gem 'simplecov'
   gem 'rails-controller-testing'
-  gem 'sqlite3'
   gem 'rspec-rails'
   gem "rspec_junit_formatter"
   gem 'appraisal'

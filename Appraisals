@@ -1,26 +1,17 @@
-appraise "rails-5-2" do
-  gem "rails", "5.2.4.rc1"
-  gem 'sqlite3'
-  gem 'actionpack', '5.2.4.rc1'
-
-  gem 'database_cleaner'
-end
-
-appraise "rails-6-0" do
-  gem "rails", "6.0.1"
-  gem 'sqlite3'
-  gem 'database_cleaner'
-end
-
-appraise "rails-6-1" do
-  gem "rails", "6.1"
-  gem 'sqlite3'
-  gem 'database_cleaner'
-end
-
-
 appraise "rails-7-0" do
-  gem "rails", "7.0.0.alpha2"
-  gem 'sqlite3'
+  gem "rails", "~> 7.0.8"
+  gem 'sqlite3', '~> 1.7'
+  gem 'database_cleaner'
+end
+
+appraise "rails-7-1" do
+  gem "rails", "~> 7.1.0"
+  gem 'sqlite3', '~> 2.0'
+  gem 'database_cleaner'
+end
+
+appraise "rails-7-2" do
+  gem "rails", "~> 7.2.0"
+  gem 'sqlite3', '~> 2.0'
   gem 'database_cleaner'
 end

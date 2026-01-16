@@ -10,24 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_17_000256) do
-
+ActiveRecord::Schema[7.0].define(version: 2019_11_04_000000) do
   create_table "browsers", force: :cascade do |t|
     t.string "name", limit: 255
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["name"], name: "index_browsers_on_name"
   end
 
   create_table "campaigns", force: :cascade do |t|
-    t.string "utm_source", limit: 256
-    t.string "utm_medium", limit: 256
-    t.string "utm_campaign", limit: 256
-    t.string "utm_content", limit: 256
-    t.string "utm_term", limit: 256
+    t.string "utm_source", limit: 255
+    t.string "utm_medium", limit: 255
+    t.string "utm_campaign", limit: 255
+    t.string "utm_content", limit: 255
+    t.string "utm_term", limit: 255
     t.string "sha1", limit: 40
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "gclid_present"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["sha1"], name: "index_campaigns_on_sha1"
   end
 
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2021_02_17_000256) do
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
@@ -51,11 +51,12 @@ ActiveRecord::Schema.define(version: 2021_02_17_000256) do
     t.integer "campaign_id"
     t.integer "browser_id"
     t.string "ip_v4_address", limit: 15
+    t.string "referer"
     t.integer "viewport_width"
     t.integer "viewport_height"
     t.integer "count", default: 1
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
                     "homepage_uri" => 'https://heliosdev.shop/p/universal-track-manager'}
 
 
-  s.add_dependency('rails', '> 5.1')
+  s.add_dependency('rails', '>= 7.0.8')
   s.add_development_dependency('simplecov')
   s.add_development_dependency('simplecov-rcov')
   s.add_development_dependency('appraisal', '> 2.2')
