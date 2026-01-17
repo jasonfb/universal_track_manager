@@ -22,6 +22,9 @@ module Dummy
     config.paths["app/models"] << "#{APP_ROOT}/app/models"
     config.paths["app/views"] << "#{APP_ROOT}/app/views"
     config.paths["config/database"] = "#{APP_ROOT}/config/database.yml"
+    config.paths["db"] = "#{APP_ROOT}/db"
+    config.paths["db/migrate"] = "#{APP_ROOT}/db/migrate"
+    config.paths["db/schema"] = "#{APP_ROOT}/db/schema.rb"
     config.paths["log"] = "tmp/log/development.log"
 
     config.paths.add "config/routes.rb", with: "#{APP_ROOT}/config/routes.rb"

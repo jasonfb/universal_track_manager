@@ -34,9 +34,7 @@ jobs:
 
       - name: Set up database
         run: |
-          mkdir -p db
-          ln -sf $PWD/spec/dummy/db/migrate db/migrate
-          bundle exec appraisal ${{ matrix.appraisal }} rake dummy:db:migrate RAILS_ENV=test
+          bundle exec appraisal ${{ matrix.appraisal }} rake dummy:db:schema:load RAILS_ENV=test
 
       - name: Run tests
         run: bundle exec appraisal ${{ matrix.appraisal }} rake spec

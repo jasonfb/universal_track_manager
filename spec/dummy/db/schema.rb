@@ -20,12 +20,13 @@ ActiveRecord::Schema.define(version: 2021_02_01_100504) do
   end
 
   create_table "campaigns", force: :cascade do |t|
-    t.string "utm_source", limit: 256
-    t.string "utm_campaign", limit: 256
-    t.string "utm_medium", limit: 256
-    t.string "utm_content", limit: 256
-    t.string "utm_term", limit: 256
+    t.string "utm_source", limit: 255
+    t.string "utm_medium", limit: 255
+    t.string "utm_campaign", limit: 255
+    t.string "utm_content", limit: 255
+    t.string "utm_term", limit: 255
     t.string "sha1", limit: 40
+    t.boolean "gclid_present"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["sha1"], name: "index_campaigns_on_sha1"
@@ -51,8 +52,10 @@ ActiveRecord::Schema.define(version: 2021_02_01_100504) do
     t.integer "campaign_id"
     t.integer "browser_id"
     t.string "ip_v4_address", limit: 15
+    t.string "referer"
     t.integer "viewport_width"
     t.integer "viewport_height"
+    t.integer "count", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
