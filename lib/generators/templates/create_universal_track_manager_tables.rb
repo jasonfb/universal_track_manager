@@ -1,16 +1,17 @@
 class CreateUniversalTrackManagerTables < ActiveRecord::Migration<%= migration_version %>
   def self.up
     ActiveRecord::Base.transaction do
+      prefix = "<%= @table_prefix %>"
 
-      create_table :browsers do |t|
+      create_table :"#{prefix}browsers" do |t|
         # this table gets automatically populated by inbound traffic
         t.string :name, limit: 255
         t.timestamps
       end
 
-      add_index :browsers, :name
+      add_index :"#{prefix}browsers", :name
 
-      create_table :campaigns do |t|
+      create_table :"#{prefix}campaigns" do |t|
         # this table gets automatically populated by inbound traffic
 #GENERATOR INSERTS CAMPAIGN COLUMNS HERE
         t.string :sha1, limit: 40
@@ -18,9 +19,9 @@ class CreateUniversalTrackManagerTables < ActiveRecord::Migration<%= migration_v
         t.timestamps
       end
 
-      add_index :campaigns, :sha1
+      add_index :"#{prefix}campaigns", :sha1
 
-      create_table :visits do |t|
+      create_table :"#{prefix}visits" do |t|
         t.datetime :first_pageload
         t.datetime :last_pageload
         t.integer :original_visit_id
@@ -38,9 +39,11 @@ class CreateUniversalTrackManagerTables < ActiveRecord::Migration<%= migration_v
 
   def self.down
     ActiveRecord::Base.transaction do
-      drop_table :browsers
-      drop_table :visits
-      drop_table :campaigns
+      prefix = "<%= @table_prefix %>"
+
+      drop_table :"#{prefix}browsers"
+      drop_table :"#{prefix}visits"
+      drop_table :"#{prefix}campaigns"
     end
   end
 end

@@ -107,6 +107,10 @@ For optimization and speed, a unique SHA will be automatically generated from al
 
 # Version History
 
+## 0.9 - table_prefix
+
+Adds `config.table_prefix` option to prefix all UTM table names (browsers, campaigns, visits). This avoids conflicts with host apps that already have tables with these common names. Use `--table-prefix=utm` during installation to generate prefixed table names (e.g., `utm_campaigns`). Existing installs without a prefix are unaffected (backward compatible).
+
 ## 0.7.8 - track_gclid_present
 Be sure to add `config.track_gclid_present = true` to your `config/initializers/universal_track_manager.rb` file
 
@@ -234,28 +238,34 @@ You can also fetch and store the `currrent_track.campaign_id` in your foreign ta
 
 # Name Conflicts
 
-UTM will create tables named `browsers`, `campaigns`, `visits`. If you already have tables named like this, you will want to 1) edit the generated files after step 2, and 2) add an override for the UniversalTrackManager objects, like so:
+UTM will create tables named `browsers`, `campaigns`, `visits`. If your app already has tables with any of these names (a `campaigns` table is especially common), use the `--table-prefix` option during installation to prefix all UTM tables:
 
 ```
-/initializers/universal_track_manager.rb
+rails generate universal_track_manager:install --table-prefix=utm
+```
 
-// specify that this gem should use the table name `web_visits` instead of `visits`
-UniversalTrackManager::Visit.class_eval do 
-  self.table_name =  :web_visits
+This will create tables named `utm_browsers`, `utm_campaigns`, and `utm_visits` instead, and automatically configure the gem to use them.
+
+If you have **already installed** UTM and need to add a prefix after the fact:
+
+1. Add `config.table_prefix = 'utm'` to your `config/initializers/universal_track_manager.rb`:
+
+```ruby
+UniversalTrackManager.configure do |config|
+  # ... existing config ...
+  config.table_prefix = 'utm'
 end
+```
 
-// and/or specify that this gem should use the table name `web_browsers` instead of `browsers`
+2. Create a migration to rename the existing UTM tables:
 
-
-UniversalTrackManager::Browser.class_eval do 
-  self.table_name =  :web_browser
-end
-
-// and/or specify that this gem should use the table name `ad_campaigns` instead of `campaigns`
-
-
-UniversalTrackManager::Campaign.class_eval do 
-  self.table_name =  :ad_campaigns
+```ruby
+class RenameUtmTables < ActiveRecord::Migration[8.1]
+  def change
+    rename_table :browsers, :utm_browsers
+    rename_table :campaigns, :utm_campaigns
+    rename_table :visits, :utm_visits
+  end
 end
 ```
 

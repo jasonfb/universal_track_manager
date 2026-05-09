@@ -1,4 +1,6 @@
 class UniversalTrackManager::Campaign < ActiveRecord::Base
-  self.table_name = "campaigns"
+  def self.table_name
+    UniversalTrackManager.prefixed_table_name("campaigns")
+  end
 
 end

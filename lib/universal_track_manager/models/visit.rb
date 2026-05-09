@@ -1,5 +1,7 @@
 class UniversalTrackManager::Visit < ActiveRecord::Base
-  self.table_name = "visits"
+  def self.table_name
+    UniversalTrackManager.prefixed_table_name("visits")
+  end
 
   belongs_to :campaign, class_name: "UniversalTrackManager::Campaign"
   belongs_to :browser, class_name: "UniversalTrackManager::Browser"

@@ -5,6 +5,7 @@ UniversalTrackManager.configure do |config|
   #GENERATOR INSERTS CAMPAIGN COLUMN CONFIG HERE
 
   config.campaign_columns = 'utm_source,utm_medium,utm_campaign,utm_term,utm_content'
+  # config.table_prefix = 'utm'  # prefix all UTM tables (e.g., utm_campaigns, utm_browsers, utm_visits)
   # config.track_referrer = true
   # config.track_gclid_present = true # be sure to add gclid to campaign_columns
 end

@@ -9,12 +9,14 @@ module UniversalTrackManager
                   :track_user_agent,
                   :track_http_referrer,
                   :campaign_columns,
-                  :track_gclid_present
+                  :track_gclid_present,
+                  :table_prefix
   end
 
 
   def self.configure(&block)
     @_settings =  Settings.new
+    @_settings.table_prefix = "" # default: no prefix (backward compatible)
 
     block.call(@_settings)
   end
@@ -37,6 +39,15 @@ module UniversalTrackManager
 
   def self.track_gclid_present?
     @_settings.track_gclid_present
+  end
+
+  def self.table_prefix
+    @_settings&.table_prefix || ""
+  end
+
+  def self.prefixed_table_name(base_name)
+    prefix = table_prefix
+    prefix.present? ? "#{prefix}_#{base_name}" : base_name
   end
 
   def self.campaign_column_names

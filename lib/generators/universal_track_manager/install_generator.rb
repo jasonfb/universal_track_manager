@@ -17,6 +17,7 @@ module UniversalTrackManager
 
     class_option :add, type: :string, default: nil
     class_option :only, type: :string, default: nil
+    class_option :table_prefix, type: :string, default: ""
 
 
     def self.next_migration_number(path)
@@ -55,21 +56,28 @@ module UniversalTrackManager
         end
       end
 
+      @table_prefix = options['table_prefix'].present? ? "#{options['table_prefix']}_" : ""
+
       column_defs = ""
       @default_params.each  do |p|
         column_defs += "          t.string :#{p}, limit:256\n"
       end
       copy_file "create_universal_track_manager_tables.rb", "#{self.class.source_root}/create_universal_track_manager_tables.rb-staged"
       gsub_file "#{self.class.source_root}/create_universal_track_manager_tables.rb-staged", "#GENERATOR INSERTS CAMPAIGN COLUMNS HERE", column_defs
+      gsub_file "#{self.class.source_root}/create_universal_track_manager_tables.rb-staged", "<%= @table_prefix %>", @table_prefix
+      gsub_file "#{self.class.source_root}/create_universal_track_manager_tables.rb-staged", "<%= migration_version %>", migration_version.to_s
       migration_template "create_universal_track_manager_tables.rb-staged",  "db/migrate/create_universal_track_manager_tables.rb"
 
       remove_file "#{self.class.source_root}/create_universal_track_manager_tables.rb-staged"
     end
 
     def create_universal_track_manager_initializer
-      column_config = "config.campaign_columns = '#{options.param_list}'"
+      @table_prefix_value = options['table_prefix']
+      column_config = "config.campaign_columns = '#{@default_params.join(',')}'"
+      table_prefix_config = options['table_prefix'].present? ? "\n  config.table_prefix = '#{options['table_prefix']}'" : ""
+
       copy_file "universal_track_manager.rb", "#{self.class.source_root}/universal_track_manager.rb-staged"
-      gsub_file "#{self.class.source_root}/universal_track_manager.rb-staged", "#GENERATOR INSERTS CAMPAIGN COLUMN CONFIG HERE", column_config
+      gsub_file "#{self.class.source_root}/universal_track_manager.rb-staged", "#GENERATOR INSERTS CAMPAIGN COLUMN CONFIG HERE", "#{column_config}#{table_prefix_config}"
       copy_file 'universal_track_manager.rb-staged', 'config/initializers/universal_track_manager.rb'
       remove_file "#{self.class.source_root}/universal_track_manager.rb-staged"
     end

@@ -1,4 +1,6 @@
 class UniversalTrackManager::Browser < ActiveRecord::Base
-  self.table_name = "browsers"
-  
+  def self.table_name
+    UniversalTrackManager.prefixed_table_name("browsers")
+  end
+
 end
